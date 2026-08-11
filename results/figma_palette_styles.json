@@ -1,0 +1,404 @@
+{
+  "colors": [
+    {
+      "name": "Brand/Red/C10",
+      "value": "#4E070B"
+    },
+    {
+      "name": "Brand/Red/C9",
+      "value": "#660E14"
+    },
+    {
+      "name": "Brand/Red/C8",
+      "value": "#961922"
+    },
+    {
+      "name": "Brand/Red/C7",
+      "value": "#CA2331"
+    },
+    {
+      "name": "Brand/Red/C6",
+      "value": "#E92B3B"
+    },
+    {
+      "name": "Brand/Red/C5",
+      "value": "#F84B54"
+    },
+    {
+      "name": "Brand/Red/C4",
+      "value": "#FF7C7B"
+    },
+    {
+      "name": "Brand/Red/C3",
+      "value": "#FFABA8"
+    },
+    {
+      "name": "Brand/Red/C2",
+      "value": "#FFD2D0"
+    },
+    {
+      "name": "Brand/Red/C1",
+      "value": "#FFE7E6"
+    },
+    {
+      "name": "Brand/Pink/C10",
+      "value": "#47003E"
+    },
+    {
+      "name": "Brand/Pink/C9",
+      "value": "#600053"
+    },
+    {
+      "name": "Brand/Pink/C8",
+      "value": "#8F007E"
+    },
+    {
+      "name": "Brand/Pink/C7",
+      "value": "#C203AB"
+    },
+    {
+      "name": "Brand/Pink/C6",
+      "value": "#DF0CC6"
+    },
+    {
+      "name": "Brand/Pink/C5",
+      "value": "#E249D5"
+    },
+    {
+      "name": "Brand/Pink/C4",
+      "value": "#EA7FE5"
+    },
+    {
+      "name": "Brand/Pink/C3",
+      "value": "#F2B1F1"
+    },
+    {
+      "name": "Brand/Pink/C2",
+      "value": "#F8D7F9"
+    },
+    {
+      "name": "Brand/Pink/C1",
+      "value": "#FBEAFC"
+    },
+    {
+      "name": "Brand/Purple/C10",
+      "value": "#320254"
+    },
+    {
+      "name": "Brand/Purple/C9",
+      "value": "#45036E"
+    },
+    {
+      "name": "Brand/Purple/C8",
+      "value": "#6705A1"
+    },
+    {
+      "name": "Brand/Purple/C7",
+      "value": "#8B09D9"
+    },
+    {
+      "name": "Brand/Purple/C6",
+      "value": "#A010F9"
+    },
+    {
+      "name": "Brand/Purple/C5",
+      "value": "#A448FF"
+    },
+    {
+      "name": "Brand/Purple/C4",
+      "value": "#B97CFF"
+    },
+    {
+      "name": "Brand/Purple/C3",
+      "value": "#D2AEFF"
+    },
+    {
+      "name": "Brand/Purple/C2",
+      "value": "#E8D6FF"
+    },
+    {
+      "name": "Brand/Purple/C1",
+      "value": "#F3E9FF"
+    },
+    {
+      "name": "Brand/Violet/C10",
+      "value": "#070648"
+    },
+    {
+      "name": "Brand/Violet/C9",
+      "value": "#1A1461"
+    },
+    {
+      "name": "Brand/Violet/C8",
+      "value": "#372E94"
+    },
+    {
+      "name": "Brand/Violet/C7",
+      "value": "#504BCB"
+    },
+    {
+      "name": "Brand/Violet/C6",
+      "value": "#5C5CEB"
+    },
+    {
+      "name": "Brand/Violet/C5",
+      "value": "#6C71F3"
+    },
+    {
+      "name": "Brand/Violet/C4",
+      "value": "#8F93F8"
+    },
+    {
+      "name": "Brand/Violet/C3",
+      "value": "#B7B9FB"
+    },
+    {
+      "name": "Brand/Violet/C2",
+      "value": "#D9DAFC"
+    },
+    {
+      "name": "Brand/Violet/C1",
+      "value": "#E9EAFE"
+    },
+    {
+      "name": "Brand/Brand/C10",
+      "value": "#001A4A"
+    },
+    {
+      "name": "Brand/Brand/C9",
+      "value": "#052464"
+    },
+    {
+      "name": "Brand/Brand/C8",
+      "value": "#073896"
+    },
+    {
+      "name": "Brand/Brand/C7",
+      "value": "#034DCC"
+    },
+    {
+      "name": "Brand/Brand/C6",
+      "value": "#005AEB"
+    },
+    {
+      "name": "Brand/Brand/C5",
+      "value": "#1272F4"
+    },
+    {
+      "name": "Brand/Brand/C4",
+      "value": "#6096FA"
+    },
+    {
+      "name": "Brand/Brand/C3",
+      "value": "#9EBEFB"
+    },
+    {
+      "name": "Brand/Brand/C2",
+      "value": "#D0DFFC"
+    },
+    {
+      "name": "Brand/Brand/C1",
+      "value": "#E8F0FE"
+    },
+    {
+      "name": "Brand/Blue/C10",
+      "value": "#002749"
+    },
+    {
+      "name": "Brand/Blue/C9",
+      "value": "#003763"
+    },
+    {
+      "name": "Brand/Blue/C8",
+      "value": "#005795"
+    },
+    {
+      "name": "Brand/Blue/C7",
+      "value": "#0079CC"
+    },
+    {
+      "name": "Brand/Blue/C6",
+      "value": "#008DEB"
+    },
+    {
+      "name": "Brand/Blue/C5",
+      "value": "#3A9CF0"
+    },
+    {
+      "name": "Brand/Blue/C4",
+      "value": "#77B4F6"
+    },
+    {
+      "name": "Brand/Blue/C3",
+      "value": "#ACD0FA"
+    },
+    {
+      "name": "Brand/Blue/C2",
+      "value": "#D6E7FD"
+    },
+    {
+      "name": "Brand/Blue/C1",
+      "value": "#E9F3FE"
+    },
+    {
+      "name": "Brand/Cyan/C10",
+      "value": "#003945"
+    },
+    {
+      "name": "Brand/Cyan/C9",
+      "value": "#004F5E"
+    },
+    {
+      "name": "Brand/Cyan/C8",
+      "value": "#007C91"
+    },
+    {
+      "name": "Brand/Cyan/C7",
+      "value": "#00ACC8"
+    },
+    {
+      "name": "Brand/Cyan/C6",
+      "value": "#00CBEB"
+    },
+    {
+      "name": "Brand/Cyan/C5",
+      "value": "#41D4EE"
+    },
+    {
+      "name": "Brand/Cyan/C4",
+      "value": "#7DE0F3"
+    },
+    {
+      "name": "Brand/Cyan/C3",
+      "value": "#AFEDF8"
+    },
+    {
+      "name": "Brand/Cyan/C2",
+      "value": "#D6F7FC"
+    },
+    {
+      "name": "Brand/Cyan/C1",
+      "value": "#EAFBFD"
+    },
+    {
+      "name": "Brand/Green/C10",
+      "value": "#003C04"
+    },
+    {
+      "name": "Brand/Green/C9",
+      "value": "#004D09"
+    },
+    {
+      "name": "Brand/Green/C8",
+      "value": "#027011"
+    },
+    {
+      "name": "Brand/Green/C7",
+      "value": "#0C9919"
+    },
+    {
+      "name": "Brand/Green/C6",
+      "value": "#14B822"
+    },
+    {
+      "name": "Brand/Green/C5",
+      "value": "#39CB28"
+    },
+    {
+      "name": "Brand/Green/C4",
+      "value": "#6BDD53"
+    },
+    {
+      "name": "Brand/Green/C3",
+      "value": "#9AED85"
+    },
+    {
+      "name": "Brand/Green/C2",
+      "value": "#C3F7B6"
+    },
+    {
+      "name": "Brand/Green/C1",
+      "value": "#E1FADB"
+    },
+    {
+      "name": "Brand/Yellow/C10",
+      "value": "#5D4E00"
+    },
+    {
+      "name": "Brand/Yellow/C9",
+      "value": "#776401"
+    },
+    {
+      "name": "Brand/Yellow/C8",
+      "value": "#A18704"
+    },
+    {
+      "name": "Brand/Yellow/C7",
+      "value": "#D0AE08"
+    },
+    {
+      "name": "Brand/Yellow/C6",
+      "value": "#F2CC0D"
+    },
+    {
+      "name": "Brand/Yellow/C5",
+      "value": "#FFD700"
+    },
+    {
+      "name": "Brand/Yellow/C4",
+      "value": "#FFE02A"
+    },
+    {
+      "name": "Brand/Yellow/C3",
+      "value": "#FFE758"
+    },
+    {
+      "name": "Brand/Yellow/C2",
+      "value": "#FFED84"
+    },
+    {
+      "name": "Brand/Yellow/C1",
+      "value": "#FFF4B1"
+    },
+    {
+      "name": "Brand/Orange/C10",
+      "value": "#4C2700"
+    },
+    {
+      "name": "Brand/Orange/C9",
+      "value": "#643604"
+    },
+    {
+      "name": "Brand/Orange/C8",
+      "value": "#95530B"
+    },
+    {
+      "name": "Brand/Orange/C7",
+      "value": "#CB7315"
+    },
+    {
+      "name": "Brand/Orange/C6",
+      "value": "#ED881D"
+    },
+    {
+      "name": "Brand/Orange/C5",
+      "value": "#FD9538"
+    },
+    {
+      "name": "Brand/Orange/C4",
+      "value": "#FFAD64"
+    },
+    {
+      "name": "Brand/Orange/C3",
+      "value": "#FFC895"
+    },
+    {
+      "name": "Brand/Orange/C2",
+      "value": "#FFE0C2"
+    },
+    {
+      "name": "Brand/Orange/C1",
+      "value": "#FFEEDE"
+    }
+  ]
+}

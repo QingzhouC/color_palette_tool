@@ -1,4 +1,4 @@
-# Qax Memory
-
-This file stores your preferences and patterns learned from our conversations.
-It will be automatically updated as you interact with the assistant.
+# UI/UX
+- 用户偏好中文界面的UI工具，并在颜色/色板相关开发中关注WCAG无障碍对比度标准，支持hex/rgb/hsb/hsl多种颜色格式切换。
+- 用户希望助手连接其Figma账号参考设计稿进行开发，要求视觉布局与Figma完全一致，但使用自定义数据替换占位数据。
+- 用户偏好极简主义风格的UI设计。

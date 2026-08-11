@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>品牌色完整色板 · Light Theme</title>
+<style>
+:root{--bg:#f5f7fb;--panel:#fff;--text:#111827;--muted:#6b7280;--border:#e5e7eb;--accent:#005AEB}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"PingFang SC",-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:16px 32px;border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(245,247,251,.92);backdrop-filter:blur(12px);z-index:10}
+.topbar-left{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
+.topbar-dot{width:12px;height:12px;border-radius:3px;background:linear-gradient(135deg,#005AEB,#5C5CEB)}
+.topbar-title{font-size:14px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.back-link{font-size:13px;color:var(--muted);text-decoration:none;display:flex;align-items:center;gap:6px;transition:color .2s}
+.back-link:hover{color:var(--text)}
+.container{max-width:2320px;margin:0 auto;padding:28px 32px}
+.page-header{margin-bottom:24px;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.page-header h1{font-size:26px;font-weight:700;margin-bottom:6px}
+.page-header p{font-size:13px;color:var(--muted);line-height:1.6;max-width:680px}
+.theme-tag{font-size:12px;font-weight:700;padding:5px 14px;border-radius:999px;background:rgba(0,90,235,.08);color:var(--accent);letter-spacing:.05em}
+.format-switch{display:inline-flex;border:1px solid var(--border);border-radius:999px;overflow:hidden;background:var(--panel)}
+.format-switch button{border:0;padding:8px 16px;font-size:13px;font-weight:600;color:var(--muted);background:transparent;cursor:pointer;transition:all .2s}
+.format-switch button.active{background:var(--accent);color:#fff}
+.status-box{text-align:center;padding:80px 20px;color:var(--muted);font-size:15px}
+.spinner{width:36px;height:36px;border:3px solid var(--border);border-top-color:var(--accent);border-radius:50%;margin:0 auto 20px;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.error-box{color:#ef4444;text-align:center;padding:60px 20px;font-size:15px}
+.palette-board{display:flex;gap:0;overflow-x:auto;border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.palette-column{display:flex;flex-direction:column;width:220px;flex-shrink:0}
+.swatch{width:220px;height:56px;display:flex;flex-direction:column;justify-content:center;padding:8px 10px;cursor:pointer;transition:filter .15s;position:relative}
+.swatch:hover{filter:brightness(1.05)}
+.swatch-row{display:flex;justify-content:space-between;align-items:center;height:20px;line-height:20px;gap:4px}
+.swatch-hex{font-size:13px;font-weight:400;font-family:"PingFang SC",ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:-.01em;white-space:nowrap}
+.swatch-ratio{font-size:13px;font-weight:400;font-family:"PingFang SC",monospace;white-space:nowrap}
+.swatch-name{font-size:13px;font-weight:600;white-space:nowrap}
+.swatch-level{font-size:13px;font-weight:600;white-space:nowrap}
+.swatch.dark-bg .swatch-hex,.swatch.dark-bg .swatch-ratio,.swatch.dark-bg .swatch-name,.swatch.dark-bg .swatch-level{color:#fff}
+.swatch.light-bg .swatch-hex,.swatch.light-bg .swatch-ratio,.swatch.light-bg .swatch-name,.swatch.light-bg .swatch-level{color:#000}
+.column-header{width:220px;height:40px;display:flex;align-items:center;justify-content:center;background:var(--panel);border-bottom:2px solid var(--border);font-size:15px;font-weight:700}
+.column-header.core{border-bottom-color:var(--accent);color:var(--accent)}
+.legend{margin-top:16px;display:flex;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--muted)}
+.legend-item{display:flex;align-items:center;gap:6px}
+.toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%);background:#111827;color:#fff;padding:10px 24px;border-radius:999px;font-size:14px;font-weight:500;opacity:0;transition:opacity .3s,transform .3s;pointer-events:none;z-index:100}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(-8px)}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="topbar-left" href="/">
+    <div class="topbar-dot"></div>
+    <span class="topbar-title">Color System</span>
+  </a>
+  <a class="back-link" href="/">&#8592; 返回首页</a>
+</div>
+<div class="container">
+  <div class="page-header">
+    <div>
+      <h1>品牌色完整色板 <span class="theme-tag">Light Theme</span></h1>
+    </div>
+    <div class="format-switch" id="fmtSwitch">
+      <button class="active" data-fmt="hex">HEX</button>
+      <button data-fmt="rgb">RGB</button>
+      <button data-fmt="hsl">HSL</button>
+    </div>
+  </div>
+  <div id="paletteArea">
+    <div class="status-box">
+      <div class="spinner"></div>
+      <p>正在生成完整色板…</p>
+    </div>
+  </div>
+  <div class="legend">
+    <div class="legend-item">对比度 = max(白底, 黑底) 的 WCAG 对比度</div>
+    <div class="legend-item">等级: AAA ≥ 7 | AA ≥ 4.5 | AA Large ≥ 3</div>
+  </div>
+</div>
+<div class="toast" id="toast">已复制</div>
+<script>
+let currentFmt='hex';
+let paletteData=null;
+
+function hexToRgb(hex){
+  hex=hex.replace('#','');
+  return [parseInt(hex.substr(0,2),16),parseInt(hex.substr(2,2),16),parseInt(hex.substr(4,2),16)];
+}
+function rgbToHsl(r,g,b){
+  r/=255;g/=255;b/=255;
+  let max=Math.max(r,g,b),min=Math.min(r,g,b);
+  let h,s,l=(max+min)/2;
+  if(max===min){h=s=0;}
+  else{
+    let d=max-min;
+    s=l>0.5?d/(2-max-min):d/(max+min);
+    switch(max){
+      case r:h=(g-b)/d+(g<b?6:0);break;
+      case g:h=(b-r)/d+2;break;
+      case b:h=(r-g)/d+4;break;
+    }
+    h/=6;
+  }
+  return [Math.round(h*360),Math.round(s*100),Math.round(l*100)];
+}
+function formatColor(hex,fmt){
+  if(fmt==='hex')return hex;
+  let[r,g,b]=hexToRgb(hex);
+  if(fmt==='rgb')return 'rgb('+r+', '+g+', '+b+')';
+  if(fmt==='hsl'){let[h,s,l]=rgbToHsl(r,g,b);return 'hsl('+h+', '+s+'%, '+l+'%)';}
+  return hex;
+}
+function isDarkColor(hex){
+  let[r,g,b]=hexToRgb(hex);
+  let lum=0.2126*r+0.7152*g+0.0722*b;
+  return lum<128;
+}
+function bestContrast(a){
+  var w=a.on_white, b=a.on_black;
+  if(w.ratio>=b.ratio) return {ratio:w.ratio, level:w.level};
+  return {ratio:b.ratio, level:b.level};
+}
+function renderSwatch(c,idx,groupName,fmt){
+  var hex=c.hex;
+  var bc=bestContrast(c.accessibility);
+  var bgClass=isDarkColor(hex)?'dark-bg':'light-bg';
+  var formatted=formatColor(hex,fmt);
+  var colorName=groupName+'-'+(idx+1);
+  return '<div class="swatch '+bgClass+'" data-hex="'+hex+'" style="background:'+hex+'">'
+    +'<div class="swatch-row">'
+    +'<span class="swatch-hex">'+formatted+'</span>'
+    +'<span class="swatch-ratio">'+bc.ratio+'</span>'
+    +'</div>'
+    +'<div class="swatch-row">'
+    +'<span class="swatch-name">'+colorName+'</span>'
+    +'<span class="swatch-level">'+bc.level+'</span>'
+    +'</div>'
+    +'</div>';
+}
+function render(){
+  if(!paletteData)return;
+  var html='<div class="palette-board">';
+  paletteData.groups.forEach(function(g){
+    var coreClass=g.is_core?' core':'';
+    html+='<div class="palette-column">'
+      +'<div class="column-header'+coreClass+'">'+g.name+'</div>';
+    var reversed=g.colors.slice().reverse();
+    reversed.forEach(function(c,idx){
+      html+=renderSwatch(c,idx,g.name,currentFmt);
+    });
+    html+='</div>';
+  });
+  html+='</div>';
+  document.getElementById('paletteArea').innerHTML=html;
+  document.querySelectorAll('.swatch').forEach(function(el){
+    el.addEventListener('click',function(){
+      var hex=this.dataset.hex;
+      var txt=formatColor(hex,currentFmt);
+      navigator.clipboard.writeText(txt).then(function(){
+        showToast('已复制 '+txt);
+      });
+    });
+  });
+}
+function showToast(msg){
+  var t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('show');
+  setTimeout(function(){t.classList.remove('show');},1500);
+}
+document.getElementById('fmtSwitch').addEventListener('click',function(e){
+  if(e.target.tagName==='BUTTON'){
+    document.querySelectorAll('#fmtSwitch button').forEach(function(b){b.classList.remove('active');});
+    e.target.classList.add('active');
+    currentFmt=e.target.dataset.fmt;
+    render();
+  }
+});
+fetch('/api/brand-palette').then(function(r){return r.json();}).then(function(d){
+  paletteData=d;render();
+}).catch(function(){
+  document.getElementById('paletteArea').innerHTML='<div class="error-box">加载失败，请刷新重试</div>';
+});
+</script>
+</body>
+</html>
