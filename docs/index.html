@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Color System · Design Toolkit</title>
+<style>
+  :root{
+    --bg:#fafafa;
+    --text:#1a1a1a;
+    --muted:#8a8a8a;
+    --line:#e8e8e8;
+    --accent:#005AEB;
+    --radius:16px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+  }
+
+  .nav{
+    position:relative;z-index:1;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:28px 48px;
+  }
+  .nav-brand{
+    display:flex;align-items:center;gap:10px;
+  }
+  .brand-dot{
+    width:10px;height:10px;border-radius:3px;
+    background:var(--accent);
+  }
+  .brand-name{
+    font-size:13px;font-weight:600;letter-spacing:.02em;color:var(--text);
+  }
+  .nav-links{
+    display:flex;gap:32px;
+  }
+  .nav-links a{
+    font-size:13px;color:var(--muted);text-decoration:none;
+    transition:color .2s;
+  }
+  .nav-links a:hover{color:var(--text)}
+
+  .wrap{
+    position:relative;z-index:1;
+    max-width:1100px;margin:0 auto;
+    padding:60px 48px 80px;
+  }
+
+  /* Hero */
+  .hero{
+    text-align:center;
+    margin-bottom:80px;
+  }
+  .hero-tag{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:12px;color:var(--muted);
+    padding:6px 14px;border:1px solid var(--line);border-radius:100px;
+    margin-bottom:28px;
+    background:#fff;
+  }
+  .hero-tag .dot{
+    width:6px;height:6px;border-radius:50%;background:var(--accent);
+  }
+  .hero h1{
+    font-size:clamp(40px,5vw,64px);font-weight:600;
+    letter-spacing:-.03em;line-height:1.08;
+    margin-bottom:20px;color:var(--text);
+  }
+  .hero h1 .accent{
+    color:var(--accent);
+  }
+  .hero p{
+    font-size:17px;color:var(--muted);max-width:480px;line-height:1.6;
+    margin:0 auto;font-weight:400;
+  }
+
+  /* Cards */
+  .cards{
+    display:grid;grid-template-columns:1fr 1fr;gap:20px;
+  }
+  @media(max-width:720px){
+    .cards{grid-template-columns:1fr}
+    .nav{padding:20px 24px}
+    .nav-links{display:none}
+    .wrap{padding:40px 24px 60px}
+  }
+
+  .card{
+    position:relative;display:block;text-decoration:none;color:inherit;
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    padding:36px;overflow:hidden;cursor:pointer;
+    transition:all .3s ease;
+  }
+  .card:hover{
+    border-color:#d0d0d0;
+    box-shadow:0 8px 30px rgba(0,0,0,.06);
+    transform:translateY(-2px);
+  }
+
+  .card-num{
+    font-size:12px;color:var(--muted);font-weight:500;
+    margin-bottom:20px;letter-spacing:.05em;
+  }
+  .card-title{
+    font-size:24px;font-weight:600;letter-spacing:-.01em;
+    margin-bottom:10px;color:var(--text);
+  }
+  .card-desc{
+    font-size:14px;color:var(--muted);line-height:1.65;
+    margin-bottom:28px;
+  }
+  .card-arrow{
+    display:inline-flex;align-items:center;gap:6px;
+    font-size:13px;font-weight:500;color:var(--accent);
+    transition:gap .3s;
+  }
+  .card:hover .card-arrow{gap:12px}
+
+  /* 卡片底部色带 */
+  .card-strip{
+    display:flex;height:6px;border-radius:3px;overflow:hidden;
+    margin-top:32px;
+  }
+  .card-strip span{flex:1;transition:flex .3s}
+  .card:hover .card-strip span{flex:1.2}
+  .card:hover .card-strip span:nth-child(5){flex:2}
+
+  .card-1 .card-strip span:nth-child(1){background:#001A4D}
+  .card-1 .card-strip span:nth-child(2){background:#072567}
+  .card-1 .card-strip span:nth-child(3){background:#0C399C}
+  .card-1 .card-strip span:nth-child(4){background:#0E4FD4}
+  .card-1 .card-strip span:nth-child(5){background:#105CF4}
+  .card-1 .card-strip span:nth-child(6){background:#1274FE}
+  .card-1 .card-strip span:nth-child(7){background:#6298FF}
+  .card-1 .card-strip span:nth-child(8){background:#A0BFFF}
+  .card-1 .card-strip span:nth-child(9){background:#D0E0FF}
+  .card-1 .card-strip span:nth-child(10){background:#E8F0FF}
+
+  .card-2 .card-strip span:nth-child(1){background:#E92B3B}
+  .card-2 .card-strip span:nth-child(2){background:#DF0CC6}
+  .card-2 .card-strip span:nth-child(3){background:#A010F9}
+  .card-2 .card-strip span:nth-child(4){background:#5C5CEB}
+  .card-2 .card-strip span:nth-child(5){background:#005AEB}
+  .card-2 .card-strip span:nth-child(6){background:#008DEB}
+  .card-2 .card-strip span:nth-child(7){background:#00CBEB}
+  .card-2 .card-strip span:nth-child(8){background:#14B822}
+  .card-2 .card-strip span:nth-child(9){background:#F2CC0D}
+  .card-2 .card-strip span:nth-child(10){background:#ED881D}
+
+  /* Download section */
+  .download-section{
+    margin-top:40px;
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    padding:36px;text-align:center;
+  }
+  .download-section h3{
+    font-size:20px;font-weight:600;margin-bottom:10px;
+  }
+  .download-section p{
+    font-size:14px;color:var(--muted);margin-bottom:20px;
+  }
+  .download-btns{
+    display:flex;gap:12px;justify-content:center;flex-wrap:wrap;
+  }
+  .download-btn{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:13px;font-weight:600;color:var(--accent);
+    padding:10px 20px;border:1px solid var(--accent);border-radius:999px;
+    text-decoration:none;transition:all .2s;
+  }
+  .download-btn:hover{
+    background:var(--accent);color:#fff;
+  }
+
+  /* Footer */
+  .footer{
+    display:flex;justify-content:space-between;align-items:center;
+    margin-top:80px;padding-top:28px;border-top:1px solid var(--line);
+    font-size:12px;color:var(--muted);
+  }
+  .footer a{color:var(--muted);text-decoration:none;transition:color .2s}
+  .footer a:hover{color:var(--text)}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-brand">
+    <div class="brand-dot"></div>
+    <div class="brand-name">Color System</div>
+  </div>
+  <div class="nav-links">
+    <a href="palette-tool.html">色板曲线工具</a>
+    <a href="brand-palette.html">品牌完整色板</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="hero-tag">
+      <span class="dot"></span>
+      Design Toolkit
+    </div>
+    <h1>品牌色彩<span class="accent">设计工具</span></h1>
+    <p>基于 Hue-Adaptive 算法，自动生成符合 WCAG 无障碍标准的完整色板系统</p>
+  </div>
+
+  <div class="cards">
+    <a class="card card-1" href="palette-tool.html">
+      <div class="card-num">01 / Curve Lab</div>
+      <div class="card-title">色板曲线工具</div>
+      <div class="card-desc">输入品牌色 C6，自动生成 C10 → C1 完整色阶，实时查看 LCH 与 HSL 曲线</div>
+      <div class="card-arrow">进入工具 →</div>
+      <div class="card-strip"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    </a>
+
+    <a class="card card-2" href="brand-palette.html">
+      <div class="card-num">02 / Brand Palette</div>
+      <div class="card-title">品牌色完整色板</div>
+      <div class="card-desc">10 组品牌色 × 10 级色阶 = 100 个颜色，附 WCAG 对比度与无障碍等级</div>
+      <div class="card-arrow">进入工具 →</div>
+      <div class="card-strip"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    </a>
+  </div>
+
+  <div class="download-section">
+    <h3>下载 Figma 导入文件</h3>
+    <p>将完整色板导入 Figma，使用 Tokens Studio 插件即可直接应用</p>
+    <div class="download-btns">
+      <a class="download-btn" href="data/figma_palette_tokens.json" download>⬇ Tokens Studio JSON</a>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>© Color System · Palette Curve Lab</span>
+    <a href="https://github.com/QingzhouC/color_palette_tool" target="_blank">GitHub ↗</a>
+  </div>
+
+</div>
+
+</body>
+</html>
