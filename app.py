@@ -179,6 +179,67 @@ def api_generate():
     })
 
 
+@app.route("/api/regenerate-column", methods=["POST"])
+def api_regenerate_column():
+    """根据新的 C6 颜色重新生成单列 Light + Dark 色板。
+
+    请求体 JSON: { "color": "#005AEB", "group_name": "Brand" }
+    响应 JSON:
+    {
+      "light": {"colors": [...]},
+      "dark":  {"colors": [...]},
+      "dark_c6_hex": "#2370EB"
+    }
+    """
+    data = request.get_json(silent=True) or {}
+    color = (data.get("color") or "").strip()
+    group_name = data.get("group_name", "")
+
+    if not color or not color.startswith("#") or len(color) != 7:
+        return jsonify({"error": "请提供合法的 #RRGGBB 颜色"}), 400
+
+    try:
+        df_light = generate_palette(color, mode="light")
+        df_dark = generate_palette(color, mode="dark")
+        dark_c6_hex, _, _ = compute_dark_c6(color)
+    except Exception as e:
+        return jsonify({"error": f"生成失败: {e}"}), 500
+
+    colors_light = []
+    for _, row in df_light.iterrows():
+        level = row["Level"]
+        hex_val = row["HEX"]
+        colors_light.append({
+            "level": level,
+            "hex": hex_val,
+            "is_core": hex_val.upper() == color.upper(),
+            "l": round(float(row["L"]), 1),
+            "c": round(float(row["C"]), 1),
+            "h": round(float(row["H"]), 1),
+            "accessibility": accessibility_for(hex_val),
+        })
+
+    colors_dark = []
+    for _, row in df_dark.iterrows():
+        level = row["Level"]
+        hex_val = row["HEX"]
+        colors_dark.append({
+            "level": level,
+            "hex": hex_val,
+            "is_core": hex_val.upper() == dark_c6_hex.upper(),
+            "l": round(float(row["L"]), 1),
+            "c": round(float(row["C"]), 1),
+            "h": round(float(row["H"]), 1),
+            "accessibility": accessibility_for(hex_val),
+        })
+
+    return jsonify({
+        "light": {"colors": colors_light},
+        "dark": {"colors": colors_dark},
+        "dark_c6_hex": dark_c6_hex,
+    })
+
+
 @app.route("/api/brand-palette", methods=["GET"])
 def api_brand_palette():
     """生成完整品牌色色板（Light + Dark）。

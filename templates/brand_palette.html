@@ -19,10 +19,14 @@ body{font-family:"PingFang SC",-apple-system,BlinkMacSystemFont,"Segoe UI","Micr
 .page-header{margin-bottom:24px;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px}
 .page-header h1{font-size:26px;font-weight:700;margin-bottom:6px}
 .theme-tag{font-size:12px;font-weight:700;padding:5px 14px;border-radius:999px;background:rgba(0,90,235,.08);color:var(--accent);letter-spacing:.05em}
-.header-actions{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.header-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
 .format-switch{display:inline-flex;border:1px solid var(--border);border-radius:999px;overflow:hidden;background:var(--panel)}
 .format-switch button{border:0;padding:8px 16px;font-size:13px;font-weight:600;color:var(--muted);background:transparent;cursor:pointer;transition:all .2s}
 .format-switch button.active{background:var(--accent);color:#fff}
+.action-btn{border:1px solid var(--border);border-radius:999px;padding:8px 18px;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;background:var(--panel);color:var(--text);display:inline-flex;align-items:center;gap:6px}
+.action-btn:hover{border-color:var(--accent);color:var(--accent)}
+.action-btn.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+.action-btn.primary:hover{opacity:.88}
 
 .section-block{margin-bottom:36px;border-radius:14px;padding:24px;border:1px solid var(--border)}
 .section-light{background:var(--panel)}
@@ -57,6 +61,14 @@ body{font-family:"PingFang SC",-apple-system,BlinkMacSystemFont,"Segoe UI","Micr
 .legend-item{display:flex;align-items:center;gap:6px}
 .toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%);background:#111827;color:#fff;padding:10px 24px;border-radius:999px;font-size:14px;font-weight:500;opacity:0;transition:opacity .3s,transform .3s;pointer-events:none;z-index:100}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(-8px)}
+
+/* C6 编辑相关样式 */
+.swatch-c6{position:relative}
+.swatch-c6 .c6-edit-badge{position:absolute;top:3px;right:3px;width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:11px;cursor:pointer;opacity:0;transition:opacity .15s}
+.swatch-c6:hover .c6-edit-badge{opacity:1}
+.c6-edit-badge svg{width:12px;height:12px;fill:currentColor}
+.swatch-c6 .c6-color-input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer;border:0}
+.column-regenerating{opacity:.4;pointer-events:none;transition:opacity .2s}
 </style>
 </head>
 <body>
@@ -78,6 +90,8 @@ body{font-family:"PingFang SC",-apple-system,BlinkMacSystemFont,"Segoe UI","Micr
         <button data-fmt="rgb">RGB</button>
         <button data-fmt="hsl">HSL</button>
       </div>
+      <button class="action-btn" id="btnRestore">↺ 恢复默认</button>
+      <button class="action-btn primary" id="btnDownload">⬇ 下载 JSON</button>
     </div>
   </div>
   <div id="paletteArea">
@@ -89,12 +103,22 @@ body{font-family:"PingFang SC",-apple-system,BlinkMacSystemFont,"Segoe UI","Micr
   <div class="legend">
     <div class="legend-item">对比度 = max(白底, 黑底) 的 WCAG 对比度</div>
     <div class="legend-item">等级: AAA ≥ 7 | AA ≥ 4.5 | AA Large ≥ 3</div>
+    <div class="legend-item">提示: 点击 C6 色块可修改颜色并重新生成该列</div>
   </div>
 </div>
 <div class="toast" id="toast">已复制</div>
 <script>
-let currentFmt='hex';
-let paletteData=null;
+var currentFmt='hex';
+var paletteData=null;
+var defaultPaletteData=null; // 保存默认色板，用于恢复
+var regeneratingGroups={}; // 记录正在重新生成的列
+
+// 品牌色组名 -> 小写 token key 前缀
+var GROUP_KEY_MAP={
+  'Red':'red','Pink':'pink','Purple':'purple','Violet':'violet',
+  'Brand':'brand','Blue':'blue','Cyan':'cyan','Green':'green',
+  'Yellow':'yellow','Orange':'orange'
+};
 
 function hexToRgb(hex){
   hex=hex.replace('#','');
@@ -134,13 +158,14 @@ function bestContrast(a){
   if(w.ratio>=b.ratio) return {ratio:w.ratio, level:w.level};
   return {ratio:b.ratio, level:b.level};
 }
-function renderSwatch(c,idx,groupName,fmt){
+function renderSwatch(c,idx,groupName,fmt,isC6){
   var hex=c.hex;
   var bc=bestContrast(c.accessibility);
   var bgClass=isDarkColor(hex)?'dark-bg':'light-bg';
   var formatted=formatColor(hex,fmt);
   var colorName=groupName+'-'+(idx+1);
-  return '<div class="swatch '+bgClass+'" data-hex="'+hex+'" style="background:'+hex+'">'
+
+  var html='<div class="swatch '+bgClass+(isC6?' swatch-c6':'')+'" data-hex="'+hex+'" style="background:'+hex+'">'
     +'<div class="swatch-row">'
     +'<span class="swatch-hex">'+formatted+'</span>'
     +'<span class="swatch-ratio">'+bc.ratio+'</span>'
@@ -148,8 +173,15 @@ function renderSwatch(c,idx,groupName,fmt){
     +'<div class="swatch-row">'
     +'<span class="swatch-name">'+colorName+'</span>'
     +'<span class="swatch-level">'+bc.level+'</span>'
-    +'</div>'
     +'</div>';
+
+  if(isC6){
+    html+='<div class="c6-edit-badge"><svg viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg></div>';
+    html+='<input type="color" class="c6-color-input" value="'+hex+'" data-group="'+groupName+'" />';
+  }
+
+  html+='</div>';
+  return html;
 }
 function renderSection(groups, theme){
   var cls = theme==='dark'?'section-dark':'section-light';
@@ -161,11 +193,14 @@ function renderSection(groups, theme){
     +'<div class="palette-board">';
   groups.forEach(function(g){
     var coreClass=g.is_core?' core':'';
-    html+='<div class="palette-column">'
+    var regenClass=regeneratingGroups[g.name]?' column-regenerating':'';
+    html+='<div class="palette-column'+regenClass+'" data-group="'+g.name+'">'
       +'<div class="column-header'+coreClass+'">'+g.name+'</div>';
     var reversed=g.colors.slice().reverse();
     reversed.forEach(function(c,idx){
-      html+=renderSwatch(c,idx,g.name,currentFmt);
+      // idx 0 = C10 (top), idx 9 = C1 (bottom); C6 = level C6
+      var isC6 = c.level==='C6';
+      html+=renderSwatch(c,idx,g.name,currentFmt,isC6);
     });
     html+='</div>';
   });
@@ -177,7 +212,10 @@ function render(){
   var html=renderSection(paletteData.light.groups,'light')
     +renderSection(paletteData.dark.groups,'dark');
   document.getElementById('paletteArea').innerHTML=html;
+
+  // 绑定色块点击复制
   document.querySelectorAll('.swatch').forEach(function(el){
+    if(el.querySelector('.c6-color-input'))return; // C6 色块不绑定复制
     el.addEventListener('click',function(){
       var hex=this.dataset.hex;
       var txt=formatColor(hex,currentFmt);
@@ -186,12 +224,131 @@ function render(){
       });
     });
   });
+
+  // 绑定 C6 颜色输入
+  document.querySelectorAll('.c6-color-input').forEach(function(input){
+    input.addEventListener('click',function(e){e.stopPropagation();});
+    input.addEventListener('change',function(e){
+      var newColor=e.target.value.toUpperCase();
+      var groupName=e.target.dataset.group;
+      regenerateColumn(groupName, newColor);
+    });
+  });
 }
 function showToast(msg){
   var t=document.getElementById('toast');
   t.textContent=msg;t.classList.add('show');
   setTimeout(function(){t.classList.remove('show');},1500);
 }
+
+// 重新生成单列色板
+function regenerateColumn(groupName, newColor){
+  // 智能处理粘贴的 ## 前缀
+  while(newColor.indexOf('##')===0){newColor='#'+newColor.slice(2);}
+  if(!/^#[0-9A-Fa-f]{6}$/.test(newColor)){
+    showToast('颜色格式无效，请使用 #RRGGBB');
+    return;
+  }
+  newColor=newColor.toUpperCase();
+
+  regeneratingGroups[groupName]=true;
+  render(); // 显示加载状态
+
+  fetch('/api/regenerate-column',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({color:newColor, group_name:groupName})
+  }).then(function(r){return r.json();}).then(function(d){
+    if(d.error){showToast('生成失败: '+d.error);delete regeneratingGroups[groupName];render();return;}
+
+    // 更新 paletteData 中对应组的颜色
+    for(var mode in {'light':1,'dark':1}){
+      var groups=paletteData[mode].groups;
+      for(var i=0;i<groups.length;i++){
+        if(groups[i].name===groupName){
+          groups[i].colors=d[mode].colors;
+          if(mode==='light'){groups[i].core_hex=newColor;}
+          if(mode==='dark'){groups[i].core_hex=d.dark_c6_hex;}
+          break;
+        }
+      }
+    }
+    delete regeneratingGroups[groupName];
+    render();
+    showToast(groupName+' 列已更新');
+  }).catch(function(){
+    delete regeneratingGroups[groupName];
+    render();
+    showToast('网络错误，请重试');
+  });
+}
+
+// 恢复默认色板
+function restoreDefault(){
+  if(!defaultPaletteData){showToast('默认数据未加载');return;}
+  // 深拷贝
+  paletteData=JSON.parse(JSON.stringify(defaultPaletteData));
+  regeneratingGroups={};
+  render();
+  showToast('已恢复默认色板');
+}
+
+// hex 转 sRGB 0-1 components
+function hexToComponents(hex){
+  var rgb=hexToRgb(hex);
+  return [rgb[0]/255, rgb[1]/255, rgb[2]/255];
+}
+
+// 下载 JSON（基于当前页面色板状态，不含 Gray，Figma tokens 格式）
+function downloadJSON(){
+  if(!paletteData){showToast('色板未加载');return;}
+
+  var exportData={light:{},dark:{},'$extensions':{'com.figma.modeName':'My'}};
+  var modes=['light','dark'];
+  var idCounter=5689; // variableId 起始
+
+  modes.forEach(function(mode){
+    var groups=paletteData[mode].groups;
+    groups.forEach(function(g){
+      var prefix=GROUP_KEY_MAP[g.name]||g.name.toLowerCase();
+      g.colors.forEach(function(c){
+        var num=parseInt(c.level.replace('C',''));
+        var key=prefix+'-'+num;
+        var hexVal=c.hex.toUpperCase();
+        var varId='VariableID:358:'+idCounter;
+        idCounter++;
+
+        exportData[mode][key]={
+          '$type':'color',
+          '$value':{
+            'colorSpace':'srgb',
+            'components':hexToComponents(hexVal),
+            'alpha':1,
+            'hex':hexVal
+          },
+          '$extensions':{
+            'com.figma.variableId':varId,
+            'com.figma.scopes':['ALL_SCOPES']
+          }
+        };
+      });
+    });
+  });
+
+  var jsonStr=JSON.stringify(exportData,null,2);
+  var blob=new Blob([jsonStr],{type:'application/json'});
+  var url=URL.createObjectURL(blob);
+  var a=document.createElement('a');
+  a.href=url;
+  a.download='brand_palette.json';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  showToast('JSON 已下载');
+}
+
+// 格式切换
 document.getElementById('fmtSwitch').addEventListener('click',function(e){
   if(e.target.tagName==='BUTTON'){
     document.querySelectorAll('#fmtSwitch button').forEach(function(b){b.classList.remove('active');});
@@ -200,8 +357,18 @@ document.getElementById('fmtSwitch').addEventListener('click',function(e){
     render();
   }
 });
+
+// 恢复默认按钮
+document.getElementById('btnRestore').addEventListener('click', restoreDefault);
+
+// 下载 JSON 按钮
+document.getElementById('btnDownload').addEventListener('click', downloadJSON);
+
+// 初始加载色板数据
 fetch('/api/brand-palette').then(function(r){return r.json();}).then(function(d){
-  paletteData=d;render();
+  paletteData=d;
+  defaultPaletteData=JSON.parse(JSON.stringify(d)); // 保存默认色板
+  render();
 }).catch(function(){
   document.getElementById('paletteArea').innerHTML='<div class="error-box">加载失败，请刷新重试</div>';
 });
