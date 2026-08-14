@@ -7,6 +7,8 @@
 macOS:
 
 ```bash
+git clone https://github.com/QingzhouC/color_palette_tool.git
+cd color_palette_tool
 python3 -m venv .venv
 source .venv/bin/activate
 ```
@@ -21,6 +23,10 @@ pip install -r requirements.txt
 
 ```bash
 python app.py
+```
+如果这个不行运行
+```bash
+python3 app.py
 ```
 
 程序会自动打开：
