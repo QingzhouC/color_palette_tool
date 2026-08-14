@@ -5,7 +5,8 @@
 ## 1. 创建虚拟环境
 
 macOS:
-打开终端（Terminal）
+
+打开终端（Terminal）后输入
 
 ```bash
 git clone https://github.com/QingzhouC/color_palette_tool.git
