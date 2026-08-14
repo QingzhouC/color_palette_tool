@@ -6,7 +6,7 @@
 
 macOS:
 
-打开终端（Terminal）后输入
+打开终端（Terminal）后输入：
 
 ```bash
 git clone https://github.com/QingzhouC/color_palette_tool.git
