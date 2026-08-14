@@ -1,1874 +1,3750 @@
 {
-  "groups": [
-    {
-      "name": "Red",
-      "core_hex": "#E92B3B",
-      "is_core": false,
-      "colors": [
-        {
-          "level": "C10",
-          "hex": "#4E070B",
-          "is_core": false,
-          "l": 14.4,
-          "c": 36.3,
-          "h": 29.4,
-          "accessibility": {
-            "on_white": {
-              "ratio": 15.45,
-              "level": "AAA"
-            },
-            "on_black": {
-              "ratio": 1.36,
-              "level": "Fail"
-            }
-          }
-        },
-        {
-          "level": "C9",
-          "hex": "#660E14",
-          "is_core": false,
-          "l": 20.8,
-          "c": 43.7,
-          "h": 30.0,
-          "accessibility": {
-            "on_white": {
-              "ratio": 12.82,
-              "level": "AAA"
-            },
-            "on_black": {
-              "ratio": 1.64,
-              "level": "Fail"
-            }
-          }
-        },
-        {
-          "level": "C8",
-          "hex": "#961922",
-          "is_core": false,
-          "l": 32.4,
-          "c": 57.9,
-          "h": 29.9,
-          "accessibility": {
-            "on_white": {
-              "ratio": 8.54,
-              "level": "AAA"
-            },
-            "on_black": {
-              "ratio": 2.46,
-              "level": "Fail"
-            }
-          }
-        },
-        {
-          "level": "C7",
-          "hex": "#CA2331",
-          "is_core": false,
-          "l": 44.2,
-          "c": 72.4,
-          "h": 29.5,
-          "accessibility": {
-            "on_white": {
-              "ratio": 5.53,
-              "level": "AA"
-            },
-            "on_black": {
-              "ratio": 3.8,
-              "level": "AA Large"
-            }
-          }
-        },
-        {
-          "level": "C6",
-          "hex": "#E92B3B",
-          "is_core": true,
-          "l": 51.1,
-          "c": 80.4,
-          "h": 29.5,
-          "accessibility": {
-            "on_white": {
-              "ratio": 4.31,
-              "level": "AA Large"
-            },
-            "on_black": {
-              "ratio": 4.87,
-              "level": "AA"
-            }
-          }
-        },
-        {
-          "level": "C5",
-          "hex": "#F84B54",
-          "is_core": false,
-          "l": 57.7,
-          "c": 73.6,
-          "h": 27.3,
-          "accessibility": {
-            "on_white": {
-              "ratio": 3.43,
-              "level": "AA Large"
-            },
-            "on_black": {
-              "ratio": 6.13,
-              "level": "AA"
-            }
-          }
-        },
-        {
-          "level": "C4",
-          "hex": "#FF7C7B",
-          "is_core": false,
-          "l": 68.0,
-          "c": 57.6,
-          "h": 26.0,
-          "accessibility": {
-            "on_white": {
-              "ratio": 2.49,
-              "level": "Fail"
-            },
-            "on_black": {
-              "ratio": 8.42,
-              "level": "AAA"
-            }
-          }
-        },
-        {
-          "level": "C3",
-          "hex": "#FFABA8",
-          "is_core": false,
-          "l": 79.4,
-          "c": 38.0,
-          "h": 25.2,
-          "accessibility": {
-            "on_white": {
-              "ratio": 1.8,
-              "level": "Fail"
-            },
-            "on_black": {
-              "ratio": 11.64,
-              "level": "AAA"
-            }
-          }
-        },
-        {
-          "level": "C2",
-          "hex": "#FFD2D0",
-          "is_core": false,
-          "l": 88.9,
-          "c": 20.6,
-          "h": 24.6,
-          "accessibility": {
-            "on_white": {
-              "ratio": 1.37,
-              "level": "Fail"
-            },
-            "on_black": {
-              "ratio": 15.38,
-              "level": "AAA"
-            }
-          }
-        },
-        {
-          "level": "C1",
-          "hex": "#FFE7E6",
-          "is_core": false,
-          "l": 94.0,
-          "c": 11.1,
-          "h": 23.9,
-          "accessibility": {
-            "on_white": {
-              "ratio": 1.18,
-              "level": "Fail"
-            },
-            "on_black": {
-              "ratio": 17.82,
-              "level": "AAA"
-            }
-          }
-        }
-      ]
-    },
-    {
-      "name": "Pink",
-      "core_hex": "#DF0CC6",
-      "is_core": false,
-      "colors": [
-        {
-          "level": "C10",
-          "hex": "#47003E",
-          "is_core": false,
-          "l": 13.6,
-          "c": 42.9,
-          "h": 333.2,
-          "accessibility": {
-            "on_white": {
-              "ratio": 15.7,
-              "level": "AAA"
-            },
-            "on_black": {
-              "ratio": 1.34,
-              "level": "Fail"
-            }
-          }
-        },
-        {
-          "level": "C9",
-          "hex": "#600053",
-          "is_core": false,
-          "l": 20.3,
-          "c": 51.5,
-          "h": 333.7,
-          "accessibility": {
-            "on_white": {
-              "ratio": 12.94,
-              "level": "AAA"
-            },
-            "on_black": {
-              "ratio": 1.62,
-              "level": "Fail"
-            }
-          }
-        },
-        {
-          "level": "C8",
-          "hex": "#8F007E",
-          "is_core": false,
-          "l": 32.6,
-          "c": 68.4,
-          "h": 333.7,
-          "accessibility": {
-            "on_white": {
-              "ratio": 8.5,
-              "level": "AAA"
-            },
-            "on_black": {
-              "ratio": 2.47,
-              "level": "Fail"
-            }
-          }
-        },
-        {
-          "level": "C7",
-          "hex": "#C203AB",
-          "is_core": false,
-          "l": 44.9,
-          "c": 85.5,
-          "h": 333.5,
-          "accessibility": {
-            "on_white": {
-              "ratio": 5.39,
-              "level": "AA"
-            },
-            "on_black": {
-              "ratio": 3.89,
-              "level": "AA Large"
-            }
-          }
-        },
-        {
-          "level": "C6",
-          "hex": "#DF0CC6",
-          "is_core": true,
-          "l": 51.9,
-          "c": 94.5,
-          "h": 333.4,
-          "accessibility": {
-            "on_white": {
-              "ratio": 4.2,
-              "level": "AA Large"
-            },
-            "on_black": {
-              "ratio": 5.01,
-              "level": "AA"
-            }
-          }
-        },
-        {
-          "level": "C5",
-          "hex": "#E249D5",
-          "is_core": false,
-          "l": 57.8,
-          "c": 84.8,
-          "h": 330.6,
-          "accessibility": {
-            "on_white": {
-              "ratio": 3.42,
-              "level": "AA Large"
-            },
-            "on_black": {
-              "ratio": 6.15,
-              "level": "AA"
-            }
-          }
-        },
-        {
-          "level": "C4",
-          "hex": "#EA7FE5",
-          "is_core": false,
-          "l": 68.2,
-          "c": 64.6,
-          "h": 328.3,
-          "accessibility": {
-            "on_white": {
-              "ratio": 2.42,
-              "level": "Fail"
-            },
-            "on_black": {
-              "ratio": 8.67,
-              "level": "AAA"
-            }
-          }
-        },
-        {
-          "level": "C3",
-          "hex": "#F2B1F1",
-          "is_core": false,
-          "l": 79.9,
-          "c": 40.9,
-          "h": 326.3,
-          "accessibility": {
-            "on_white": {
-              "ratio": 1.7,
-              "level": "Fail"
-            },
-            "on_black": {
-              "ratio": 12.33,
-              "level": "AAA"
-            }
-          }
-        },
-        {
-          "level": "C2",
-          "hex": "#F8D7F9",
-          "is_core": false,
-          "l": 89.7,
-          "c": 20.8,
-          "h": 324.7,
-          "accessibility": {
-            "on_white": {
-              "ratio": 1.31,
-              "level": "Fail"
-            },
-            "on_black": {
-              "ratio": 16.08,
-              "level": "AAA"
-            }
-          }
-        },
-        {
-          "level": "C1",
-          "hex": "#FBEAFC",
-          "is_core": false,
-          "l": 94.5,
-          "c": 11.3,
-          "h": 323.5,
-          "accessibility": {
-            "on_white": {
-              "ratio": 1.15,
-              "level": "Fail"
-            },
-            "on_black": {
-              "ratio": 18.28,
-              "level": "AAA"
-            }
-          }
-        }
-      ]
-    },
-    {
-      "name": "Purple",
-      "core_hex": "#A010F9",
-      "is_core": false,
-      "colors": [
-        {
-          "level": "C10",
-          "hex": "#320254",
-          "is_core": false,
-          "l": 11.7,
-          "c": 53.2,
-          "h": 315.0,
-          "accessibility": {
-            "on_white": {
-              "ratio": 16.51,
-              "level": "AAA"
-            },
-            "on_black": {
-              "ratio": 1.27,
-              "level": "Fail"
-            }
-          }
-        },
-        {
-          "level": "C9",
-          "hex": "#45036E",
-          "is_core": false,
-          "l": 17.6,
-          "c": 63.9,
-          "h": 315.5,
-          "accessibility": {
-            "on_white": {
-              "ratio": 14.08,
-              "level": "AAA"
-            },
-            "on_black": {
-              "ratio": 1.49,
-              "level": "Fail"
-            }
-          }
-        },
-        {
-          "level": "C8",
-          "hex": "#6705A1",
-          "is_core": false,
-          "l": 28.3,
-          "c": 85.0,
-          "h": 315.5,
-          "accessibility": {
-            "on_white": {
-              "ratio": 9.94,
-              "level": "AAA"
-            },
-            "on_black": {
-              "ratio": 2.11,
-              "level": "Fail"
-            }
-          }
-        },
-        {
-          "level": "C7",
-          "hex": "#8B09D9",
-          "is_core": false,
-          "l": 39.1,
-          "c": 106.1,
-          "h": 315.3,
-          "accessibility": {
-            "on_white": {
-              "ratio": 6.69,
-              "level": "AA"
-            },
-            "on_black": {
-              "ratio": 3.14,
-              "level": "AA Large"
-            }
-          }
-        },
-        {
-          "level": "C6",
-          "hex": "#A010F9",
-          "is_core": true,
-          "l": 45.2,
-          "c": 117.3,
-          "h": 315.2,
-          "accessibility": {
-            "on_white": {
-              "ratio": 5.33,
-              "level": "AA"
-            },
-            "on_black": {
-              "ratio": 3.94,
-              "level": "AA Large"
-            }
-          }
-        },
-        {
-          "level": "C5",
-          "hex": "#A448FF",
-          "is_core": false,
-          "l": 52.0,
-          "c": 105.1,
-          "h": 312.3,
-          "accessibility": {
-            "on_white": {
-              "ratio": 4.24,
-              "level": "AA Large"
-            },
-            "on_black": {
-              "ratio": 4.95,
-              "level": "AA"
-            }
-          }
-        },
-        {
-          "level": "C4",
-          "hex": "#B97CFF",
-          "is_core": false,
-          "l": 63.8,
-          "c": 80.0,
-          "h": 309.7,
-          "accessibility": {
-            "on_white": {
-              "ratio": 2.84,
-              "level": "Fail"
-            },
-            "on_black": {
-              "ratio": 7.39,
-              "level": "AAA"
-            }
-          }
-        },
-        {
-          "level": "C3",
-          "hex": "#D2AEFF",
-          "is_core": false,
-          "l": 77.2,
-          "c": 50.6,
-          "h": 307.6,
-          "accessibility": {
-            "on_white": {
-              "ratio": 1.87,
-              "level": "Fail"
-            },
-            "on_black": {
-              "ratio": 11.24,
-              "level": "AAA"
-            }
-          }
-        },
-        {
-          "level": "C2",
-          "hex": "#E8D6FF",
-          "is_core": false,
-          "l": 88.4,
-          "c": 25.6,
-          "h": 305.8,
-          "accessibility": {
-            "on_white": {
-              "ratio": 1.36,
-              "level": "Fail"
-            },
-            "on_black": {
-              "ratio": 15.49,
-              "level": "AAA"
-            }
-          }
-        },
-        {
-          "level": "C1",
-          "hex": "#F3E9FF",
-          "is_core": false,
-          "l": 93.8,
-          "c": 13.8,
-          "h": 304.4,
-          "accessibility": {
-            "on_white": {
-              "ratio": 1.17,
-              "level": "Fail"
-            },
-            "on_black": {
-              "ratio": 17.91,
-              "level": "AAA"
-            }
-          }
-        }
-      ]
-    },
-    {
-      "name": "Violet",
-      "core_hex": "#5C5CEB",
-      "is_core": false,
-      "colors": [
-        {
-          "level": "C10",
-          "hex": "#070648",
-          "is_core": false,
-          "l": 5.8,
-          "c": 46.9,
-          "h": 303.7,
-          "accessibility": {
-            "on_white": {
-              "ratio": 18.61,
-              "level": "AAA"
-            },
-            "on_black": {
-              "ratio": 1.13,
-              "level": "Fail"
-            }
-          }
-        },
-        {
-          "level": "C9",
-          "hex": "#1A1461",
-          "is_core": false,
-          "l": 13.2,
-          "c": 53.1,
-          "h": 303.7,
-          "accessibility": {
-            "on_white": {
-              "ratio": 15.95,
-              "level": "AAA"
-            },
-            "on_black": {
-              "ratio": 1.32,
-              "level": "Fail"
-            }
-          }
-        },
-        {
-          "level": "C8",
-          "hex": "#372E94",
-          "is_core": false,
-          "l": 26.4,
-          "c": 65.1,
-          "h": 302.6,
-          "accessibility": {
-            "on_white": {
-              "ratio": 10.6,
-              "level": "AAA"
-            },
-            "on_black": {
-              "ratio": 1.98,
-              "level": "Fail"
-            }
-          }
-        },
-        {
-          "level": "C7",
-          "hex": "#504BCB",
-          "is_core": false,
-          "l": 39.6,
-          "c": 77.1,
-          "h": 301.1,
-          "accessibility": {
-            "on_white": {
-              "ratio": 6.54,
-              "level": "AA"
-            },
-            "on_black": {
-              "ratio": 3.21,
-              "level": "AA Large"
-            }
-          }
-        },
-        {
-          "level": "C6",
-          "hex": "#5C5CEB",
-          "is_core": true,
-          "l": 46.9,
-          "c": 83.5,
-          "h": 299.9,
-          "accessibility": {
-            "on_white": {
-              "ratio": 5.02,
-              "level": "AA"
-            },
-            "on_black": {
-              "ratio": 4.19,
-              "level": "AA Large"
-            }
-          }
-        },
-        {
-          "level": "C5",
-          "hex": "#6C71F3",
-          "is_core": false,
-          "l": 53.3,
-          "c": 74.7,
-          "h": 297.5,
-          "accessibility": {
-            "on_white": {
-              "ratio": 3.97,
-              "level": "AA Large"
-            },
-            "on_black": {
-              "ratio": 5.29,
-              "level": "AA"
-            }
-          }
-        },
-        {
-          "level": "C4",
-          "hex": "#8F93F8",
-          "is_core": false,
-          "l": 64.6,
-          "c": 56.4,
-          "h": 294.7,
-          "accessibility": {
-            "on_white": {
-              "ratio": 2.73,
-              "level": "Fail"
-            },
-            "on_black": {
-              "ratio": 7.7,
-              "level": "AAA"
-            }
-          }
-        },
-        {
-          "level": "C3",
-          "hex": "#B7B9FB",
-          "is_core": false,
-          "l": 77.2,
-          "c": 35.3,
-          "h": 292.0,
-          "accessibility": {
-            "on_white": {
-              "ratio": 1.85,
-              "level": "Fail"
-            },
-            "on_black": {
-              "ratio": 11.35,
-              "level": "AAA"
-            }
-          }
-        },
-        {
-          "level": "C2",
-          "hex": "#D9DAFC",
-          "is_core": false,
-          "l": 87.9,
-          "c": 17.7,
-          "h": 290.0,
-          "accessibility": {
-            "on_white": {
-              "ratio": 1.37,
-              "level": "Fail"
-            },
-            "on_black": {
-              "ratio": 15.38,
-              "level": "AAA"
-            }
-          }
-        },
-        {
-          "level": "C1",
-          "hex": "#E9EAFE",
-          "is_core": false,
-          "l": 93.1,
-          "c": 10.3,
-          "h": 289.2,
-          "accessibility": {
-            "on_white": {
-              "ratio": 1.19,
-              "level": "Fail"
-            },
-            "on_black": {
-              "ratio": 17.67,
-              "level": "AAA"
-            }
-          }
-        }
-      ]
-    },
-    {
-      "name": "Brand",
-      "core_hex": "#005AEB",
-      "is_core": true,
-      "colors": [
-        {
-          "level": "C10",
-          "hex": "#001A4A",
-          "is_core": false,
-          "l": 10.7,
-          "c": 35.5,
-          "h": 291.9,
-          "accessibility": {
-            "on_white": {
-              "ratio": 16.85,
-              "level": "AAA"
-            },
-            "on_black": {
-              "ratio": 1.25,
-              "level": "Fail"
-            }
-          }
-        },
-        {
-          "level": "C9",
-          "hex": "#052464",
-          "is_core": false,
-          "l": 16.6,
-          "c": 43.7,
-          "h": 293.0,
-          "accessibility": {
-            "on_white": {
-              "ratio": 14.55,
-              "level": "AAA"
-            },
-            "on_black": {
-              "ratio": 1.44,
-              "level": "Fail"
-            }
-          }
-        },
-        {
-          "level": "C8",
-          "hex": "#073896",
-          "is_core": false,
-          "l": 27.0,
-          "c": 60.5,
-          "h": 293.9,
-          "accessibility": {
-            "on_white": {
-              "ratio": 10.42,
-              "level": "AAA"
-            },
-            "on_black": {
-              "ratio": 2.02,
-              "level": "Fail"
-            }
-          }
-        },
-        {
-          "level": "C7",
-          "hex": "#034DCC",
-          "is_core": false,
-          "l": 37.4,
-          "c": 77.5,
-          "h": 294.3,
-          "accessibility": {
-            "on_white": {
-              "ratio": 7.15,
-              "level": "AAA"
-            },
-            "on_black": {
-              "ratio": 2.94,
-              "level": "Fail"
-            }
-          }
-        },
-        {
-          "level": "C6",
-          "hex": "#005AEB",
-          "is_core": true,
-          "l": 43.2,
-          "c": 86.0,
-          "h": 294.2,
-          "accessibility": {
-            "on_white": {
-              "ratio": 5.73,
-              "level": "AA"
-            },
-            "on_black": {
-              "ratio": 3.66,
-              "level": "AA Large"
-            }
-          }
-        },
-        {
-          "level": "C5",
-          "hex": "#1272F4",
-          "is_core": false,
-          "l": 50.3,
-          "c": 76.0,
-          "h": 288.5,
-          "accessibility": {
-            "on_white": {
-              "ratio": 4.43,
-              "level": "AA Large"
-            },
-            "on_black": {
-              "ratio": 4.74,
-              "level": "AA"
-            }
-          }
-        },
-        {
-          "level": "C4",
-          "hex": "#6096FA",
-          "is_core": false,
-          "l": 62.7,
-          "c": 56.4,
-          "h": 282.4,
-          "accessibility": {
-            "on_white": {
-              "ratio": 2.9,
-              "level": "Fail"
-            },
-            "on_black": {
-              "ratio": 7.24,
-              "level": "AAA"
-            }
-          }
-        },
-        {
-          "level": "C3",
-          "hex": "#9EBEFB",
-          "is_core": false,
-          "l": 76.7,
-          "c": 34.1,
-          "h": 276.8,
-          "accessibility": {
-            "on_white": {
-              "ratio": 1.87,
-              "level": "Fail"
-            },
-            "on_black": {
-              "ratio": 11.21,
-              "level": "AAA"
-            }
-          }
-        },
-        {
-          "level": "C2",
-          "hex": "#D0DFFC",
-          "is_core": false,
-          "l": 88.6,
-          "c": 15.6,
-          "h": 272.6,
-          "accessibility": {
-            "on_white": {
-              "ratio": 1.34,
-              "level": "Fail"
-            },
-            "on_black": {
-              "ratio": 15.64,
-              "level": "AAA"
-            }
-          }
-        },
-        {
-          "level": "C1",
-          "hex": "#E8F0FE",
-          "is_core": false,
-          "l": 94.5,
-          "c": 7.8,
-          "h": 270.4,
-          "accessibility": {
-            "on_white": {
-              "ratio": 1.15,
-              "level": "Fail"
-            },
-            "on_black": {
-              "ratio": 18.33,
-              "level": "AAA"
-            }
-          }
-        }
-      ]
-    },
-    {
-      "name": "Blue",
-      "core_hex": "#008DEB",
-      "is_core": false,
-      "colors": [
-        {
-          "level": "C10",
-          "hex": "#002749",
-          "is_core": false,
-          "l": 15.0,
-          "c": 25.4,
-          "h": 272.9,
-          "accessibility": {
-            "on_white": {
-              "ratio": 15.15,
-              "level": "AAA"
-            },
-            "on_black": {
-              "ratio": 1.39,
-              "level": "Fail"
-            }
-          }
-        },
-        {
-          "level": "C9",
-          "hex": "#003763",
-          "is_core": false,
-          "l": 22.4,
-          "c": 30.5,
-          "h": 273.3,
-          "accessibility": {
-            "on_white": {
-              "ratio": 12.16,
-              "level": "AAA"
-            },
-            "on_black": {
-              "ratio": 1.73,
-              "level": "Fail"
-            }
-          }
-        },
-        {
-          "level": "C8",
-          "hex": "#005795",
-          "is_core": false,
-          "l": 35.9,
-          "c": 40.5,
-          "h": 273.4,
-          "accessibility": {
-            "on_white": {
-              "ratio": 7.51,
-              "level": "AAA"
-            },
-            "on_black": {
-              "ratio": 2.8,
-              "level": "Fail"
-            }
-          }
-        },
-        {
-          "level": "C7",
-          "hex": "#0079CC",
-          "is_core": false,
-          "l": 49.4,
-          "c": 50.7,
-          "h": 273.3,
-          "accessibility": {
-            "on_white": {
-              "ratio": 4.56,
-              "level": "AA"
-            },
-            "on_black": {
-              "ratio": 4.61,
-              "level": "AA"
-            }
-          }
-        },
-        {
-          "level": "C6",
-          "hex": "#008DEB",
-          "is_core": true,
-          "l": 57.1,
-          "c": 56.1,
-          "h": 273.2,
-          "accessibility": {
-            "on_white": {
-              "ratio": 3.49,
-              "level": "AA Large"
-            },
-            "on_black": {
-              "ratio": 6.01,
-              "level": "AA"
-            }
-          }
-        },
-        {
-          "level": "C5",
-          "hex": "#3A9CF0",
-          "is_core": false,
-          "l": 62.5,
-          "c": 50.4,
-          "h": 269.9,
-          "accessibility": {
-            "on_white": {
-              "ratio": 2.92,
-              "level": "Fail"
-            },
-            "on_black": {
-              "ratio": 7.19,
-              "level": "AAA"
-            }
-          }
-        },
-        {
-          "level": "C4",
-          "hex": "#77B4F6",
-          "is_core": false,
-          "l": 71.8,
-          "c": 38.5,
-          "h": 267.1,
-          "accessibility": {
-            "on_white": {
-              "ratio": 2.18,
-              "level": "Fail"
-            },
-            "on_black": {
-              "ratio": 9.64,
-              "level": "AAA"
-            }
-          }
-        },
-        {
-          "level": "C3",
-          "hex": "#ACD0FA",
-          "is_core": false,
-          "l": 82.3,
-          "c": 24.5,
-          "h": 264.7,
-          "accessibility": {
-            "on_white": {
-              "ratio": 1.6,
-              "level": "Fail"
-            },
-            "on_black": {
-              "ratio": 13.16,
-              "level": "AAA"
-            }
-          }
-        },
-        {
-          "level": "C2",
-          "hex": "#D6E7FD",
-          "is_core": false,
-          "l": 91.1,
-          "c": 12.5,
-          "h": 262.8,
-          "accessibility": {
-            "on_white": {
-              "ratio": 1.26,
-              "level": "Fail"
-            },
-            "on_black": {
-              "ratio": 16.71,
-              "level": "AAA"
-            }
-          }
-        },
-        {
-          "level": "C1",
-          "hex": "#E9F3FE",
-          "is_core": false,
-          "l": 95.3,
-          "c": 6.7,
-          "h": 261.4,
-          "accessibility": {
-            "on_white": {
-              "ratio": 1.12,
-              "level": "Fail"
-            },
-            "on_black": {
-              "ratio": 18.72,
-              "level": "AAA"
-            }
-          }
-        }
-      ]
-    },
-    {
-      "name": "Cyan",
-      "core_hex": "#00CBEB",
-      "is_core": false,
-      "colors": [
-        {
-          "level": "C10",
-          "hex": "#003945",
-          "is_core": false,
-          "l": 21.2,
-          "c": 18.6,
-          "h": 221.9,
-          "accessibility": {
-            "on_white": {
-              "ratio": 12.57,
-              "level": "AAA"
-            },
-            "on_black": {
-              "ratio": 1.67,
-              "level": "Fail"
-            }
-          }
-        },
-        {
-          "level": "C9",
-          "hex": "#004F5E",
-          "is_core": false,
-          "l": 30.3,
-          "c": 22.2,
-          "h": 222.3,
-          "accessibility": {
-            "on_white": {
-              "ratio": 9.21,
-              "level": "AAA"
-            },
-            "on_black": {
-              "ratio": 2.28,
-              "level": "Fail"
-            }
-          }
-        },
-        {
-          "level": "C8",
-          "hex": "#007C91",
-          "is_core": false,
-          "l": 47.3,
-          "c": 29.4,
-          "h": 222.2,
-          "accessibility": {
-            "on_white": {
-              "ratio": 4.89,
-              "level": "AA"
-            },
-            "on_black": {
-              "ratio": 4.29,
-              "level": "AA Large"
-            }
-          }
-        },
-        {
-          "level": "C7",
-          "hex": "#00ACC8",
-          "is_core": false,
-          "l": 64.7,
-          "c": 36.9,
-          "h": 222.1,
-          "accessibility": {
-            "on_white": {
-              "ratio": 2.71,
-              "level": "Fail"
-            },
-            "on_black": {
-              "ratio": 7.74,
-              "level": "AAA"
-            }
-          }
-        },
-        {
-          "level": "C6",
-          "hex": "#00CBEB",
-          "is_core": true,
-          "l": 75.3,
-          "c": 41.1,
-          "h": 222.1,
-          "accessibility": {
-            "on_white": {
-              "ratio": 1.95,
-              "level": "Fail"
-            },
-            "on_black": {
-              "ratio": 10.74,
-              "level": "AAA"
-            }
-          }
-        },
-        {
-          "level": "C5",
-          "hex": "#41D4EE",
-          "is_core": false,
-          "l": 78.7,
-          "c": 38.2,
-          "h": 218.8,
-          "accessibility": {
-            "on_white": {
-              "ratio": 1.77,
-              "level": "Fail"
-            },
-            "on_black": {
-              "ratio": 11.88,
-              "level": "AAA"
-            }
-          }
-        },
-        {
-          "level": "C4",
-          "hex": "#7DE0F3",
-          "is_core": false,
-          "l": 84.1,
-          "c": 30.3,
-          "h": 216.3,
-          "accessibility": {
-            "on_white": {
-              "ratio": 1.52,
-              "level": "Fail"
-            },
-            "on_black": {
-              "ratio": 13.83,
-              "level": "AAA"
-            }
-          }
-        },
-        {
-          "level": "C3",
-          "hex": "#AFEDF8",
-          "is_core": false,
-          "l": 90.0,
-          "c": 20.3,
-          "h": 214.4,
-          "accessibility": {
-            "on_white": {
-              "ratio": 1.29,
-              "level": "Fail"
-            },
-            "on_black": {
-              "ratio": 16.29,
-              "level": "AAA"
-            }
-          }
-        },
-        {
-          "level": "C2",
-          "hex": "#D6F7FC",
-          "is_core": false,
-          "l": 95.0,
-          "c": 11.2,
-          "h": 213.0,
-          "accessibility": {
-            "on_white": {
-              "ratio": 1.13,
-              "level": "Fail"
-            },
-            "on_black": {
-              "ratio": 18.57,
-              "level": "AAA"
-            }
-          }
-        },
-        {
-          "level": "C1",
-          "hex": "#EAFBFD",
-          "is_core": false,
-          "l": 97.4,
-          "c": 5.7,
-          "h": 211.9,
-          "accessibility": {
-            "on_white": {
-              "ratio": 1.07,
-              "level": "Fail"
-            },
-            "on_black": {
-              "ratio": 19.72,
-              "level": "AAA"
-            }
-          }
-        }
-      ]
-    },
-    {
-      "name": "Green",
-      "core_hex": "#14B822",
-      "is_core": false,
-      "colors": [
-        {
-          "level": "C10",
-          "hex": "#003C04",
-          "is_core": false,
-          "l": 21.0,
-          "c": 40.5,
-          "h": 138.6,
-          "accessibility": {
-            "on_white": {
-              "ratio": 12.74,
-              "level": "AAA"
-            },
-            "on_black": {
-              "ratio": 1.65,
-              "level": "Fail"
-            }
-          }
-        },
-        {
-          "level": "C9",
-          "hex": "#004D09",
-          "is_core": false,
-          "l": 27.6,
-          "c": 47.4,
-          "h": 138.7,
-          "accessibility": {
-            "on_white": {
-              "ratio": 10.17,
-              "level": "AAA"
-            },
-            "on_black": {
-              "ratio": 2.07,
-              "level": "Fail"
-            }
-          }
-        },
-        {
-          "level": "C8",
-          "hex": "#027011",
-          "is_core": false,
-          "l": 40.7,
-          "c": 61.7,
-          "h": 138.2,
-          "accessibility": {
-            "on_white": {
-              "ratio": 6.31,
-              "level": "AA"
-            },
-            "on_black": {
-              "ratio": 3.33,
-              "level": "AA Large"
-            }
-          }
-        },
-        {
-          "level": "C7",
-          "hex": "#0C9919",
-          "is_core": false,
-          "l": 55.0,
-          "c": 77.3,
-          "h": 137.7,
-          "accessibility": {
-            "on_white": {
-              "ratio": 3.76,
-              "level": "AA Large"
-            },
-            "on_black": {
-              "ratio": 5.59,
-              "level": "AA"
-            }
-          }
-        },
-        {
-          "level": "C6",
-          "hex": "#14B822",
-          "is_core": true,
-          "l": 65.4,
-          "c": 88.1,
-          "h": 137.7,
-          "accessibility": {
-            "on_white": {
-              "ratio": 2.66,
-              "level": "Fail"
-            },
-            "on_black": {
-              "ratio": 7.91,
-              "level": "AAA"
-            }
-          }
-        },
-        {
-          "level": "C5",
-          "hex": "#39CB28",
-          "is_core": false,
-          "l": 71.9,
-          "c": 91.8,
-          "h": 135.9,
-          "accessibility": {
-            "on_white": {
-              "ratio": 2.15,
-              "level": "Fail"
-            },
-            "on_black": {
-              "ratio": 9.75,
-              "level": "AAA"
-            }
-          }
-        },
-        {
-          "level": "C4",
-          "hex": "#6BDD53",
-          "is_core": false,
-          "l": 79.4,
-          "c": 81.0,
-          "h": 135.7,
-          "accessibility": {
-            "on_white": {
-              "ratio": 1.74,
-              "level": "Fail"
-            },
-            "on_black": {
-              "ratio": 12.09,
-              "level": "AAA"
-            }
-          }
-        },
-        {
-          "level": "C3",
-          "hex": "#9AED85",
-          "is_core": false,
-          "l": 86.6,
-          "c": 61.5,
-          "h": 136.4,
-          "accessibility": {
-            "on_white": {
-              "ratio": 1.42,
-              "level": "Fail"
-            },
-            "on_black": {
-              "ratio": 14.83,
-              "level": "AAA"
-            }
-          }
-        },
-        {
-          "level": "C2",
-          "hex": "#C3F7B6",
-          "is_core": false,
-          "l": 92.5,
-          "c": 38.7,
-          "h": 137.5,
-          "accessibility": {
-            "on_white": {
-              "ratio": 1.21,
-              "level": "Fail"
-            },
-            "on_black": {
-              "ratio": 17.3,
-              "level": "AAA"
-            }
-          }
-        },
-        {
-          "level": "C1",
-          "hex": "#E1FADB",
-          "is_core": false,
-          "l": 95.8,
-          "c": 18.4,
-          "h": 138.1,
-          "accessibility": {
-            "on_white": {
-              "ratio": 1.11,
-              "level": "Fail"
-            },
-            "on_black": {
-              "ratio": 18.9,
-              "level": "AAA"
-            }
-          }
-        }
-      ]
-    },
-    {
-      "name": "Yellow",
-      "core_hex": "#F2CC0D",
-      "is_core": false,
-      "colors": [
-        {
-          "level": "C10",
-          "hex": "#5D4E00",
-          "is_core": false,
-          "l": 33.5,
-          "c": 41.8,
-          "h": 91.9,
-          "accessibility": {
-            "on_white": {
-              "ratio": 8.22,
-              "level": "AAA"
-            },
-            "on_black": {
-              "ratio": 2.56,
-              "level": "Fail"
-            }
-          }
-        },
-        {
-          "level": "C9",
-          "hex": "#776401",
-          "is_core": false,
-          "l": 42.7,
-          "c": 49.4,
-          "h": 91.7,
-          "accessibility": {
-            "on_white": {
-              "ratio": 5.82,
-              "level": "AA"
-            },
-            "on_black": {
-              "ratio": 3.61,
-              "level": "AA Large"
-            }
-          }
-        },
-        {
-          "level": "C8",
-          "hex": "#A18704",
-          "is_core": false,
-          "l": 57.1,
-          "c": 61.3,
-          "h": 91.3,
-          "accessibility": {
-            "on_white": {
-              "ratio": 3.51,
-              "level": "AA Large"
-            },
-            "on_black": {
-              "ratio": 5.98,
-              "level": "AA"
-            }
-          }
-        },
-        {
-          "level": "C7",
-          "hex": "#D0AE08",
-          "is_core": false,
-          "l": 72.1,
-          "c": 73.6,
-          "h": 91.0,
-          "accessibility": {
-            "on_white": {
-              "ratio": 2.16,
-              "level": "Fail"
-            },
-            "on_black": {
-              "ratio": 9.74,
-              "level": "AAA"
-            }
-          }
-        },
-        {
-          "level": "C6",
-          "hex": "#F2CC0D",
-          "is_core": true,
-          "l": 83.0,
-          "c": 82.6,
-          "h": 91.2,
-          "accessibility": {
-            "on_white": {
-              "ratio": 1.57,
-              "level": "Fail"
-            },
-            "on_black": {
-              "ratio": 13.42,
-              "level": "AAA"
-            }
-          }
-        },
-        {
-          "level": "C5",
-          "hex": "#FFD700",
-          "is_core": false,
-          "l": 87.0,
-          "c": 88.7,
-          "h": 91.0,
-          "accessibility": {
-            "on_white": {
-              "ratio": 1.4,
-              "level": "Fail"
-            },
-            "on_black": {
-              "ratio": 14.97,
-              "level": "AAA"
-            }
-          }
-        },
-        {
-          "level": "C4",
-          "hex": "#FFE02A",
-          "is_core": false,
-          "l": 89.7,
-          "c": 83.7,
-          "h": 92.6,
-          "accessibility": {
-            "on_white": {
-              "ratio": 1.32,
-              "level": "Fail"
-            },
-            "on_black": {
-              "ratio": 15.95,
-              "level": "AAA"
-            }
-          }
-        },
-        {
-          "level": "C3",
-          "hex": "#FFE758",
-          "is_core": false,
-          "l": 91.6,
-          "c": 70.8,
-          "h": 95.1,
-          "accessibility": {
-            "on_white": {
-              "ratio": 1.25,
-              "level": "Fail"
-            },
-            "on_black": {
-              "ratio": 16.82,
-              "level": "AAA"
-            }
-          }
-        },
-        {
-          "level": "C2",
-          "hex": "#FFED84",
-          "is_core": false,
-          "l": 93.4,
-          "c": 53.2,
-          "h": 97.4,
-          "accessibility": {
-            "on_white": {
-              "ratio": 1.19,
-              "level": "Fail"
-            },
-            "on_black": {
-              "ratio": 17.7,
-              "level": "AAA"
-            }
-          }
-        },
-        {
-          "level": "C1",
-          "hex": "#FFF4B1",
-          "is_core": false,
-          "l": 95.7,
-          "c": 34.2,
-          "h": 98.5,
-          "accessibility": {
-            "on_white": {
-              "ratio": 1.12,
-              "level": "Fail"
-            },
-            "on_black": {
-              "ratio": 18.83,
-              "level": "AAA"
-            }
-          }
-        }
-      ]
-    },
-    {
-      "name": "Orange",
-      "core_hex": "#ED881D",
-      "is_core": false,
-      "colors": [
-        {
-          "level": "C10",
-          "hex": "#4C2700",
-          "is_core": false,
-          "l": 19.9,
-          "c": 33.6,
-          "h": 64.7,
-          "accessibility": {
-            "on_white": {
-              "ratio": 13.15,
-              "level": "AAA"
-            },
-            "on_black": {
-              "ratio": 1.6,
-              "level": "Fail"
-            }
-          }
-        },
-        {
-          "level": "C9",
-          "hex": "#643604",
-          "is_core": false,
-          "l": 27.8,
-          "c": 40.3,
-          "h": 65.1,
-          "accessibility": {
-            "on_white": {
-              "ratio": 10.14,
-              "level": "AAA"
-            },
-            "on_black": {
-              "ratio": 2.07,
-              "level": "Fail"
-            }
-          }
-        },
-        {
-          "level": "C8",
-          "hex": "#95530B",
-          "is_core": false,
-          "l": 42.2,
-          "c": 53.1,
-          "h": 64.9,
-          "accessibility": {
-            "on_white": {
-              "ratio": 5.97,
-              "level": "AA"
-            },
-            "on_black": {
-              "ratio": 3.52,
-              "level": "AA Large"
-            }
-          }
-        },
-        {
-          "level": "C7",
-          "hex": "#CB7315",
-          "is_core": false,
-          "l": 57.0,
-          "c": 66.3,
-          "h": 64.5,
-          "accessibility": {
-            "on_white": {
-              "ratio": 3.5,
-              "level": "AA Large"
-            },
-            "on_black": {
-              "ratio": 6.0,
-              "level": "AA"
-            }
-          }
-        },
-        {
-          "level": "C6",
-          "hex": "#ED881D",
-          "is_core": true,
-          "l": 66.3,
-          "c": 74.1,
-          "h": 64.5,
-          "accessibility": {
-            "on_white": {
-              "ratio": 2.58,
-              "level": "Fail"
-            },
-            "on_black": {
-              "ratio": 8.14,
-              "level": "AAA"
-            }
-          }
-        },
-        {
-          "level": "C5",
-          "hex": "#FD9538",
-          "is_core": false,
-          "l": 71.4,
-          "c": 70.5,
-          "h": 62.7,
-          "accessibility": {
-            "on_white": {
-              "ratio": 2.2,
-              "level": "Fail"
-            },
-            "on_black": {
-              "ratio": 9.53,
-              "level": "AAA"
-            }
-          }
-        },
-        {
-          "level": "C4",
-          "hex": "#FFAD64",
-          "is_core": false,
-          "l": 78.4,
-          "c": 57.4,
-          "h": 62.1,
-          "accessibility": {
-            "on_white": {
-              "ratio": 1.84,
-              "level": "Fail"
-            },
-            "on_black": {
-              "ratio": 11.41,
-              "level": "AAA"
-            }
-          }
-        },
-        {
-          "level": "C3",
-          "hex": "#FFC895",
-          "is_core": false,
-          "l": 85.9,
-          "c": 39.9,
-          "h": 62.2,
-          "accessibility": {
-            "on_white": {
-              "ratio": 1.51,
-              "level": "Fail"
-            },
-            "on_black": {
-              "ratio": 13.95,
-              "level": "AAA"
-            }
-          }
-        },
-        {
-          "level": "C2",
-          "hex": "#FFE0C2",
-          "is_core": false,
-          "l": 92.1,
-          "c": 23.2,
-          "h": 62.4,
-          "accessibility": {
-            "on_white": {
-              "ratio": 1.26,
-              "level": "Fail"
-            },
-            "on_black": {
-              "ratio": 16.69,
-              "level": "AAA"
-            }
-          }
-        },
-        {
-          "level": "C1",
-          "hex": "#FFEEDE",
-          "is_core": false,
-          "l": 95.7,
-          "c": 12.3,
-          "h": 62.3,
-          "accessibility": {
-            "on_white": {
-              "ratio": 1.13,
-              "level": "Fail"
-            },
-            "on_black": {
-              "ratio": 18.54,
-              "level": "AAA"
-            }
-          }
-        }
-      ]
-    }
-  ]
+  "light": {
+    "groups": [
+      {
+        "name": "Red",
+        "core_hex": "#E92B3B",
+        "is_core": false,
+        "colors": [
+          {
+            "level": "C10",
+            "hex": "#510C0E",
+            "is_core": false,
+            "l": 15.8,
+            "c": 36.3,
+            "h": 30.3,
+            "accessibility": {
+              "on_white": {
+                "ratio": 14.91,
+                "level": "AAA"
+              },
+              "on_black": {
+                "ratio": 1.41,
+                "level": "Fail"
+              }
+            }
+          },
+          {
+            "level": "C9",
+            "hex": "#691216",
+            "is_core": false,
+            "l": 21.9,
+            "c": 44.0,
+            "h": 30.5,
+            "accessibility": {
+              "on_white": {
+                "ratio": 12.36,
+                "level": "AAA"
+              },
+              "on_black": {
+                "ratio": 1.7,
+                "level": "Fail"
+              }
+            }
+          },
+          {
+            "level": "C8",
+            "hex": "#971A23",
+            "is_core": false,
+            "l": 32.9,
+            "c": 57.9,
+            "h": 30.1,
+            "accessibility": {
+              "on_white": {
+                "ratio": 8.44,
+                "level": "AAA"
+              },
+              "on_black": {
+                "ratio": 2.49,
+                "level": "Fail"
+              }
+            }
+          },
+          {
+            "level": "C7",
+            "hex": "#C92431",
+            "is_core": false,
+            "l": 44.1,
+            "c": 72.0,
+            "h": 29.6,
+            "accessibility": {
+              "on_white": {
+                "ratio": 5.56,
+                "level": "AA"
+              },
+              "on_black": {
+                "ratio": 3.78,
+                "level": "AA Large"
+              }
+            }
+          },
+          {
+            "level": "C6",
+            "hex": "#E92B3B",
+            "is_core": true,
+            "l": 51.1,
+            "c": 80.4,
+            "h": 29.5,
+            "accessibility": {
+              "on_white": {
+                "ratio": 4.31,
+                "level": "AA Large"
+              },
+              "on_black": {
+                "ratio": 4.87,
+                "level": "AA"
+              }
+            }
+          },
+          {
+            "level": "C5",
+            "hex": "#FA4E52",
+            "is_core": false,
+            "l": 58.4,
+            "c": 74.2,
+            "h": 28.9,
+            "accessibility": {
+              "on_white": {
+                "ratio": 3.35,
+                "level": "AA Large"
+              },
+              "on_black": {
+                "ratio": 6.28,
+                "level": "AA"
+              }
+            }
+          },
+          {
+            "level": "C4",
+            "hex": "#FF7E77",
+            "is_core": false,
+            "l": 68.8,
+            "c": 58.9,
+            "h": 29.2,
+            "accessibility": {
+              "on_white": {
+                "ratio": 2.47,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 8.5,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C3",
+            "hex": "#FFADA3",
+            "is_core": false,
+            "l": 79.9,
+            "c": 39.9,
+            "h": 30.1,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.79,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 11.76,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C2",
+            "hex": "#FFD3CB",
+            "is_core": false,
+            "l": 89.3,
+            "c": 22.6,
+            "h": 31.3,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.36,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 15.43,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C1",
+            "hex": "#FFE8E3",
+            "is_core": false,
+            "l": 94.5,
+            "c": 12.2,
+            "h": 32.6,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.17,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 17.9,
+                "level": "AAA"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Pink",
+        "core_hex": "#DF0CC6",
+        "is_core": false,
+        "colors": [
+          {
+            "level": "C10",
+            "hex": "#4A0040",
+            "is_core": false,
+            "l": 14.6,
+            "c": 42.8,
+            "h": 333.7,
+            "accessibility": {
+              "on_white": {
+                "ratio": 15.38,
+                "level": "AAA"
+              },
+              "on_black": {
+                "ratio": 1.37,
+                "level": "Fail"
+              }
+            }
+          },
+          {
+            "level": "C9",
+            "hex": "#620155",
+            "is_core": false,
+            "l": 21.0,
+            "c": 51.6,
+            "h": 334.0,
+            "accessibility": {
+              "on_white": {
+                "ratio": 12.69,
+                "level": "AAA"
+              },
+              "on_black": {
+                "ratio": 1.65,
+                "level": "Fail"
+              }
+            }
+          },
+          {
+            "level": "C8",
+            "hex": "#90017E",
+            "is_core": false,
+            "l": 32.9,
+            "c": 68.4,
+            "h": 333.9,
+            "accessibility": {
+              "on_white": {
+                "ratio": 8.43,
+                "level": "AAA"
+              },
+              "on_black": {
+                "ratio": 2.49,
+                "level": "Fail"
+              }
+            }
+          },
+          {
+            "level": "C7",
+            "hex": "#C204AB",
+            "is_core": false,
+            "l": 44.9,
+            "c": 85.3,
+            "h": 333.5,
+            "accessibility": {
+              "on_white": {
+                "ratio": 5.39,
+                "level": "AA"
+              },
+              "on_black": {
+                "ratio": 3.9,
+                "level": "AA Large"
+              }
+            }
+          },
+          {
+            "level": "C6",
+            "hex": "#DF0CC6",
+            "is_core": true,
+            "l": 51.9,
+            "c": 94.5,
+            "h": 333.4,
+            "accessibility": {
+              "on_white": {
+                "ratio": 4.2,
+                "level": "AA Large"
+              },
+              "on_black": {
+                "ratio": 5.01,
+                "level": "AA"
+              }
+            }
+          },
+          {
+            "level": "C5",
+            "hex": "#E548D4",
+            "is_core": false,
+            "l": 58.1,
+            "c": 85.1,
+            "h": 331.6,
+            "accessibility": {
+              "on_white": {
+                "ratio": 3.38,
+                "level": "AA Large"
+              },
+              "on_black": {
+                "ratio": 6.21,
+                "level": "AA"
+              }
+            }
+          },
+          {
+            "level": "C4",
+            "hex": "#EF7DE2",
+            "is_core": false,
+            "l": 68.4,
+            "c": 65.5,
+            "h": 330.5,
+            "accessibility": {
+              "on_white": {
+                "ratio": 2.41,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 8.7,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C3",
+            "hex": "#F8AFEF",
+            "is_core": false,
+            "l": 80.0,
+            "c": 42.4,
+            "h": 330.0,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.7,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 12.37,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C2",
+            "hex": "#FED6F8",
+            "is_core": false,
+            "l": 89.8,
+            "c": 22.3,
+            "h": 329.9,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.3,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 16.19,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C1",
+            "hex": "#FFEAFC",
+            "is_core": false,
+            "l": 94.8,
+            "c": 12.1,
+            "h": 330.3,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.14,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 18.43,
+                "level": "AAA"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Purple",
+        "core_hex": "#A010F9",
+        "is_core": false,
+        "colors": [
+          {
+            "level": "C10",
+            "hex": "#350356",
+            "is_core": false,
+            "l": 12.6,
+            "c": 53.2,
+            "h": 315.5,
+            "accessibility": {
+              "on_white": {
+                "ratio": 16.17,
+                "level": "AAA"
+              },
+              "on_black": {
+                "ratio": 1.3,
+                "level": "Fail"
+              }
+            }
+          },
+          {
+            "level": "C9",
+            "hex": "#47046F",
+            "is_core": false,
+            "l": 18.2,
+            "c": 64.0,
+            "h": 315.8,
+            "accessibility": {
+              "on_white": {
+                "ratio": 13.86,
+                "level": "AAA"
+              },
+              "on_black": {
+                "ratio": 1.51,
+                "level": "Fail"
+              }
+            }
+          },
+          {
+            "level": "C8",
+            "hex": "#6805A2",
+            "is_core": false,
+            "l": 28.6,
+            "c": 84.9,
+            "h": 315.7,
+            "accessibility": {
+              "on_white": {
+                "ratio": 9.85,
+                "level": "AAA"
+              },
+              "on_black": {
+                "ratio": 2.13,
+                "level": "Fail"
+              }
+            }
+          },
+          {
+            "level": "C7",
+            "hex": "#8C09D9",
+            "is_core": false,
+            "l": 39.1,
+            "c": 106.0,
+            "h": 315.4,
+            "accessibility": {
+              "on_white": {
+                "ratio": 6.65,
+                "level": "AA"
+              },
+              "on_black": {
+                "ratio": 3.16,
+                "level": "AA Large"
+              }
+            }
+          },
+          {
+            "level": "C6",
+            "hex": "#A010F9",
+            "is_core": true,
+            "l": 45.2,
+            "c": 117.3,
+            "h": 315.2,
+            "accessibility": {
+              "on_white": {
+                "ratio": 5.33,
+                "level": "AA"
+              },
+              "on_black": {
+                "ratio": 3.94,
+                "level": "AA Large"
+              }
+            }
+          },
+          {
+            "level": "C5",
+            "hex": "#A946FF",
+            "is_core": false,
+            "l": 52.1,
+            "c": 105.6,
+            "h": 313.2,
+            "accessibility": {
+              "on_white": {
+                "ratio": 4.19,
+                "level": "AA Large"
+              },
+              "on_black": {
+                "ratio": 5.01,
+                "level": "AA"
+              }
+            }
+          },
+          {
+            "level": "C4",
+            "hex": "#C079FF",
+            "is_core": false,
+            "l": 64.0,
+            "c": 81.1,
+            "h": 311.8,
+            "accessibility": {
+              "on_white": {
+                "ratio": 2.83,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 7.42,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C3",
+            "hex": "#DAABFF",
+            "is_core": false,
+            "l": 77.3,
+            "c": 52.3,
+            "h": 311.0,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.87,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 11.25,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C2",
+            "hex": "#EED4FF",
+            "is_core": false,
+            "l": 88.5,
+            "c": 27.5,
+            "h": 310.7,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.36,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 15.5,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C1",
+            "hex": "#F7E9FF",
+            "is_core": false,
+            "l": 94.1,
+            "c": 14.9,
+            "h": 310.9,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.16,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 18.05,
+                "level": "AAA"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Violet",
+        "core_hex": "#5C5CEB",
+        "is_core": false,
+        "colors": [
+          {
+            "level": "C10",
+            "hex": "#070648",
+            "is_core": false,
+            "l": 5.8,
+            "c": 46.9,
+            "h": 303.7,
+            "accessibility": {
+              "on_white": {
+                "ratio": 18.61,
+                "level": "AAA"
+              },
+              "on_black": {
+                "ratio": 1.13,
+                "level": "Fail"
+              }
+            }
+          },
+          {
+            "level": "C9",
+            "hex": "#1A1461",
+            "is_core": false,
+            "l": 13.2,
+            "c": 53.1,
+            "h": 303.7,
+            "accessibility": {
+              "on_white": {
+                "ratio": 15.95,
+                "level": "AAA"
+              },
+              "on_black": {
+                "ratio": 1.32,
+                "level": "Fail"
+              }
+            }
+          },
+          {
+            "level": "C8",
+            "hex": "#372E94",
+            "is_core": false,
+            "l": 26.4,
+            "c": 65.1,
+            "h": 302.6,
+            "accessibility": {
+              "on_white": {
+                "ratio": 10.6,
+                "level": "AAA"
+              },
+              "on_black": {
+                "ratio": 1.98,
+                "level": "Fail"
+              }
+            }
+          },
+          {
+            "level": "C7",
+            "hex": "#504BCB",
+            "is_core": false,
+            "l": 39.6,
+            "c": 77.1,
+            "h": 301.1,
+            "accessibility": {
+              "on_white": {
+                "ratio": 6.54,
+                "level": "AA"
+              },
+              "on_black": {
+                "ratio": 3.21,
+                "level": "AA Large"
+              }
+            }
+          },
+          {
+            "level": "C6",
+            "hex": "#5C5CEB",
+            "is_core": true,
+            "l": 46.9,
+            "c": 83.5,
+            "h": 299.9,
+            "accessibility": {
+              "on_white": {
+                "ratio": 5.02,
+                "level": "AA"
+              },
+              "on_black": {
+                "ratio": 4.19,
+                "level": "AA Large"
+              }
+            }
+          },
+          {
+            "level": "C5",
+            "hex": "#6C71F3",
+            "is_core": false,
+            "l": 53.3,
+            "c": 74.7,
+            "h": 297.5,
+            "accessibility": {
+              "on_white": {
+                "ratio": 3.97,
+                "level": "AA Large"
+              },
+              "on_black": {
+                "ratio": 5.29,
+                "level": "AA"
+              }
+            }
+          },
+          {
+            "level": "C4",
+            "hex": "#8F93F8",
+            "is_core": false,
+            "l": 64.6,
+            "c": 56.4,
+            "h": 294.7,
+            "accessibility": {
+              "on_white": {
+                "ratio": 2.73,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 7.7,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C3",
+            "hex": "#B7B9FB",
+            "is_core": false,
+            "l": 77.2,
+            "c": 35.3,
+            "h": 292.0,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.85,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 11.35,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C2",
+            "hex": "#D9DAFC",
+            "is_core": false,
+            "l": 87.9,
+            "c": 17.7,
+            "h": 290.0,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.37,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 15.38,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C1",
+            "hex": "#E9EAFE",
+            "is_core": false,
+            "l": 93.1,
+            "c": 10.3,
+            "h": 289.2,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.19,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 17.67,
+                "level": "AAA"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Brand",
+        "core_hex": "#005AEB",
+        "is_core": true,
+        "colors": [
+          {
+            "level": "C10",
+            "hex": "#001A4A",
+            "is_core": false,
+            "l": 10.7,
+            "c": 35.5,
+            "h": 291.9,
+            "accessibility": {
+              "on_white": {
+                "ratio": 16.85,
+                "level": "AAA"
+              },
+              "on_black": {
+                "ratio": 1.25,
+                "level": "Fail"
+              }
+            }
+          },
+          {
+            "level": "C9",
+            "hex": "#052464",
+            "is_core": false,
+            "l": 16.6,
+            "c": 43.7,
+            "h": 293.0,
+            "accessibility": {
+              "on_white": {
+                "ratio": 14.55,
+                "level": "AAA"
+              },
+              "on_black": {
+                "ratio": 1.44,
+                "level": "Fail"
+              }
+            }
+          },
+          {
+            "level": "C8",
+            "hex": "#073896",
+            "is_core": false,
+            "l": 27.0,
+            "c": 60.5,
+            "h": 293.9,
+            "accessibility": {
+              "on_white": {
+                "ratio": 10.42,
+                "level": "AAA"
+              },
+              "on_black": {
+                "ratio": 2.02,
+                "level": "Fail"
+              }
+            }
+          },
+          {
+            "level": "C7",
+            "hex": "#034DCC",
+            "is_core": false,
+            "l": 37.4,
+            "c": 77.5,
+            "h": 294.3,
+            "accessibility": {
+              "on_white": {
+                "ratio": 7.15,
+                "level": "AAA"
+              },
+              "on_black": {
+                "ratio": 2.94,
+                "level": "Fail"
+              }
+            }
+          },
+          {
+            "level": "C6",
+            "hex": "#005AEB",
+            "is_core": true,
+            "l": 43.2,
+            "c": 86.0,
+            "h": 294.2,
+            "accessibility": {
+              "on_white": {
+                "ratio": 5.73,
+                "level": "AA"
+              },
+              "on_black": {
+                "ratio": 3.66,
+                "level": "AA Large"
+              }
+            }
+          },
+          {
+            "level": "C5",
+            "hex": "#1272F4",
+            "is_core": false,
+            "l": 50.3,
+            "c": 76.0,
+            "h": 288.5,
+            "accessibility": {
+              "on_white": {
+                "ratio": 4.43,
+                "level": "AA Large"
+              },
+              "on_black": {
+                "ratio": 4.74,
+                "level": "AA"
+              }
+            }
+          },
+          {
+            "level": "C4",
+            "hex": "#6096FA",
+            "is_core": false,
+            "l": 62.7,
+            "c": 56.4,
+            "h": 282.4,
+            "accessibility": {
+              "on_white": {
+                "ratio": 2.9,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 7.24,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C3",
+            "hex": "#9EBEFB",
+            "is_core": false,
+            "l": 76.7,
+            "c": 34.1,
+            "h": 276.8,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.87,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 11.21,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C2",
+            "hex": "#D0DFFC",
+            "is_core": false,
+            "l": 88.6,
+            "c": 15.6,
+            "h": 272.6,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.34,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 15.64,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C1",
+            "hex": "#E8F0FE",
+            "is_core": false,
+            "l": 94.5,
+            "c": 7.8,
+            "h": 270.4,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.15,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 18.33,
+                "level": "AAA"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Blue",
+        "core_hex": "#008DEB",
+        "is_core": false,
+        "colors": [
+          {
+            "level": "C10",
+            "hex": "#002A4C",
+            "is_core": false,
+            "l": 16.2,
+            "c": 25.5,
+            "h": 273.4,
+            "accessibility": {
+              "on_white": {
+                "ratio": 14.63,
+                "level": "AAA"
+              },
+              "on_black": {
+                "ratio": 1.44,
+                "level": "Fail"
+              }
+            }
+          },
+          {
+            "level": "C9",
+            "hex": "#003964",
+            "is_core": false,
+            "l": 23.0,
+            "c": 30.5,
+            "h": 273.7,
+            "accessibility": {
+              "on_white": {
+                "ratio": 11.87,
+                "level": "AAA"
+              },
+              "on_black": {
+                "ratio": 1.77,
+                "level": "Fail"
+              }
+            }
+          },
+          {
+            "level": "C8",
+            "hex": "#005796",
+            "is_core": false,
+            "l": 36.1,
+            "c": 40.4,
+            "h": 273.6,
+            "accessibility": {
+              "on_white": {
+                "ratio": 7.49,
+                "level": "AAA"
+              },
+              "on_black": {
+                "ratio": 2.8,
+                "level": "Fail"
+              }
+            }
+          },
+          {
+            "level": "C7",
+            "hex": "#0079CB",
+            "is_core": false,
+            "l": 49.4,
+            "c": 50.6,
+            "h": 273.3,
+            "accessibility": {
+              "on_white": {
+                "ratio": 4.57,
+                "level": "AA"
+              },
+              "on_black": {
+                "ratio": 4.6,
+                "level": "AA"
+              }
+            }
+          },
+          {
+            "level": "C6",
+            "hex": "#008DEB",
+            "is_core": true,
+            "l": 57.1,
+            "c": 56.1,
+            "h": 273.2,
+            "accessibility": {
+              "on_white": {
+                "ratio": 3.49,
+                "level": "AA Large"
+              },
+              "on_black": {
+                "ratio": 6.01,
+                "level": "AA"
+              }
+            }
+          },
+          {
+            "level": "C5",
+            "hex": "#3D9CF2",
+            "is_core": false,
+            "l": 62.6,
+            "c": 50.9,
+            "h": 270.8,
+            "accessibility": {
+              "on_white": {
+                "ratio": 2.9,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 7.24,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C4",
+            "hex": "#79B4F8",
+            "is_core": false,
+            "l": 71.9,
+            "c": 39.7,
+            "h": 269.2,
+            "accessibility": {
+              "on_white": {
+                "ratio": 2.17,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 9.7,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C3",
+            "hex": "#AED0FE",
+            "is_core": false,
+            "l": 82.4,
+            "c": 26.1,
+            "h": 268.3,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.58,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 13.25,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C2",
+            "hex": "#D6E7FF",
+            "is_core": false,
+            "l": 91.2,
+            "c": 14.2,
+            "h": 267.9,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.25,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 16.73,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C1",
+            "hex": "#EAF3FF",
+            "is_core": false,
+            "l": 95.6,
+            "c": 7.6,
+            "h": 268.1,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.12,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 18.76,
+                "level": "AAA"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Cyan",
+        "core_hex": "#00CBEB",
+        "is_core": false,
+        "colors": [
+          {
+            "level": "C10",
+            "hex": "#003F4B",
+            "is_core": false,
+            "l": 23.7,
+            "c": 18.9,
+            "h": 223.0,
+            "accessibility": {
+              "on_white": {
+                "ratio": 11.59,
+                "level": "AAA"
+              },
+              "on_black": {
+                "ratio": 1.81,
+                "level": "Fail"
+              }
+            }
+          },
+          {
+            "level": "C9",
+            "hex": "#005261",
+            "is_core": false,
+            "l": 31.5,
+            "c": 22.3,
+            "h": 223.0,
+            "accessibility": {
+              "on_white": {
+                "ratio": 8.83,
+                "level": "AAA"
+              },
+              "on_black": {
+                "ratio": 2.38,
+                "level": "Fail"
+              }
+            }
+          },
+          {
+            "level": "C8",
+            "hex": "#007B91",
+            "is_core": false,
+            "l": 47.3,
+            "c": 29.2,
+            "h": 222.6,
+            "accessibility": {
+              "on_white": {
+                "ratio": 4.95,
+                "level": "AA"
+              },
+              "on_black": {
+                "ratio": 4.24,
+                "level": "AA Large"
+              }
+            }
+          },
+          {
+            "level": "C7",
+            "hex": "#00ABC6",
+            "is_core": false,
+            "l": 64.1,
+            "c": 36.5,
+            "h": 222.2,
+            "accessibility": {
+              "on_white": {
+                "ratio": 2.75,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 7.64,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C6",
+            "hex": "#00CBEB",
+            "is_core": true,
+            "l": 75.3,
+            "c": 41.1,
+            "h": 222.1,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.95,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 10.74,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C5",
+            "hex": "#37D5F2",
+            "is_core": false,
+            "l": 78.8,
+            "c": 39.6,
+            "h": 220.3,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.76,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 11.96,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C4",
+            "hex": "#72E2F9",
+            "is_core": false,
+            "l": 84.3,
+            "c": 33.2,
+            "h": 219.7,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.5,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 13.96,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C3",
+            "hex": "#A5EFFF",
+            "is_core": false,
+            "l": 90.2,
+            "c": 24.3,
+            "h": 219.9,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.28,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 16.39,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C2",
+            "hex": "#CDF8FF",
+            "is_core": false,
+            "l": 95.1,
+            "c": 15.0,
+            "h": 220.7,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.14,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 18.47,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C1",
+            "hex": "#E7FCFF",
+            "is_core": false,
+            "l": 97.6,
+            "c": 7.6,
+            "h": 221.8,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.06,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 19.77,
+                "level": "AAA"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Green",
+        "core_hex": "#14B822",
+        "is_core": false,
+        "colors": [
+          {
+            "level": "C10",
+            "hex": "#003F09",
+            "is_core": false,
+            "l": 22.0,
+            "c": 42.4,
+            "h": 142.1,
+            "accessibility": {
+              "on_white": {
+                "ratio": 12.25,
+                "level": "AAA"
+              },
+              "on_black": {
+                "ratio": 1.71,
+                "level": "Fail"
+              }
+            }
+          },
+          {
+            "level": "C9",
+            "hex": "#004306",
+            "is_core": false,
+            "l": 23.5,
+            "c": 44.9,
+            "h": 140.1,
+            "accessibility": {
+              "on_white": {
+                "ratio": 11.63,
+                "level": "AAA"
+              },
+              "on_black": {
+                "ratio": 1.81,
+                "level": "Fail"
+              }
+            }
+          },
+          {
+            "level": "C8",
+            "hex": "#005B06",
+            "is_core": false,
+            "l": 32.8,
+            "c": 56.0,
+            "h": 138.6,
+            "accessibility": {
+              "on_white": {
+                "ratio": 8.4,
+                "level": "AAA"
+              },
+              "on_black": {
+                "ratio": 2.5,
+                "level": "Fail"
+              }
+            }
+          },
+          {
+            "level": "C7",
+            "hex": "#00840D",
+            "is_core": false,
+            "l": 47.5,
+            "c": 71.7,
+            "h": 137.7,
+            "accessibility": {
+              "on_white": {
+                "ratio": 4.88,
+                "level": "AA"
+              },
+              "on_black": {
+                "ratio": 4.31,
+                "level": "AA Large"
+              }
+            }
+          },
+          {
+            "level": "C6",
+            "hex": "#14B822",
+            "is_core": true,
+            "l": 65.4,
+            "c": 88.1,
+            "h": 137.7,
+            "accessibility": {
+              "on_white": {
+                "ratio": 2.66,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 7.91,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C5",
+            "hex": "#00D10E",
+            "is_core": false,
+            "l": 72.8,
+            "c": 104.8,
+            "h": 138.4,
+            "accessibility": {
+              "on_white": {
+                "ratio": 2.07,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 10.13,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C4",
+            "hex": "#00E915",
+            "is_core": false,
+            "l": 80.2,
+            "c": 114.6,
+            "h": 139.3,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.66,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 12.67,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C3",
+            "hex": "#00FD41",
+            "is_core": false,
+            "l": 87.1,
+            "c": 111.2,
+            "h": 140.6,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.39,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 15.13,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C2",
+            "hex": "#67FF7D",
+            "is_core": false,
+            "l": 92.9,
+            "c": 88.2,
+            "h": 142.4,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.3,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 16.18,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C1",
+            "hex": "#C4FFCA",
+            "is_core": false,
+            "l": 97.1,
+            "c": 39.2,
+            "h": 144.9,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.13,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 18.5,
+                "level": "AAA"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Yellow",
+        "core_hex": "#F2CC0D",
+        "is_core": false,
+        "colors": [
+          {
+            "level": "C10",
+            "hex": "#4C4001",
+            "is_core": false,
+            "l": 27.4,
+            "c": 36.0,
+            "h": 92.7,
+            "accessibility": {
+              "on_white": {
+                "ratio": 10.29,
+                "level": "AAA"
+              },
+              "on_black": {
+                "ratio": 2.04,
+                "level": "Fail"
+              }
+            }
+          },
+          {
+            "level": "C9",
+            "hex": "#675704",
+            "is_core": false,
+            "l": 37.4,
+            "c": 43.9,
+            "h": 92.5,
+            "accessibility": {
+              "on_white": {
+                "ratio": 7.14,
+                "level": "AAA"
+              },
+              "on_black": {
+                "ratio": 2.94,
+                "level": "Fail"
+              }
+            }
+          },
+          {
+            "level": "C8",
+            "hex": "#9B8307",
+            "is_core": false,
+            "l": 55.2,
+            "c": 59.0,
+            "h": 91.8,
+            "accessibility": {
+              "on_white": {
+                "ratio": 3.72,
+                "level": "AA Large"
+              },
+              "on_black": {
+                "ratio": 5.64,
+                "level": "AA"
+              }
+            }
+          },
+          {
+            "level": "C7",
+            "hex": "#D2B10A",
+            "is_core": false,
+            "l": 73.0,
+            "c": 74.3,
+            "h": 91.2,
+            "accessibility": {
+              "on_white": {
+                "ratio": 2.09,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 10.03,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C6",
+            "hex": "#F2CC0D",
+            "is_core": true,
+            "l": 83.0,
+            "c": 82.6,
+            "h": 91.2,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.57,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 13.42,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C5",
+            "hex": "#F2D43C",
+            "is_core": false,
+            "l": 85.1,
+            "c": 73.8,
+            "h": 93.7,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.47,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 14.26,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C4",
+            "hex": "#F6E071",
+            "is_core": false,
+            "l": 88.9,
+            "c": 56.6,
+            "h": 95.9,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.33,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 15.82,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C3",
+            "hex": "#FBECA6",
+            "is_core": false,
+            "l": 93.2,
+            "c": 36.5,
+            "h": 97.9,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.19,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 17.65,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C2",
+            "hex": "#FEF6D1",
+            "is_core": false,
+            "l": 96.8,
+            "c": 19.0,
+            "h": 99.8,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.09,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 19.32,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C1",
+            "hex": "#FFFBE8",
+            "is_core": false,
+            "l": 98.5,
+            "c": 9.6,
+            "h": 101.8,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.04,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 20.22,
+                "level": "AAA"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Orange",
+        "core_hex": "#ED881D",
+        "is_core": false,
+        "colors": [
+          {
+            "level": "C10",
+            "hex": "#502B01",
+            "is_core": false,
+            "l": 21.7,
+            "c": 33.7,
+            "h": 65.7,
+            "accessibility": {
+              "on_white": {
+                "ratio": 12.45,
+                "level": "AAA"
+              },
+              "on_black": {
+                "ratio": 1.69,
+                "level": "Fail"
+              }
+            }
+          },
+          {
+            "level": "C9",
+            "hex": "#683906",
+            "is_core": false,
+            "l": 29.2,
+            "c": 40.6,
+            "h": 65.7,
+            "accessibility": {
+              "on_white": {
+                "ratio": 9.65,
+                "level": "AAA"
+              },
+              "on_black": {
+                "ratio": 2.18,
+                "level": "Fail"
+              }
+            }
+          },
+          {
+            "level": "C8",
+            "hex": "#96550D",
+            "is_core": false,
+            "l": 42.7,
+            "c": 53.1,
+            "h": 65.1,
+            "accessibility": {
+              "on_white": {
+                "ratio": 5.83,
+                "level": "AA"
+              },
+              "on_black": {
+                "ratio": 3.6,
+                "level": "AA Large"
+              }
+            }
+          },
+          {
+            "level": "C7",
+            "hex": "#CA7316",
+            "is_core": false,
+            "l": 56.9,
+            "c": 66.0,
+            "h": 64.6,
+            "accessibility": {
+              "on_white": {
+                "ratio": 3.51,
+                "level": "AA Large"
+              },
+              "on_black": {
+                "ratio": 5.98,
+                "level": "AA"
+              }
+            }
+          },
+          {
+            "level": "C6",
+            "hex": "#ED881D",
+            "is_core": true,
+            "l": 66.3,
+            "c": 74.1,
+            "h": 64.5,
+            "accessibility": {
+              "on_white": {
+                "ratio": 2.58,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 8.14,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C5",
+            "hex": "#FC9836",
+            "is_core": false,
+            "l": 71.8,
+            "c": 70.5,
+            "h": 64.5,
+            "accessibility": {
+              "on_white": {
+                "ratio": 2.17,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 9.68,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C4",
+            "hex": "#FFB161",
+            "is_core": false,
+            "l": 79.0,
+            "c": 58.1,
+            "h": 65.5,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.79,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 11.71,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C3",
+            "hex": "#FFCB91",
+            "is_core": false,
+            "l": 86.4,
+            "c": 41.4,
+            "h": 67.2,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.48,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 14.2,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C2",
+            "hex": "#FFE3BE",
+            "is_core": false,
+            "l": 92.6,
+            "c": 24.9,
+            "h": 69.1,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.24,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 16.98,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C1",
+            "hex": "#FFF0DC",
+            "is_core": false,
+            "l": 96.2,
+            "c": 13.2,
+            "h": 70.9,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.12,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 18.75,
+                "level": "AAA"
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "dark": {
+    "groups": [
+      {
+        "name": "Red",
+        "core_hex": "#E94D5A",
+        "is_core": false,
+        "colors": [
+          {
+            "level": "C10",
+            "hex": "#F5DFE1",
+            "is_core": false,
+            "l": 90.7,
+            "c": 7.8,
+            "h": 12.2,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.27,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 16.52,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C9",
+            "hex": "#F3C8CC",
+            "is_core": false,
+            "l": 84.4,
+            "c": 16.1,
+            "h": 13.2,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.51,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 13.94,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C8",
+            "hex": "#F59BA4",
+            "is_core": false,
+            "l": 73.3,
+            "c": 35.7,
+            "h": 15.9,
+            "accessibility": {
+              "on_white": {
+                "ratio": 2.08,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 10.11,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C7",
+            "hex": "#F16A77",
+            "is_core": false,
+            "l": 62.0,
+            "c": 56.0,
+            "h": 19.8,
+            "accessibility": {
+              "on_white": {
+                "ratio": 2.97,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 7.07,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C6",
+            "hex": "#E94D5A",
+            "is_core": true,
+            "l": 55.5,
+            "c": 66.4,
+            "h": 23.9,
+            "accessibility": {
+              "on_white": {
+                "ratio": 3.7,
+                "level": "AA Large"
+              },
+              "on_black": {
+                "ratio": 5.67,
+                "level": "AA"
+              }
+            }
+          },
+          {
+            "level": "C5",
+            "hex": "#D1424C",
+            "is_core": false,
+            "l": 49.6,
+            "c": 62.4,
+            "h": 25.2,
+            "accessibility": {
+              "on_white": {
+                "ratio": 4.57,
+                "level": "AA"
+              },
+              "on_black": {
+                "ratio": 4.59,
+                "level": "AA"
+              }
+            }
+          },
+          {
+            "level": "C4",
+            "hex": "#A72F35",
+            "is_core": false,
+            "l": 38.7,
+            "c": 55.1,
+            "h": 27.5,
+            "accessibility": {
+              "on_white": {
+                "ratio": 6.77,
+                "level": "AA"
+              },
+              "on_black": {
+                "ratio": 3.1,
+                "level": "AA Large"
+              }
+            }
+          },
+          {
+            "level": "C3",
+            "hex": "#78191D",
+            "is_core": false,
+            "l": 26.1,
+            "c": 46.8,
+            "h": 29.6,
+            "accessibility": {
+              "on_white": {
+                "ratio": 10.74,
+                "level": "AAA"
+              },
+              "on_black": {
+                "ratio": 1.96,
+                "level": "Fail"
+              }
+            }
+          },
+          {
+            "level": "C2",
+            "hex": "#530409",
+            "is_core": false,
+            "l": 15.2,
+            "c": 39.6,
+            "h": 30.0,
+            "accessibility": {
+              "on_white": {
+                "ratio": 15.12,
+                "level": "AAA"
+              },
+              "on_black": {
+                "ratio": 1.39,
+                "level": "Fail"
+              }
+            }
+          },
+          {
+            "level": "C1",
+            "hex": "#410000",
+            "is_core": false,
+            "l": 9.2,
+            "c": 35.8,
+            "h": 27.4,
+            "accessibility": {
+              "on_white": {
+                "ratio": 17.15,
+                "level": "AAA"
+              },
+              "on_black": {
+                "ratio": 1.22,
+                "level": "Fail"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Pink",
+        "core_hex": "#DF2DCA",
+        "is_core": false,
+        "colors": [
+          {
+            "level": "C10",
+            "hex": "#EBD9EB",
+            "is_core": false,
+            "l": 88.6,
+            "c": 11.6,
+            "h": 325.6,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.34,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 15.66,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C9",
+            "hex": "#EBC2E8",
+            "is_core": false,
+            "l": 82.8,
+            "c": 25.1,
+            "h": 327.0,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.57,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 13.41,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C8",
+            "hex": "#E793E1",
+            "is_core": false,
+            "l": 71.8,
+            "c": 51.0,
+            "h": 328.6,
+            "accessibility": {
+              "on_white": {
+                "ratio": 2.17,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 9.66,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C7",
+            "hex": "#E25CD6",
+            "is_core": false,
+            "l": 60.5,
+            "c": 76.8,
+            "h": 330.4,
+            "accessibility": {
+              "on_white": {
+                "ratio": 3.12,
+                "level": "AA Large"
+              },
+              "on_black": {
+                "ratio": 6.74,
+                "level": "AA"
+              }
+            }
+          },
+          {
+            "level": "C6",
+            "hex": "#DF2DCA",
+            "is_core": true,
+            "l": 53.8,
+            "c": 90.0,
+            "h": 332.5,
+            "accessibility": {
+              "on_white": {
+                "ratio": 3.91,
+                "level": "AA Large"
+              },
+              "on_black": {
+                "ratio": 5.37,
+                "level": "AA"
+              }
+            }
+          },
+          {
+            "level": "C5",
+            "hex": "#C71BB2",
+            "is_core": false,
+            "l": 47.2,
+            "c": 84.7,
+            "h": 333.0,
+            "accessibility": {
+              "on_white": {
+                "ratio": 4.97,
+                "level": "AA"
+              },
+              "on_black": {
+                "ratio": 4.23,
+                "level": "AA Large"
+              }
+            }
+          },
+          {
+            "level": "C4",
+            "hex": "#9B0087",
+            "is_core": false,
+            "l": 35.0,
+            "c": 74.2,
+            "h": 333.9,
+            "accessibility": {
+              "on_white": {
+                "ratio": 7.65,
+                "level": "AAA"
+              },
+              "on_black": {
+                "ratio": 2.74,
+                "level": "Fail"
+              }
+            }
+          },
+          {
+            "level": "C3",
+            "hex": "#6A005A",
+            "is_core": false,
+            "l": 20.8,
+            "c": 62.0,
+            "h": 334.8,
+            "accessibility": {
+              "on_white": {
+                "ratio": 11.93,
+                "level": "AAA"
+              },
+              "on_black": {
+                "ratio": 1.76,
+                "level": "Fail"
+              }
+            }
+          },
+          {
+            "level": "C2",
+            "hex": "#420036",
+            "is_core": false,
+            "l": 8.5,
+            "c": 51.6,
+            "h": 335.2,
+            "accessibility": {
+              "on_white": {
+                "ratio": 16.34,
+                "level": "AAA"
+              },
+              "on_black": {
+                "ratio": 1.28,
+                "level": "Fail"
+              }
+            }
+          },
+          {
+            "level": "C1",
+            "hex": "#300025",
+            "is_core": false,
+            "l": 1.9,
+            "c": 46.5,
+            "h": 334.9,
+            "accessibility": {
+              "on_white": {
+                "ratio": 18.22,
+                "level": "AAA"
+              },
+              "on_black": {
+                "ratio": 1.15,
+                "level": "Fail"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Purple",
+        "core_hex": "#AE37F9",
+        "is_core": false,
+        "colors": [
+          {
+            "level": "C10",
+            "hex": "#D5C9E2",
+            "is_core": false,
+            "l": 82.7,
+            "c": 13.8,
+            "h": 308.1,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.58,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 13.28,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C9",
+            "hex": "#CFB5EA",
+            "is_core": false,
+            "l": 77.3,
+            "c": 29.9,
+            "h": 309.7,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.83,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 11.45,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C8",
+            "hex": "#C18CF5",
+            "is_core": false,
+            "l": 67.0,
+            "c": 60.4,
+            "h": 311.4,
+            "accessibility": {
+              "on_white": {
+                "ratio": 2.52,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 8.34,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C7",
+            "hex": "#B35DFC",
+            "is_core": false,
+            "l": 56.4,
+            "c": 90.9,
+            "h": 313.4,
+            "accessibility": {
+              "on_white": {
+                "ratio": 3.57,
+                "level": "AA Large"
+              },
+              "on_black": {
+                "ratio": 5.89,
+                "level": "AA"
+              }
+            }
+          },
+          {
+            "level": "C6",
+            "hex": "#AE37F9",
+            "is_core": true,
+            "l": 50.2,
+            "c": 106.6,
+            "h": 315.7,
+            "accessibility": {
+              "on_white": {
+                "ratio": 4.45,
+                "level": "AA Large"
+              },
+              "on_black": {
+                "ratio": 4.71,
+                "level": "AA"
+              }
+            }
+          },
+          {
+            "level": "C5",
+            "hex": "#9925DB",
+            "is_core": false,
+            "l": 43.1,
+            "c": 100.3,
+            "h": 316.2,
+            "accessibility": {
+              "on_white": {
+                "ratio": 5.77,
+                "level": "AA"
+              },
+              "on_black": {
+                "ratio": 3.64,
+                "level": "AA Large"
+              }
+            }
+          },
+          {
+            "level": "C4",
+            "hex": "#7200A6",
+            "is_core": false,
+            "l": 29.9,
+            "c": 87.9,
+            "h": 317.2,
+            "accessibility": {
+              "on_white": {
+                "ratio": 9.27,
+                "level": "AAA"
+              },
+              "on_black": {
+                "ratio": 2.27,
+                "level": "Fail"
+              }
+            }
+          },
+          {
+            "level": "C3",
+            "hex": "#46006D",
+            "is_core": false,
+            "l": 14.7,
+            "c": 73.5,
+            "h": 318.0,
+            "accessibility": {
+              "on_white": {
+                "ratio": 14.18,
+                "level": "AAA"
+              },
+              "on_black": {
+                "ratio": 1.48,
+                "level": "Fail"
+              }
+            }
+          },
+          {
+            "level": "C2",
+            "hex": "#240040",
+            "is_core": false,
+            "l": 1.5,
+            "c": 61.3,
+            "h": 318.5,
+            "accessibility": {
+              "on_white": {
+                "ratio": 18.28,
+                "level": "AAA"
+              },
+              "on_black": {
+                "ratio": 1.15,
+                "level": "Fail"
+              }
+            }
+          },
+          {
+            "level": "C1",
+            "hex": "#1D002C",
+            "is_core": false,
+            "l": -5.6,
+            "c": 55.3,
+            "h": 318.3,
+            "accessibility": {
+              "on_white": {
+                "ratio": 19.29,
+                "level": "AAA"
+              },
+              "on_black": {
+                "ratio": 1.09,
+                "level": "Fail"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Violet",
+        "core_hex": "#7F7FEB",
+        "is_core": false,
+        "colors": [
+          {
+            "level": "C10",
+            "hex": "#F0F0FF",
+            "is_core": false,
+            "l": 95.3,
+            "c": 9.9,
+            "h": 289.8,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.13,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 18.61,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C9",
+            "hex": "#DDDEFF",
+            "is_core": false,
+            "l": 89.3,
+            "c": 18.6,
+            "h": 291.6,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.32,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 15.97,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C8",
+            "hex": "#B9B9FC",
+            "is_core": false,
+            "l": 77.4,
+            "c": 35.5,
+            "h": 292.9,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.84,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 11.41,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C7",
+            "hex": "#9295F3",
+            "is_core": false,
+            "l": 65.0,
+            "c": 52.5,
+            "h": 294.4,
+            "accessibility": {
+              "on_white": {
+                "ratio": 2.69,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 7.82,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C6",
+            "hex": "#7F7FEB",
+            "is_core": true,
+            "l": 57.7,
+            "c": 61.3,
+            "h": 296.7,
+            "accessibility": {
+              "on_white": {
+                "ratio": 3.42,
+                "level": "AA Large"
+              },
+              "on_black": {
+                "ratio": 6.14,
+                "level": "AA"
+              }
+            }
+          },
+          {
+            "level": "C5",
+            "hex": "#746ED4",
+            "is_core": false,
+            "l": 51.6,
+            "c": 59.2,
+            "h": 298.6,
+            "accessibility": {
+              "on_white": {
+                "ratio": 4.27,
+                "level": "AA Large"
+              },
+              "on_black": {
+                "ratio": 4.92,
+                "level": "AA"
+              }
+            }
+          },
+          {
+            "level": "C4",
+            "hex": "#5C52AD",
+            "is_core": false,
+            "l": 40.0,
+            "c": 55.5,
+            "h": 300.7,
+            "accessibility": {
+              "on_white": {
+                "ratio": 6.43,
+                "level": "AA"
+              },
+              "on_black": {
+                "ratio": 3.27,
+                "level": "AA Large"
+              }
+            }
+          },
+          {
+            "level": "C3",
+            "hex": "#3E3382",
+            "is_core": false,
+            "l": 26.7,
+            "c": 51.2,
+            "h": 302.6,
+            "accessibility": {
+              "on_white": {
+                "ratio": 10.5,
+                "level": "AAA"
+              },
+              "on_black": {
+                "ratio": 2.0,
+                "level": "Fail"
+              }
+            }
+          },
+          {
+            "level": "C2",
+            "hex": "#241A5F",
+            "is_core": false,
+            "l": 15.1,
+            "c": 47.5,
+            "h": 303.9,
+            "accessibility": {
+              "on_white": {
+                "ratio": 15.13,
+                "level": "AAA"
+              },
+              "on_black": {
+                "ratio": 1.39,
+                "level": "Fail"
+              }
+            }
+          },
+          {
+            "level": "C1",
+            "hex": "#140D4D",
+            "is_core": false,
+            "l": 8.9,
+            "c": 45.4,
+            "h": 304.3,
+            "accessibility": {
+              "on_white": {
+                "ratio": 17.58,
+                "level": "AAA"
+              },
+              "on_black": {
+                "ratio": 1.19,
+                "level": "Fail"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Brand",
+        "core_hex": "#2370EB",
+        "is_core": true,
+        "colors": [
+          {
+            "level": "C10",
+            "hex": "#DAE2F0",
+            "is_core": false,
+            "l": 89.6,
+            "c": 8.0,
+            "h": 270.2,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.3,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 16.12,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C9",
+            "hex": "#BED0F0",
+            "is_core": false,
+            "l": 83.1,
+            "c": 18.0,
+            "h": 272.2,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.56,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 13.47,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C8",
+            "hex": "#85ADF3",
+            "is_core": false,
+            "l": 70.3,
+            "c": 39.4,
+            "h": 277.1,
+            "accessibility": {
+              "on_white": {
+                "ratio": 2.27,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 9.27,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C7",
+            "hex": "#4487F1",
+            "is_core": false,
+            "l": 57.1,
+            "c": 61.1,
+            "h": 283.0,
+            "accessibility": {
+              "on_white": {
+                "ratio": 3.51,
+                "level": "AA Large"
+              },
+              "on_black": {
+                "ratio": 5.98,
+                "level": "AA"
+              }
+            }
+          },
+          {
+            "level": "C6",
+            "hex": "#2370EB",
+            "is_core": true,
+            "l": 49.4,
+            "c": 72.0,
+            "h": 288.2,
+            "accessibility": {
+              "on_white": {
+                "ratio": 4.58,
+                "level": "AA"
+              },
+              "on_black": {
+                "ratio": 4.59,
+                "level": "AA"
+              }
+            }
+          },
+          {
+            "level": "C5",
+            "hex": "#2362D3",
+            "is_core": false,
+            "l": 43.8,
+            "c": 67.9,
+            "h": 289.6,
+            "accessibility": {
+              "on_white": {
+                "ratio": 5.59,
+                "level": "AA"
+              },
+              "on_black": {
+                "ratio": 3.76,
+                "level": "AA Large"
+              }
+            }
+          },
+          {
+            "level": "C4",
+            "hex": "#1849A8",
+            "is_core": false,
+            "l": 33.6,
+            "c": 59.2,
+            "h": 290.8,
+            "accessibility": {
+              "on_white": {
+                "ratio": 8.21,
+                "level": "AAA"
+              },
+              "on_black": {
+                "ratio": 2.56,
+                "level": "Fail"
+              }
+            }
+          },
+          {
+            "level": "C3",
+            "hex": "#042F78",
+            "is_core": false,
+            "l": 21.8,
+            "c": 48.8,
+            "h": 291.8,
+            "accessibility": {
+              "on_white": {
+                "ratio": 12.48,
+                "level": "AAA"
+              },
+              "on_black": {
+                "ratio": 1.68,
+                "level": "Fail"
+              }
+            }
+          },
+          {
+            "level": "C2",
+            "hex": "#001B52",
+            "is_core": false,
+            "l": 11.5,
+            "c": 40.1,
+            "h": 292.1,
+            "accessibility": {
+              "on_white": {
+                "ratio": 16.42,
+                "level": "AAA"
+              },
+              "on_black": {
+                "ratio": 1.28,
+                "level": "Fail"
+              }
+            }
+          },
+          {
+            "level": "C1",
+            "hex": "#001040",
+            "is_core": false,
+            "l": 5.9,
+            "c": 36.2,
+            "h": 291.7,
+            "accessibility": {
+              "on_white": {
+                "ratio": 18.29,
+                "level": "AAA"
+              },
+              "on_black": {
+                "ratio": 1.15,
+                "level": "Fail"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Blue",
+        "core_hex": "#239BEB",
+        "is_core": false,
+        "colors": [
+          {
+            "level": "C10",
+            "hex": "#F4FFFF",
+            "is_core": false,
+            "l": 99.5,
+            "c": 6.5,
+            "h": 257.4,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.02,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 20.59,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C9",
+            "hex": "#D8EEFF",
+            "is_core": false,
+            "l": 93.3,
+            "c": 14.0,
+            "h": 259.0,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.19,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 17.59,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C8",
+            "hex": "#9FCEFD",
+            "is_core": false,
+            "l": 81.2,
+            "c": 28.0,
+            "h": 261.0,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.65,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 12.72,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C7",
+            "hex": "#5BAEF3",
+            "is_core": false,
+            "l": 68.7,
+            "c": 42.0,
+            "h": 263.2,
+            "accessibility": {
+              "on_white": {
+                "ratio": 2.39,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 8.79,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C6",
+            "hex": "#239BEB",
+            "is_core": true,
+            "l": 61.5,
+            "c": 49.2,
+            "h": 265.8,
+            "accessibility": {
+              "on_white": {
+                "ratio": 3.02,
+                "level": "AA Large"
+              },
+              "on_black": {
+                "ratio": 6.96,
+                "level": "AA"
+              }
+            }
+          },
+          {
+            "level": "C5",
+            "hex": "#1B8BD5",
+            "is_core": false,
+            "l": 55.6,
+            "c": 46.3,
+            "h": 266.4,
+            "accessibility": {
+              "on_white": {
+                "ratio": 3.68,
+                "level": "AA Large"
+              },
+              "on_black": {
+                "ratio": 5.7,
+                "level": "AA"
+              }
+            }
+          },
+          {
+            "level": "C4",
+            "hex": "#0C6EAD",
+            "is_core": false,
+            "l": 44.6,
+            "c": 40.6,
+            "h": 267.3,
+            "accessibility": {
+              "on_white": {
+                "ratio": 5.46,
+                "level": "AA"
+              },
+              "on_black": {
+                "ratio": 3.85,
+                "level": "AA Large"
+              }
+            }
+          },
+          {
+            "level": "C3",
+            "hex": "#004E80",
+            "is_core": false,
+            "l": 31.9,
+            "c": 33.9,
+            "h": 268.3,
+            "accessibility": {
+              "on_white": {
+                "ratio": 8.74,
+                "level": "AAA"
+              },
+              "on_black": {
+                "ratio": 2.4,
+                "level": "Fail"
+              }
+            }
+          },
+          {
+            "level": "C2",
+            "hex": "#00355C",
+            "is_core": false,
+            "l": 20.9,
+            "c": 28.3,
+            "h": 268.9,
+            "accessibility": {
+              "on_white": {
+                "ratio": 12.62,
+                "level": "AAA"
+              },
+              "on_black": {
+                "ratio": 1.66,
+                "level": "Fail"
+              }
+            }
+          },
+          {
+            "level": "C1",
+            "hex": "#00284A",
+            "is_core": false,
+            "l": 15.0,
+            "c": 25.5,
+            "h": 268.7,
+            "accessibility": {
+              "on_white": {
+                "ratio": 14.97,
+                "level": "AAA"
+              },
+              "on_black": {
+                "ratio": 1.4,
+                "level": "Fail"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Cyan",
+        "core_hex": "#2FD1EB",
+        "is_core": false,
+        "colors": [
+          {
+            "level": "C10",
+            "hex": "#FFFFFF",
+            "is_core": false,
+            "l": 119.4,
+            "c": 5.5,
+            "h": 211.2,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.0,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 21.0,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C9",
+            "hex": "#FFFFFF",
+            "is_core": false,
+            "l": 112.5,
+            "c": 11.5,
+            "h": 212.5,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.0,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 21.0,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C8",
+            "hex": "#C2FFFF",
+            "is_core": false,
+            "l": 99.2,
+            "c": 22.7,
+            "h": 214.0,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.1,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 19.04,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C7",
+            "hex": "#72E6FA",
+            "is_core": false,
+            "l": 85.4,
+            "c": 33.8,
+            "h": 215.7,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.46,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 14.41,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C6",
+            "hex": "#2FD1EB",
+            "is_core": true,
+            "l": 77.4,
+            "c": 39.5,
+            "h": 217.9,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.84,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 11.44,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C5",
+            "hex": "#32C5DD",
+            "is_core": false,
+            "l": 73.3,
+            "c": 37.1,
+            "h": 218.3,
+            "accessibility": {
+              "on_white": {
+                "ratio": 2.07,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 10.17,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C4",
+            "hex": "#38AEC4",
+            "is_core": false,
+            "l": 65.7,
+            "c": 32.5,
+            "h": 219.2,
+            "accessibility": {
+              "on_white": {
+                "ratio": 2.62,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 8.02,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C3",
+            "hex": "#3B94A6",
+            "is_core": false,
+            "l": 57.0,
+            "c": 27.1,
+            "h": 220.1,
+            "accessibility": {
+              "on_white": {
+                "ratio": 3.52,
+                "level": "AA Large"
+              },
+              "on_black": {
+                "ratio": 5.97,
+                "level": "AA"
+              }
+            }
+          },
+          {
+            "level": "C2",
+            "hex": "#3A7F8E",
+            "is_core": false,
+            "l": 49.4,
+            "c": 22.4,
+            "h": 220.7,
+            "accessibility": {
+              "on_white": {
+                "ratio": 4.56,
+                "level": "AA"
+              },
+              "on_black": {
+                "ratio": 4.61,
+                "level": "AA"
+              }
+            }
+          },
+          {
+            "level": "C1",
+            "hex": "#387381",
+            "is_core": false,
+            "l": 45.3,
+            "c": 20.2,
+            "h": 220.6,
+            "accessibility": {
+              "on_white": {
+                "ratio": 5.33,
+                "level": "AA"
+              },
+              "on_black": {
+                "ratio": 3.94,
+                "level": "AA Large"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Green",
+        "core_hex": "#30B83B",
+        "is_core": false,
+        "colors": [
+          {
+            "level": "C10",
+            "hex": "#E6F5E4",
+            "is_core": false,
+            "l": 95.1,
+            "c": 10.6,
+            "h": 140.6,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.13,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 18.55,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C9",
+            "hex": "#CBECC7",
+            "is_core": false,
+            "l": 90.3,
+            "c": 22.8,
+            "h": 140.4,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.28,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 16.36,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C8",
+            "hex": "#98D991",
+            "is_core": false,
+            "l": 81.0,
+            "c": 45.2,
+            "h": 140.0,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.66,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 12.67,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C7",
+            "hex": "#5DC55B",
+            "is_core": false,
+            "l": 71.5,
+            "c": 67.4,
+            "h": 139.6,
+            "accessibility": {
+              "on_white": {
+                "ratio": 2.19,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 9.6,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C6",
+            "hex": "#30B83B",
+            "is_core": true,
+            "l": 65.9,
+            "c": 78.9,
+            "h": 139.5,
+            "accessibility": {
+              "on_white": {
+                "ratio": 2.61,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 8.05,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C5",
+            "hex": "#1FA12E",
+            "is_core": false,
+            "l": 58.1,
+            "c": 74.1,
+            "h": 139.5,
+            "accessibility": {
+              "on_white": {
+                "ratio": 3.39,
+                "level": "AA Large"
+              },
+              "on_black": {
+                "ratio": 6.2,
+                "level": "AA"
+              }
+            }
+          },
+          {
+            "level": "C4",
+            "hex": "#007918",
+            "is_core": false,
+            "l": 43.7,
+            "c": 64.6,
+            "h": 139.7,
+            "accessibility": {
+              "on_white": {
+                "ratio": 5.6,
+                "level": "AA"
+              },
+              "on_black": {
+                "ratio": 3.75,
+                "level": "AA Large"
+              }
+            }
+          },
+          {
+            "level": "C3",
+            "hex": "#004D00",
+            "is_core": false,
+            "l": 27.0,
+            "c": 53.6,
+            "h": 140.0,
+            "accessibility": {
+              "on_white": {
+                "ratio": 10.19,
+                "level": "AAA"
+              },
+              "on_black": {
+                "ratio": 2.06,
+                "level": "Fail"
+              }
+            }
+          },
+          {
+            "level": "C2",
+            "hex": "#002A00",
+            "is_core": false,
+            "l": 12.6,
+            "c": 44.3,
+            "h": 140.2,
+            "accessibility": {
+              "on_white": {
+                "ratio": 15.78,
+                "level": "AAA"
+              },
+              "on_black": {
+                "ratio": 1.33,
+                "level": "Fail"
+              }
+            }
+          },
+          {
+            "level": "C1",
+            "hex": "#001C00",
+            "is_core": false,
+            "l": 4.8,
+            "c": 39.7,
+            "h": 140.0,
+            "accessibility": {
+              "on_white": {
+                "ratio": 18.01,
+                "level": "AAA"
+              },
+              "on_black": {
+                "ratio": 1.17,
+                "level": "Fail"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Yellow",
+        "core_hex": "#F2D43D",
+        "is_core": false,
+        "colors": [
+          {
+            "level": "C10",
+            "hex": "#FEFAE8",
+            "is_core": false,
+            "l": 98.2,
+            "c": 9.3,
+            "h": 101.7,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.05,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 20.05,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C9",
+            "hex": "#FDF4CC",
+            "is_core": false,
+            "l": 96.1,
+            "c": 20.9,
+            "h": 99.3,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.11,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 18.99,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C8",
+            "hex": "#F9E998",
+            "is_core": false,
+            "l": 92.0,
+            "c": 41.9,
+            "h": 97.6,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.23,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 17.14,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C7",
+            "hex": "#F4DD61",
+            "is_core": false,
+            "l": 87.7,
+            "c": 62.6,
+            "h": 96.0,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.37,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 15.36,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C6",
+            "hex": "#F2D43D",
+            "is_core": true,
+            "l": 85.2,
+            "c": 73.6,
+            "h": 93.7,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.47,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 14.26,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C5",
+            "hex": "#DBBF34",
+            "is_core": false,
+            "l": 77.7,
+            "c": 68.9,
+            "h": 93.3,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.82,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 11.51,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C4",
+            "hex": "#B29A26",
+            "is_core": false,
+            "l": 63.8,
+            "c": 59.5,
+            "h": 93.0,
+            "accessibility": {
+              "on_white": {
+                "ratio": 2.78,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 7.54,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C3",
+            "hex": "#837116",
+            "is_core": false,
+            "l": 47.8,
+            "c": 48.5,
+            "h": 92.9,
+            "accessibility": {
+              "on_white": {
+                "ratio": 4.84,
+                "level": "AA"
+              },
+              "on_black": {
+                "ratio": 4.34,
+                "level": "AA Large"
+              }
+            }
+          },
+          {
+            "level": "C2",
+            "hex": "#5D4F09",
+            "is_core": false,
+            "l": 33.9,
+            "c": 39.2,
+            "h": 92.7,
+            "accessibility": {
+              "on_white": {
+                "ratio": 8.12,
+                "level": "AAA"
+              },
+              "on_black": {
+                "ratio": 2.59,
+                "level": "Fail"
+              }
+            }
+          },
+          {
+            "level": "C1",
+            "hex": "#493E02",
+            "is_core": false,
+            "l": 26.4,
+            "c": 34.6,
+            "h": 92.6,
+            "accessibility": {
+              "on_white": {
+                "ratio": 10.64,
+                "level": "AAA"
+              },
+              "on_black": {
+                "ratio": 1.97,
+                "level": "Fail"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Orange",
+        "core_hex": "#ED9941",
+        "is_core": false,
+        "colors": [
+          {
+            "level": "C10",
+            "hex": "#FFFFFF",
+            "is_core": false,
+            "l": 105.3,
+            "c": 7.7,
+            "h": 66.8,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.0,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 21.0,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C9",
+            "hex": "#FFF8DF",
+            "is_core": false,
+            "l": 99.4,
+            "c": 17.2,
+            "h": 66.9,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.06,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 19.74,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C8",
+            "hex": "#FFD3A1",
+            "is_core": false,
+            "l": 88.3,
+            "c": 35.1,
+            "h": 66.7,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.39,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 15.08,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C7",
+            "hex": "#FBAD64",
+            "is_core": false,
+            "l": 76.9,
+            "c": 52.9,
+            "h": 66.6,
+            "accessibility": {
+              "on_white": {
+                "ratio": 1.86,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 11.26,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C6",
+            "hex": "#ED9941",
+            "is_core": true,
+            "l": 70.3,
+            "c": 62.1,
+            "h": 67.1,
+            "accessibility": {
+              "on_white": {
+                "ratio": 2.27,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 9.23,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C5",
+            "hex": "#D78A38",
+            "is_core": false,
+            "l": 64.0,
+            "c": 58.3,
+            "h": 67.2,
+            "accessibility": {
+              "on_white": {
+                "ratio": 2.77,
+                "level": "Fail"
+              },
+              "on_black": {
+                "ratio": 7.58,
+                "level": "AAA"
+              }
+            }
+          },
+          {
+            "level": "C4",
+            "hex": "#AE6F2A",
+            "is_core": false,
+            "l": 52.4,
+            "c": 50.7,
+            "h": 67.7,
+            "accessibility": {
+              "on_white": {
+                "ratio": 4.11,
+                "level": "AA Large"
+              },
+              "on_black": {
+                "ratio": 5.11,
+                "level": "AA"
+              }
+            }
+          },
+          {
+            "level": "C3",
+            "hex": "#82511A",
+            "is_core": false,
+            "l": 39.0,
+            "c": 42.0,
+            "h": 68.1,
+            "accessibility": {
+              "on_white": {
+                "ratio": 6.69,
+                "level": "AA"
+              },
+              "on_black": {
+                "ratio": 3.14,
+                "level": "AA Large"
+              }
+            }
+          },
+          {
+            "level": "C2",
+            "hex": "#5D380C",
+            "is_core": false,
+            "l": 27.3,
+            "c": 34.6,
+            "h": 68.3,
+            "accessibility": {
+              "on_white": {
+                "ratio": 10.31,
+                "level": "AAA"
+              },
+              "on_black": {
+                "ratio": 2.04,
+                "level": "Fail"
+              }
+            }
+          },
+          {
+            "level": "C1",
+            "hex": "#4B2B04",
+            "is_core": false,
+            "l": 21.0,
+            "c": 30.9,
+            "h": 67.7,
+            "accessibility": {
+              "on_white": {
+                "ratio": 12.75,
+                "level": "AAA"
+              },
+              "on_black": {
+                "ratio": 1.65,
+                "level": "Fail"
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
 }

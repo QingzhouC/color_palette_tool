@@ -83,17 +83,27 @@ def accessibility_for(hex_color):
 # ============================================================
 
 def generate_brand_palette_data():
-    """生成与 /api/brand-palette 相同格式的数据。"""
-    groups = []
+    """生成与 /api/brand-palette 相同格式的数据。
+
+    包含 Light 和 Dark 两套色板。
+    Dark Mode 使用专门的 Dark Mode 训练数据。
+    """
+    from generate_brand_palette import compute_dark_c6
+
+    groups_light = []
+    groups_dark = []
 
     for bc in BRAND_COLORS:
-        df = generate_palette(bc["hex"])
+        df_light = generate_palette(bc["hex"], mode="light")
+        df_dark = generate_palette(bc["hex"], mode="dark")
+        dark_c6_hex, _, _ = compute_dark_c6(bc["hex"])
 
-        colors = []
-        for _, row in df.iterrows():
+        # ----- Light -----
+        colors_light = []
+        for _, row in df_light.iterrows():
             level = row["Level"]
             hex_val = row["HEX"]
-            colors.append({
+            colors_light.append({
                 "level": level,
                 "hex": hex_val,
                 "is_core": hex_val.upper() == bc["hex"].upper(),
@@ -103,14 +113,39 @@ def generate_brand_palette_data():
                 "accessibility": accessibility_for(hex_val),
             })
 
-        groups.append({
+        groups_light.append({
             "name": bc["name"],
             "core_hex": bc["hex"],
             "is_core": bc["name"] == "Brand",
-            "colors": colors,
+            "colors": colors_light,
         })
 
-    return {"groups": groups}
+        # ----- Dark -----
+        colors_dark = []
+        for _, row in df_dark.iterrows():
+            level = row["Level"]
+            hex_val = row["HEX"]
+            colors_dark.append({
+                "level": level,
+                "hex": hex_val,
+                "is_core": hex_val.upper() == dark_c6_hex.upper(),
+                "l": round(float(row["L"]), 1),
+                "c": round(float(row["C"]), 1),
+                "h": round(float(row["H"]), 1),
+                "accessibility": accessibility_for(hex_val),
+            })
+
+        groups_dark.append({
+            "name": bc["name"],
+            "core_hex": dark_c6_hex,
+            "is_core": bc["name"] == "Brand",
+            "colors": colors_dark,
+        })
+
+    return {
+        "light": {"groups": groups_light},
+        "dark": {"groups": groups_dark},
+    }
 
 
 def generate_single_palette_data():
@@ -136,20 +171,26 @@ def generate_single_palette_data():
 # ============================================================
 
 def generate_figma_tokens(palettes_data):
-    tokens = {"color": {"brand": {}}}
-    for group in palettes_data["groups"]:
-        name_key = group["name"].lower().replace(" ", "_")
-        tokens["color"]["brand"][name_key] = {}
-        for color in group["colors"]:
-            level_key = color["level"].lower()
-            tokens["color"]["brand"][name_key][level_key] = {
-                "value": color["hex"],
-                "type": "color",
-            }
+    tokens = {"color": {"brand": {"light": {}, "dark": {}}}}
+
+    for mode in ["light", "dark"]:
+        for group in palettes_data[mode]["groups"]:
+            name_key = group["name"].lower().replace(" ", "_")
+            tokens["color"]["brand"][mode][name_key] = {}
+            for color in group["colors"]:
+                level_key = color["level"].lower()
+                tokens["color"]["brand"][mode][name_key][level_key] = {
+                    "value": color["hex"],
+                    "type": "color",
+                }
+
     tokens["color"]["semantic"] = {
-        "primary": {"value": "{color.brand.brand.c6}", "type": "color"},
-        "primaryHover": {"value": "{color.brand.brand.c5}", "type": "color"},
-        "primaryActive": {"value": "{color.brand.brand.c7}", "type": "color"},
+        "primary": {"value": "{color.brand.light.brand.c6}", "type": "color"},
+        "primaryHover": {"value": "{color.brand.light.brand.c5}", "type": "color"},
+        "primaryActive": {"value": "{color.brand.light.brand.c7}", "type": "color"},
+        "primaryDark": {"value": "{color.brand.dark.brand.c6}", "type": "color"},
+        "primaryDarkHover": {"value": "{color.brand.dark.brand.c5}", "type": "color"},
+        "primaryDarkActive": {"value": "{color.brand.dark.brand.c7}", "type": "color"},
     }
     return tokens
 

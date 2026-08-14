@@ -90,7 +90,7 @@ svg{width:100%;height:210px;display:block}
 table{border-collapse:collapse;width:100%;font-size:12px}
 th,td{padding:10px 12px;border-bottom:1px solid #eef0f3;text-align:right;white-space:nowrap}
 th:first-child,td:first-child{text-align:left}
-th{background:#fafbfc;color:#4b5563;position:sticky;top:0}
+th{background:#e8ecf0;color:#4b5563;position:sticky;top:0}
 .badge{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
 .note{margin-top:14px;color:var(--muted);font-size:12px;line-height:1.6}
 
@@ -122,13 +122,86 @@ th{background:#fafbfc;color:#4b5563;position:sticky;top:0}
 .brand-status.loading{background:#eff6ff;color:#1d4ed8;border-color:#bfdbfe}
 .brand-status.success{background:#f0fdf4;color:#166534;border-color:#bbf7d0}
 
+/* ===== C6 HSB 信息面板 ===== */
+.c6-info-panel{
+  border:1px solid var(--border);border-radius:12px;padding:16px;
+  background:var(--soft)
+}
+.c6-info-grid{
+  display:grid;
+  grid-template-columns:1fr 32px 1fr;
+  gap:0;
+  align-items:stretch
+}
+.c6-info-col{
+  display:flex;flex-direction:column;gap:6px;
+  padding:4px 8px
+}
+.c6-info-col.right{text-align:right}
+.c6-info-label{
+  font-size:10px;font-weight:700;color:var(--muted);
+  text-transform:uppercase;letter-spacing:.08em
+}
+.c6-info-hex{
+  font-size:15px;font-weight:700;
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+  line-height:1.2
+}
+.c6-info-hsb{
+  font-size:11px;color:var(--muted);
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+  line-height:1.5
+}
+.c6-info-arrow{
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;color:var(--muted)
+}
+.c6-info-delta-row{
+  margin-top:10px;padding-top:10px;
+  border-top:1px solid var(--border);
+  display:flex;justify-content:space-around;
+  font-size:11px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace
+}
+.c6-info-delta-item{text-align:center}
+.c6-info-delta-label{color:var(--muted);font-weight:600}
+.c6-info-delta-val{color:var(--accent);font-weight:700;font-size:13px;display:block}
+
+/* ===== Light/Dark 同页展示 ===== */
+.dual-strip{display:flex;flex-direction:column;gap:12px;margin-bottom:18px}
+.dual-strip-section{
+  border-radius:10px;padding:10px 12px;border:1px solid var(--border)
+}
+.dual-strip-section.light{background:#fff}
+.dual-strip-section.dark{background:#0f1115;border-color:#2a2e36}
+.dual-strip-label{
+  font-size:12px;font-weight:700;margin-bottom:6px;
+  display:flex;align-items:center;gap:8px
+}
+.dual-strip-section.dark .dual-strip-label{color:#e5e7eb}
+.dual-strip-c6tag{
+  font-size:10px;font-weight:600;padding:2px 7px;border-radius:4px;
+  background:rgba(16,92,244,.1);color:var(--accent)
+}
+.dual-strip-section.dark .dual-strip-c6tag{
+  background:rgba(16,92,244,.25);color:#7eb1ff
+}
+
 /* ===== 应用预览 ===== */
 .preview-section{margin-top:18px}
-.preview-cards{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.preview-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.preview-group{display:flex;flex-direction:column;gap:10px}
+.preview-group-label{
+  font-size:13px;font-weight:700;padding:4px 10px;border-radius:6px;
+  display:inline-block;width:fit-content
+}
+.preview-group-label.light-label{background:rgba(0,0,0,.05);color:var(--text)}
+.preview-group-label.dark-label{background:rgba(0,0,0,.05);color:var(--text)}
 .preview-card{
   border:1px solid var(--border);border-radius:12px;padding:12px;background:#fff
 }
+.preview-card.dark-card{background:#fff;border-color:var(--border)}
 .preview-card-label{font-size:12px;font-weight:700;color:var(--muted);margin-bottom:10px}
+.preview-card-label.dark-label{color:var(--muted)}
 
 /* 窗口预览 */
 .win-mock{
@@ -180,12 +253,12 @@ th{background:#fafbfc;color:#4b5563;position:sticky;top:0}
   <div class="hero">
     <div>
       <h1>Palette Curve Lab</h1>
-      <div class="sub" id="subTitle">输入 C10 → C1 的 HEX，实时查看 LCH 与 HSL 曲线。</div>
+      <div class="sub" id="subTitle">输入 C10 到 C1 的 HEX，实时查看 LCH 与 HSL 曲线。</div>
     </div>
     <div style="display:flex;align-items:center;gap:12px;">
       <a href="/" style="font-size:13px;color:var(--muted);text-decoration:none;display:flex;align-items:center;gap:6px;">← 首页</a>
       <div class="mode-switch">
-        <button id="modeStandard" class="active">标准模式</button>
+        <button id="modeStandard" class="active">调色模式</button>
         <button id="modeBrand">品牌色生成</button>
       </div>
     </div>
@@ -193,17 +266,13 @@ th{background:#fafbfc;color:#4b5563;position:sticky;top:0}
 
   <div class="grid">
     <aside class="panel left">
-      <!-- 标准模式：C10 → C1 全部可输入 -->
+      <!-- 调色模式：C10 到 C1 全部可输入 -->
       <div class="standard-block" id="standardBlock">
         <div class="section-title">标准色卡输入</div>
         <div id="inputs"></div>
         <div class="actions">
           <button class="primary" id="loadBlue">载入品牌色</button>
           <button id="clearAll">清空</button>
-        </div>
-        <div class="note">
-          输入框已固定 <b>#</b> 前缀，只需输入 6 位 HEX。<br>
-          LCH 使用 CIE Lab → LCH(ab)，HSL 使用标准 sRGB HSL。
         </div>
       </div>
 
@@ -222,17 +291,48 @@ th{background:#fafbfc;color:#4b5563;position:sticky;top:0}
           <button id="brandReset">重置</button>
         </div>
         <div class="brand-status" id="brandStatus">
-          输入 C6 品牌色，点击「生成色板」或回车即可自动生成 C10 → C1。
+          输入 C6 品牌色，点击「生成色板」或回车即可自动生成 Light + Dark 色板。
+        </div>
+        <div class="c6-info-panel" id="c6InfoPanel" style="display:none;margin-top:12px">
+          <div class="c6-info-grid">
+            <div class="c6-info-col">
+              <div class="c6-info-label">Light C6</div>
+              <div class="c6-info-hex" id="lightC6Hex">—</div>
+              <div class="c6-info-hsb" id="lightC6Hsb">—</div>
+            </div>
+            <div class="c6-info-arrow">→</div>
+            <div class="c6-info-col right">
+              <div class="c6-info-label">Dark C6</div>
+              <div class="c6-info-hex" id="darkC6Hex">—</div>
+              <div class="c6-info-hsb" id="darkC6Hsb">—</div>
+            </div>
+          </div>
+          <div class="c6-info-delta-row">
+            <div class="c6-info-delta-item">
+              <span class="c6-info-delta-label">ΔH</span>
+              <span class="c6-info-delta-val" id="deltaH">—</span>
+            </div>
+            <div class="c6-info-delta-item">
+              <span class="c6-info-delta-label">ΔS</span>
+              <span class="c6-info-delta-val" id="deltaS">—</span>
+            </div>
+            <div class="c6-info-delta-item">
+              <span class="c6-info-delta-label">ΔB</span>
+              <span class="c6-info-delta-val" id="deltaB">—</span>
+            </div>
+          </div>
         </div>
       </div>
     </aside>
 
     <main class="panel right">
+      <div class="dual-strip" id="dualStrip" style="display:none"></div>
       <div class="palette-strip" id="paletteStrip"></div>
 
       <div class="tabs">
         <button class="tab active" data-mode="LCH">LCH</button>
         <button class="tab" data-mode="HSL">HSL</button>
+        <button class="tab" data-mode="HSB">HSB</button>
         <button class="tab" data-mode="ALL">全部</button>
       </div>
 
@@ -245,6 +345,7 @@ th{background:#fafbfc;color:#4b5563;position:sticky;top:0}
               <th>Level</th><th>HEX</th>
               <th>L*</th><th>C*</th><th>H° (LCH)</th>
               <th>H° (HSL)</th><th>S%</th><th>L% (HSL)</th>
+              <th>H° (HSB)</th><th>S% (HSB)</th><th>B% (HSB)</th>
             </tr>
           </thead>
           <tbody id="dataRows"></tbody>
@@ -253,14 +354,28 @@ th{background:#fafbfc;color:#4b5563;position:sticky;top:0}
 
       <div class="preview-section">
         <div class="section-title">应用预览</div>
-        <div class="preview-cards">
-          <div class="preview-card">
-            <div class="preview-card-label">窗口效果预览</div>
-            <div class="win-mock" id="winMock"></div>
+        <div class="preview-grid">
+          <div class="preview-group" id="previewGroupLight">
+            <div class="preview-group-label light-label">Light Mode</div>
+            <div class="preview-card">
+              <div class="preview-card-label">窗口效果预览</div>
+              <div class="win-mock" id="winMockLight"></div>
+            </div>
+            <div class="preview-card">
+              <div class="preview-card-label">按钮交互预览</div>
+              <div class="btn-preview-list" id="btnPreviewListLight"></div>
+            </div>
           </div>
-          <div class="preview-card">
-            <div class="preview-card-label">按钮交互预览</div>
-            <div class="btn-preview-list" id="btnPreviewList"></div>
+          <div class="preview-group" id="previewGroupDark">
+            <div class="preview-group-label light-label">Dark Mode</div>
+            <div class="preview-card">
+              <div class="preview-card-label">窗口效果预览</div>
+              <div class="win-mock" id="winMockDark"></div>
+            </div>
+            <div class="preview-card">
+              <div class="preview-card-label">按钮交互预览</div>
+              <div class="btn-preview-list" id="btnPreviewListDark"></div>
+            </div>
           </div>
         </div>
       </div>
@@ -275,7 +390,8 @@ const DEFAULT_PALETTE = [
   "#1272f4","#6096fa","#9EBEFB","#D0DFFC","#E8F0FE"
 ];
 let mode = "LCH";
-let appMode = "standard"; // "standard" | "brand"
+let appMode = "standard";
+let brandPalettes = null;
 
 function clamp(v,min,max){return Math.min(max,Math.max(min,v));}
 function validHex(v){return /^[0-9a-fA-F]{6}$/.test(v.trim().replace("#",""));}
@@ -314,6 +430,24 @@ function labToLch(lab){
   return [L,C,H];
 }
 function hexToLch(hex){return labToLch(xyzToLab(rgbToXyz(hexToRgb(hex))));}
+function rgbToHsb(rgb){
+  let [r,g,b]=rgb;
+  let max=Math.max(r,g,b),min=Math.min(r,g,b);
+  let delta=max-min;
+  let v=max*100;
+  let s=max===0?0:(delta/max)*100;
+  let h=0;
+  if(delta!==0){
+    switch(max){
+      case r:h=60*(((g-b)/delta)%6);break;
+      case g:h=60*(((b-r)/delta)+2);break;
+      case b:h=60*(((r-g)/delta)+4);break;
+    }
+    if(h<0)h+=360;
+  }
+  return [h,s,v];
+}
+function hexToHsb(hex){return rgbToHsb(hexToRgb(hex));}
 function rgbToHsl(rgb){
   let [r,g,b]=rgb;
   let max=Math.max(r,g,b), min=Math.min(r,g,b);
@@ -360,8 +494,8 @@ function currentColors(){
 function computeData(){
   return currentColors().map((hex,i)=>{
     if(!hex) return {level:LEVELS[i],hex:null};
-    const lch=hexToLch(hex), hsl=rgbToHsl(hexToRgb(hex));
-    return {level:LEVELS[i],hex,lch,hsl};
+    const lch=hexToLch(hex), hsl=rgbToHsl(hexToRgb(hex)), hsb=hexToHsb(hex);
+    return {level:LEVELS[i],hex,lch,hsl,hsb};
   });
 }
 function buildInputs(){
@@ -381,6 +515,13 @@ function buildInputs(){
     const inp=row.querySelector("input");
     inp.addEventListener("input",()=>{
       inp.value=inp.value.replace(/[^0-9a-fA-F]/g,'').toUpperCase().slice(0,6);
+      render();
+    });
+    inp.addEventListener("paste",(e)=>{
+      e.preventDefault();
+      const text=(e.clipboardData||window.clipboardData).getData('text');
+      const cleaned=text.replace(/[^0-9a-fA-F]/g,'').toUpperCase().slice(0,6);
+      inp.value=cleaned;
       render();
     });
   });
@@ -438,7 +579,6 @@ function render(){
     </div>`;
   }).join("");
 
-  // 点击色板单个颜色复制 HEX（含 #）
   strip.querySelectorAll(".palette-cell").forEach(cell=>{
     const hex=cell.dataset.hex;
     if(!hex)return;
@@ -461,11 +601,12 @@ function render(){
 
   const rows=document.getElementById("dataRows");
   rows.innerHTML=data.map(d=>{
-    if(!d.hex)return `<tr><td>${d.level}</td><td>—</td><td colspan="6">Invalid HEX</td></tr>`;
+    if(!d.hex)return `<tr><td>${d.level}</td><td>—</td><td colspan="9">Invalid HEX</td></tr>`;
     return `<tr>
       <td><b>${d.level}</b></td><td class="badge">${d.hex}</td>
       <td>${d.lch[0].toFixed(3)}</td><td>${d.lch[1].toFixed(3)}</td><td>${d.lch[2].toFixed(3)}</td>
       <td>${d.hsl[0].toFixed(3)}</td><td>${d.hsl[1].toFixed(3)}</td><td>${d.hsl[2].toFixed(3)}</td>
+      <td>${d.hsb[0].toFixed(3)}</td><td>${d.hsb[1].toFixed(3)}</td><td>${d.hsb[2].toFixed(3)}</td>
     </tr>`;
   }).join("");
 
@@ -479,6 +620,11 @@ function render(){
     specs.push(["HSL · Hue",data.map(d=>d.hsl?.[0]),"degree",[0,360]]);
     specs.push(["HSL · Saturation",data.map(d=>d.hsl?.[1]),"%",[0,100]]);
     specs.push(["HSL · Lightness",data.map(d=>d.hsl?.[2]),"%",[0,100]]);
+  }
+  if(mode==="HSB"||mode==="ALL"){
+    specs.push(["HSB · Hue",data.map(d=>d.hsb?.[0]),"degree",[0,360]]);
+    specs.push(["HSB · Saturation",data.map(d=>d.hsb?.[1]),"%",[0,100]]);
+    specs.push(["HSB · Brightness",data.map(d=>d.hsb?.[2]),"%",[0,100]]);
   }
   const charts=document.getElementById("charts");
   charts.innerHTML="";
@@ -506,14 +652,23 @@ function setAppMode(m){
     brdBtn.classList.add("active");
     stdBlock.classList.add("hide");
     brdBlock.classList.add("show");
-    subTitle.textContent="输入 C6 品牌色，算法自动生成 C10 → C1 完整色板。";
+    subTitle.textContent="输入 C6 品牌色，算法自动生成 Light + Dark 色板。";
     updateBrandChip();
+    if(brandPalettes){
+      renderDualStrip();
+      showC6Info(brandPalettes.c6_info);
+      render();
+    }
   }else{
     brdBtn.classList.remove("active");
     stdBtn.classList.add("active");
     brdBlock.classList.remove("show");
     stdBlock.classList.remove("hide");
-    subTitle.textContent="输入 C10 → C1 的 HEX，实时查看 LCH 与 HSL 曲线。";
+    subTitle.textContent="输入 C10 到 C1 的 HEX，实时查看 LCH 与 HSL 曲线。";
+    document.getElementById("dualStrip").style.display="none";
+    document.getElementById("paletteStrip").style.display="grid";
+    const pgd1=document.getElementById("previewGroupDark");
+    if(pgd1) pgd1.style.display="none";
     render();
   }
 }
@@ -521,7 +676,7 @@ function setAppMode(m){
 document.getElementById("modeStandard").addEventListener("click",()=>setAppMode("standard"));
 document.getElementById("modeBrand").addEventListener("click",()=>setAppMode("brand"));
 
-/* ===== 标准模式按钮 ===== */
+/* ===== 调色模式按钮 ===== */
 document.querySelectorAll(".tab").forEach(tab=>{
   tab.addEventListener("click",()=>{
     document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
@@ -562,7 +717,7 @@ async function generateFromBrand(){
     return;
   }
   const color="#"+raw;
-  setBrandStatus("正在生成色板…","loading");
+  setBrandStatus("正在生成 Light + Dark 色板…","loading");
 
   try{
     const resp=await fetch("/api/generate",{
@@ -576,22 +731,82 @@ async function generateFromBrand(){
       return;
     }
 
-    // data.palette 是 C10 → C1 的 10 个 HEX
-    // 填入标准输入框（这样 render 能正确显示）
-    const palette=data.palette||[];
+    brandPalettes=data;
+    const lightPal=data.light.palette;
     LEVELS.forEach((_,i)=>{
-      const hex=(palette[i]||"").replace("#","");
+      const hex=(lightPal[i]||"").replace("#","");
       document.getElementById("hex"+i).value=hex;
     });
+    renderDualStrip();
+    showC6Info(data.c6_info);
     render();
-    setBrandStatus("已根据 C6 = "+color.toUpperCase()+" 生成完整色板。","success");
+    setBrandStatus("已根据 C6 = "+color.toUpperCase()+" 生成 Light + Dark 色板。","success");
   }catch(e){
     setBrandStatus("网络错误："+e.message,"error");
   }
 }
 
+function renderDualStrip(){
+  if(!brandPalettes)return;
+  const ds=document.getElementById("dualStrip");
+  ds.style.display="flex";
+  document.getElementById("paletteStrip").style.display="none";
+
+  const lightC6=brandPalettes.c6_info.light.hex;
+  const darkC6=brandPalettes.c6_info.dark.hex;
+
+  const buildSection=(pal,label,c6hex,dark)=>{
+    const cls=dark?"dark":"light";
+    let cells=pal.map((hex,i)=>{
+      const tc=textColorFor(hex);
+      return `<div class="palette-cell" style="background:${hex};color:${tc}" data-hex="${hex}">
+        <b>${LEVELS[i]}</b><span>${hex}</span>
+      </div>`;
+    }).join("");
+    return `<div class="dual-strip-section ${cls}">
+      <div class="dual-strip-label">${label}<span class="dual-strip-c6tag">C6 ${c6hex}</span></div>
+      <div class="palette-strip" style="margin-bottom:0">${cells}</div>
+    </div>`;
+  };
+
+  ds.innerHTML=
+    buildSection(brandPalettes.light.palette,"Light Palette",lightC6,false)+
+    buildSection(brandPalettes.dark.palette,"Dark Palette",darkC6,true);
+
+  ds.querySelectorAll(".palette-cell").forEach(cell=>{
+    const hex=cell.dataset.hex;
+    if(!hex)return;
+    cell.addEventListener("click",()=>{
+      copyToClipboard(hex);
+    });
+  });
+}
+
+function showC6Info(info){
+  if(!info)return;
+  document.getElementById("c6InfoPanel").style.display="block";
+
+  const li=info.light, di=info.dark, dl=info.delta;
+  document.getElementById("lightC6Hex").textContent=li.hex;
+  document.getElementById("lightC6Hsb").textContent=
+    "H "+li.hsb.h+"°  S "+li.hsb.s+"%  B "+li.hsb.b+"%";
+  document.getElementById("darkC6Hex").textContent=di.hex;
+  document.getElementById("darkC6Hsb").textContent=
+    "H "+di.hsb.h+"°  S "+di.hsb.s+"%  B "+di.hsb.b+"%";
+  document.getElementById("deltaH").textContent=dl.h+"°";
+  document.getElementById("deltaS").textContent=dl.s+"%";
+  document.getElementById("deltaB").textContent=dl.b+"%";
+}
+
 document.getElementById("brandHex").addEventListener("input",(e)=>{
   e.target.value=e.target.value.replace(/[^0-9a-fA-F]/g,'').toUpperCase().slice(0,6);
+  updateBrandChip();
+});
+document.getElementById("brandHex").addEventListener("paste",(e)=>{
+  e.preventDefault();
+  const text=(e.clipboardData||window.clipboardData).getData('text');
+  const cleaned=text.replace(/[^0-9a-fA-F]/g,'').toUpperCase().slice(0,6);
+  e.target.value=cleaned;
   updateBrandChip();
 });
 document.getElementById("brandHex").addEventListener("keydown",(e)=>{
@@ -603,12 +818,17 @@ document.getElementById("brandReset").addEventListener("click",()=>{
   updateBrandChip();
   DEFAULT_PALETTE.forEach((v,i)=>document.getElementById("hex"+i).value=v.replace("#",""));
   setBrandStatus("已重置为默认品牌色。","");
+  document.getElementById("c6InfoPanel").style.display="none";
+  document.getElementById("dualStrip").style.display="none";
+  document.getElementById("paletteStrip").style.display="grid";
+  const pgd2=document.getElementById("previewGroupDark");
+  if(pgd2) pgd2.style.display="none";
+  brandPalettes=null;
   render();
 });
 
 function renderPreviews(){
-  const colors=currentColors();
-  const c=(i)=>colors[i]||"#dddddd";
+  const lightColors=currentColors();
   const tc=(hex)=>{
     if(!hex)return "#666";
     let [r,g,b]=hexToRgb(hex);
@@ -616,9 +836,9 @@ function renderPreviews(){
     return lum<.56?"#fff":"#111";
   };
 
-  // 窗口效果预览（纯色块搭建基本界面）
-  const winMock=document.getElementById("winMock");
-  winMock.innerHTML=`
+  function buildWinMock(colors){
+    const c=(i)=>colors[i]||"#dddddd";
+    return `
     <div class="win-titlebar" style="background:${c(9)}">
       <div class="win-dot" style="background:${c(3)}"></div>
       <div class="win-dot" style="background:${c(5)}"></div>
@@ -662,15 +882,15 @@ function renderPreviews(){
         </div>
         <div class="win-action" style="background:${c(4)}"></div>
       </div>
-    </div>
-  `;
+    </div>`;
+  }
 
-  // 按钮交互预览：正常C6 / hover C5 / 选中C7 / 禁用C3
-  const btnList=document.getElementById("btnPreviewList");
-  btnList.innerHTML=`
+  function buildBtnPreview(colors,prefix){
+    const c=(i)=>colors[i]||"#dddddd";
+    return `
     <div class="btn-row">
       <div class="btn-row-label">正常</div>
-      <button class="demo-btn" id="demoBtnNormal" style="background:${c(4)};color:${tc(c(4))}">Button</button>
+      <button class="demo-btn" id="${prefix}BtnNormal" style="background:${c(4)};color:${tc(c(4))}">Button</button>
       <div class="btn-state-info">C6</div>
     </div>
     <div class="btn-row">
@@ -687,16 +907,34 @@ function renderPreviews(){
       <div class="btn-row-label">禁用</div>
       <button class="demo-btn disabled" style="background:${c(7)};color:${tc(c(7))}" disabled>Button</button>
       <div class="btn-state-info">C3</div>
-    </div>
-  `;
+    </div>`;
+  }
 
-  // 交互式按钮：正常C6 → hover C5 → active C7
-  const nb=document.getElementById("demoBtnNormal");
-  if(nb){
+  function bindInteractiveBtn(btnId,colors){
+    const nb=document.getElementById(btnId);
+    if(!nb)return;
+    const c=(i)=>colors[i]||"#dddddd";
     nb.addEventListener("mouseenter",()=>{nb.style.background=c(5);nb.style.color=tc(c(5));});
     nb.addEventListener("mouseleave",()=>{nb.style.background=c(4);nb.style.color=tc(c(4));});
     nb.addEventListener("mousedown",()=>{nb.style.background=c(3);nb.style.color=tc(c(3));});
     nb.addEventListener("mouseup",()=>{nb.style.background=c(5);nb.style.color=tc(c(5));});
+  }
+
+  // Light 预览
+  document.getElementById("winMockLight").innerHTML=buildWinMock(lightColors);
+  document.getElementById("btnPreviewListLight").innerHTML=buildBtnPreview(lightColors,"light");
+  bindInteractiveBtn("lightBtnNormal",lightColors);
+
+  // Dark 预览（仅品牌色模式且有数据时显示）
+  const darkGroup=document.getElementById("previewGroupDark");
+  if(darkGroup && brandPalettes && appMode==="brand"){
+    const darkColors=brandPalettes.dark.palette;
+    darkGroup.style.display="flex";
+    document.getElementById("winMockDark").innerHTML=buildWinMock(darkColors);
+    document.getElementById("btnPreviewListDark").innerHTML=buildBtnPreview(darkColors,"dark");
+    bindInteractiveBtn("darkBtnNormal",darkColors);
+  }else if(darkGroup){
+    darkGroup.style.display="none";
   }
 }
 

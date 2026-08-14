@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, jsonify
 import webbrowser
 from threading import Timer
 
-from generate_brand_palette import generate_palette
+from generate_brand_palette import generate_palette, compute_dark_c6
 
 app = Flask(__name__)
 
@@ -116,10 +116,19 @@ def brand_palette_page():
 
 @app.route("/api/generate", methods=["POST"])
 def api_generate():
-    """根据品牌色 (C6) 生成一整套色板。
+    """根据品牌色 (C6) 同时生成 Light + Dark 色板。
 
     请求体 JSON: { "color": "#005AEB" }
-    响应 JSON:   { "palette": ["#...", "#...", ...] }  (C10 → C1, 共 10 个)
+    响应 JSON:
+    {
+      "light": {"palette": [...], "levels": [...]},
+      "dark":  {"palette": [...], "levels": [...]},
+      "c6_info": {
+        "light": {"hex":"#005AEB","hsb":{"h":..,"s":..,"b":..}},
+        "dark":  {"hex":"#2370EB","hsb":{"h":..,"s":..,"b":..}},
+        "delta": {"h":0,"s":-15,"b":0}
+      }
+    }
     """
     data = request.get_json(silent=True) or {}
     color = (data.get("color") or "").strip()
@@ -128,56 +137,78 @@ def api_generate():
         return jsonify({"error": "请提供合法的 #RRGGBB 颜色"}), 400
 
     try:
-        df = generate_palette(color)
+        df_light = generate_palette(color, mode="light")
+        df_dark = generate_palette(color, mode="dark")
     except Exception as e:
         return jsonify({"error": f"生成失败: {e}"}), 500
 
-    # df 的行顺序是 C10 → C1，提取 HEX
-    palette = df["HEX"].tolist()
-    levels = df["Level"].tolist()
+    # C6 HSB 对比
+    dark_c6_hex, hsb_light, hsb_dark = compute_dark_c6(color)
 
-    return jsonify({"palette": palette, "levels": levels})
+    light_palette = df_light["HEX"].tolist()
+    light_levels = df_light["Level"].tolist()
+    dark_palette = df_dark["HEX"].tolist()
+    dark_levels = df_dark["Level"].tolist()
+
+    return jsonify({
+        "light": {"palette": light_palette, "levels": light_levels},
+        "dark": {"palette": dark_palette, "levels": dark_levels},
+        "c6_info": {
+            "light": {
+                "hex": color.upper(),
+                "hsb": {
+                    "h": round(float(hsb_light[0]), 2),
+                    "s": round(float(hsb_light[1]), 2),
+                    "b": round(float(hsb_light[2]), 2),
+                },
+            },
+            "dark": {
+                "hex": dark_c6_hex,
+                "hsb": {
+                    "h": round(float(hsb_dark[0]), 2),
+                    "s": round(float(hsb_dark[1]), 2),
+                    "b": round(float(hsb_dark[2]), 2),
+                },
+            },
+            "delta": {
+                "h": round(float(hsb_dark[0] - hsb_light[0]), 2),
+                "s": round(float(hsb_dark[1] - hsb_light[1]), 2),
+                "b": round(float(hsb_dark[2] - hsb_light[2]), 2),
+            },
+        },
+    })
 
 
 @app.route("/api/brand-palette", methods=["GET"])
 def api_brand_palette():
-    """生成完整品牌色色板。
+    """生成完整品牌色色板（Light + Dark）。
 
-    对 10 个主品牌色逐一调用 generate_palette，
-    拼成 10×10 的完整色板，并附带可访问性测试结果。
+    对 10 个主品牌色逐一生成 Light / Dark 色板，
+    拼成 10×10×2 的完整色板，并附带可访问性测试结果。
 
     响应 JSON:
     {
-      "groups": [
-        {
-          "name": "Red",
-          "core_hex": "#E92B3B",
-          "colors": [
-            {
-              "level":"C10","hex":"#...",
-              "accessibility": {
-                "on_white": {"ratio":..,"aa_normal":bool,...},
-                "on_black": {...}
-              }
-            }, ...
-          ]
-        }, ...
-      ]
+      "light": {"groups": [...]},
+      "dark":  {"groups": [...]}
     }
     """
-    groups = []
+    groups_light = []
+    groups_dark = []
 
     for bc in BRAND_COLORS:
         try:
-            df = generate_palette(bc["hex"])
+            df_light = generate_palette(bc["hex"], mode="light")
+            df_dark = generate_palette(bc["hex"], mode="dark")
+            dark_c6_hex, _, _ = compute_dark_c6(bc["hex"])
         except Exception as e:
             return jsonify({"error": f"生成 {bc['name']} 失败: {e}"}), 500
 
-        colors = []
-        for _, row in df.iterrows():
+        # ----- Light -----
+        colors_light = []
+        for _, row in df_light.iterrows():
             level = row["Level"]
             hex_val = row["HEX"]
-            colors.append({
+            colors_light.append({
                 "level": level,
                 "hex": hex_val,
                 "is_core": hex_val.upper() == bc["hex"].upper(),
@@ -187,14 +218,39 @@ def api_brand_palette():
                 "accessibility": accessibility_for(hex_val),
             })
 
-        groups.append({
+        groups_light.append({
             "name": bc["name"],
             "core_hex": bc["hex"],
             "is_core": bc["name"] == "Brand",
-            "colors": colors,
+            "colors": colors_light,
         })
 
-    return jsonify({"groups": groups})
+        # ----- Dark -----
+        colors_dark = []
+        for _, row in df_dark.iterrows():
+            level = row["Level"]
+            hex_val = row["HEX"]
+            colors_dark.append({
+                "level": level,
+                "hex": hex_val,
+                "is_core": hex_val.upper() == dark_c6_hex.upper(),
+                "l": round(float(row["L"]), 1),
+                "c": round(float(row["C"]), 1),
+                "h": round(float(row["H"]), 1),
+                "accessibility": accessibility_for(hex_val),
+            })
+
+        groups_dark.append({
+            "name": bc["name"],
+            "core_hex": dark_c6_hex,
+            "is_core": bc["name"] == "Brand",
+            "colors": colors_dark,
+        })
+
+    return jsonify({
+        "light": {"groups": groups_light},
+        "dark": {"groups": groups_dark},
+    })
 
 
 def open_browser():

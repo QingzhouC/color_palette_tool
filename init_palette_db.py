@@ -4,6 +4,9 @@
 运行此脚本会创建 / 重建 palettes.db，
 将所有参考色卡写入 reference_palettes 表。
 
+包含 Light Mode 和 Dark Mode 两套训练色卡，
+通过 mode 字段区分。
+
 用法:
     python3 init_palette_db.py
 """
@@ -31,6 +34,12 @@ LEVELS = [
     "C2",
     "C1",
 ]
+
+# ============================================================
+# Light Mode 训练色卡
+#
+# C10 = 最深, C1 = 最浅
+# ============================================================
 
 REFERENCE_PALETTES = {
 
@@ -164,7 +173,7 @@ REFERENCE_PALETTES = {
         "#F7E8FF",
     ],
 
-    "yellow": [
+    "yellow2": [
         "#4d3300",
         "#744e01",
         "#996600",
@@ -177,7 +186,7 @@ REFERENCE_PALETTES = {
         "#fff2d8",
     ],
 
-    "green": [
+    "green2": [
         "#003022",
         "#003526",
         "#004531",
@@ -190,20 +199,20 @@ REFERENCE_PALETTES = {
         "#caffef",
     ],
 
-    "green": [
-        "#00310b",
-        "#00350d",
-        "#004811",
-        "#006217",
-        "#008520",
-        "#00b82b",
-        "#00dd33",
-        "#30fe5f",
-        "#a9ffbe",
-        "#d8ffe2",
+    "green3": [
+        "#003c04",
+        "#004d09",
+        "#027011",
+        "#0c9919",
+        "#14b822",
+        "#39cb28",
+        "#6bdd53",
+        "#9aed85",
+        "#c3f7b6",
+        "#e1fadb",
     ],
 
-    "yellow": [
+    "yellow3": [
         "#574800",
         "#705d00",
         "#947b00",
@@ -214,6 +223,160 @@ REFERENCE_PALETTES = {
         "#f9de58",
         "#fbe784",
         "#fdefb0",
+    ],
+
+     "green4": [
+        "#032a07",
+        "#042f07",
+        "#043608",
+        "#08550f",
+        "#117019",
+        "#26932f",
+        "#39b844",
+        "#4ddc59",
+        "#9befa2",
+        "#d0fcd4",
+    ],
+}
+
+
+# ============================================================
+# Dark Mode 训练色卡
+#
+# C10 = 最浅, C1 = 最深
+# 与 Light Mode 的亮度趋势相反
+# ============================================================
+
+DARK_REFERENCE_PALETTES = {
+
+    "dark_green": [
+        "#E8FFED",  # C10
+        "#CAF7D3",  # C9
+        "#92E6A2",  # C8
+        "#52D16E",  # C7
+        "#27C44C",  # C6
+        "#24B443",  # C5
+        "#1C9635",  # C4
+        "#127625",  # C3
+        "#075B19",  # C2
+        "#004D12",  # C1
+    ],
+
+    "dark_cyan": [
+        "#E8FBFF",  # C10
+        "#D1F5FD",  # C9
+        "#A3E8F7",  # C8
+        "#6ADBF2",  # C7
+        "#3ED2F0",  # C6
+        "#35BEDA",  # C5
+        "#269AB1",  # C4
+        "#177185",  # C3
+        "#075160",  # C2
+        "#00404D",  # C1
+    ],
+
+    "dark_light_blue": [
+        "#E8F4FF",  # C10
+        "#CCE6FF",  # C9
+        "#94C8FE",  # C8
+        "#54A9FA",  # C7
+        "#3695F5",  # C6
+        "#3385DE",  # C5
+        "#2969B4",  # C4
+        "#194B86",  # C3
+        "#0A3260",  # C2
+        "#00264D",  # C1
+    ],
+
+    "dark_blue": [
+        "#E8F0FF",  # C10
+        "#CBDDFF",  # C9
+        "#92B7FF",  # C8
+        "#518FFD",  # C7
+        "#3676F5",  # C6
+        "#3668DE",  # C5
+        "#2C51B3",  # C4
+        "#1D3885",  # C3
+        "#0D245F",  # C2
+        "#001A4D",  # C1
+    ],
+
+    "dark_violet": [
+        "#E8E9FF",  # C10
+        "#D6D7FF",  # C9
+        "#B0B3FF",  # C8
+        "#8790FB",  # C7
+        "#737AF5",  # C6
+        "#6A69DD",  # C5
+        "#504BB3",  # C4
+        "#322B85",  # C3
+        "#151260",  # C2
+        "#00044D",  # C1
+    ],
+
+    "dark_purple": [
+        "#F7E8FF",  # C10
+        "#F0CDFF",  # C9
+        "#DD99FF",  # C8
+        "#C65FFA",  # C7
+        "#B536F5",  # C6
+        "#A32EDE",  # C5
+        "#8220B4",  # C4
+        "#5E1186",  # C3
+        "#410560",  # C2
+        "#33004D",  # C1
+    ],
+
+    "dark_pink": [
+        "#FFE8FB",  # C10
+        "#FFCFF6",  # C9
+        "#FA9DE9",  # C8
+        "#F262D9",  # C7
+        "#EB34CC",  # C6
+        "#D62CB9",  # C5
+        "#AE1F96",  # C4
+        "#83106F",  # C3
+        "#5F044F",  # C2
+        "#4D0040",  # C1
+    ],
+
+    "dark_red": [
+        "#FFE8EA",  # C10
+        "#FFD0D4",  # C9
+        "#FFA0A8",  # C8
+        "#FE6C79",  # C7
+        "#F54C5A",  # C6
+        "#DD434C",  # C5
+        "#B33137",  # C4
+        "#851D21",  # C3
+        "#5F0B0F",  # C2
+        "#4D0006",  # C1
+    ],
+
+    "dark_orange": [
+        "#FFF4E8",  # C10
+        "#FFE5C8",  # C9
+        "#FFC78E",  # C8
+        "#F9A855",  # C7
+        "#F59536",  # C6
+        "#DE852F",  # C5
+        "#B56A22",  # C4
+        "#864B15",  # C3
+        "#603309",  # C2
+        "#4D2600",  # C1
+    ],
+
+    "dark_yellow": [
+        "#FFFBE8",  # C10
+        "#FFF5CA",  # C9
+        "#FCE994",  # C8
+        "#F6DD59",  # C7
+        "#F5D431",  # C6
+        "#DEBF29",  # C5
+        "#B59B1D",  # C4
+        "#877210",  # C3
+        "#605105",  # C2
+        "#4D4000",  # C1
     ],
 }
 
@@ -236,13 +399,15 @@ def init_database():
             level     TEXT    NOT NULL,
             hex       TEXT    NOT NULL,
             position  INTEGER NOT NULL,
-            UNIQUE(name, level)
+            mode      TEXT    NOT NULL DEFAULT 'light',
+            UNIQUE(name, level, mode)
         )
         """
     )
 
     rows = []
 
+    # Light Mode 色卡
     for name, colors in REFERENCE_PALETTES.items():
 
         for position, (level, hex_color) in enumerate(
@@ -250,15 +415,26 @@ def init_database():
         ):
 
             rows.append(
-                (name, level, hex_color, position)
+                (name, level, hex_color, position, "light")
+            )
+
+    # Dark Mode 色卡
+    for name, colors in DARK_REFERENCE_PALETTES.items():
+
+        for position, (level, hex_color) in enumerate(
+            zip(LEVELS, colors)
+        ):
+
+            rows.append(
+                (name, level, hex_color, position, "dark")
             )
 
     cursor.executemany(
         """
         INSERT INTO reference_palettes
-            (name, level, hex, position)
+            (name, level, hex, position, mode)
         VALUES
-            (?, ?, ?, ?)
+            (?, ?, ?, ?, ?)
         """,
         rows,
     )
@@ -271,10 +447,10 @@ def init_database():
 
     cursor.execute(
         """
-        SELECT name, COUNT(*) AS count
+        SELECT mode, name, COUNT(*) AS count
         FROM reference_palettes
-        GROUP BY name
-        ORDER BY name
+        GROUP BY mode, name
+        ORDER BY mode, name
         """
     )
 
@@ -290,10 +466,11 @@ def init_database():
         "\nPalettes:"
     )
 
-    for name, count in cursor.fetchall():
+    for mode, name, count in cursor.fetchall():
 
         print(
-            f"  {name:15s}"
+            f"  [{mode:5s}] "
+            f"{name:20s}"
             f" : "
             f"{count} colors"
         )

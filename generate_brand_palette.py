@@ -43,7 +43,7 @@ LEVELS = [
 # 越大：
 # 不同色相之间融合更多
 #
-HUE_SIGMA = 55.0
+HUE_SIGMA = 35.0
 
 
 # Hue-Adaptive 强度
@@ -51,8 +51,8 @@ HUE_SIGMA = 55.0
 # 0.0 = 完全使用多组色卡的通用模型
 # 1.0 = 完全根据 Hue 自适应
 #
-# 建议先使用 0.60
-ADAPT_STRENGTH = 0.60
+# 建议先使用 0.75
+ADAPT_STRENGTH = 0.75
 
 
 # 如果品牌色 Hue 距离某个训练核心色非常接近，
@@ -74,8 +74,11 @@ ANCHOR_HUE_TOLERANCE = 1.0
 DB_PATH = Path(__file__).parent / "palettes.db"
 
 
-def load_reference_palettes():
-    """从 palettes.db 读取所有参考色卡。
+def load_reference_palettes(mode="light"):
+    """从 palettes.db 读取参考色卡。
+
+    参数:
+        mode: "light" 或 "dark"，选择对应模式的训练色卡
 
     返回格式与原来的 REFERENCE_PALETTES 字典一致:
         {
@@ -99,8 +102,10 @@ def load_reference_palettes():
         """
         SELECT name, level, hex
         FROM reference_palettes
+        WHERE mode = ?
         ORDER BY name, position
-        """
+        """,
+        (mode,),
     )
 
     palettes = {}
@@ -222,6 +227,81 @@ def rgb_to_hex(rgb):
         values[1],
         values[2]
     )
+
+
+# ============================================================
+# 5b. HSB / HSV 转换
+#
+# 仅用于 Dark Mode 锚点计算
+# ============================================================
+
+def rgb_to_hsb(rgb):
+
+    r, g, b = rgb
+
+    mx = max(r, g, b)
+    mn = min(r, g, b)
+    delta = mx - mn
+
+    # Value
+    v = mx
+
+    # Saturation
+    s = 0.0 if mx == 0 else delta / mx
+
+    # Hue
+    if delta == 0:
+        h = 0.0
+    elif mx == r:
+        h = 60.0 * (((g - b) / delta) % 6)
+    elif mx == g:
+        h = 60.0 * (((b - r) / delta) + 2)
+    else:
+        h = 60.0 * (((r - g) / delta) + 4)
+
+    if h < 0:
+        h += 360
+
+    return np.array([h, s * 100, v * 100])
+
+
+def hsb_to_rgb(hsb):
+
+    h, s, v = hsb
+
+    s = s / 100.0
+    v = v / 100.0
+
+    c = v * s
+    x = c * (1 - abs(((h / 60.0) % 2) - 1))
+    m = v - c
+
+    if 0 <= h < 60:
+        r, g, b = c, x, 0
+    elif 60 <= h < 120:
+        r, g, b = x, c, 0
+    elif 120 <= h < 180:
+        r, g, b = 0, c, x
+    elif 180 <= h < 240:
+        r, g, b = 0, x, c
+    elif 240 <= h < 300:
+        r, g, b = x, 0, c
+    else:
+        r, g, b = c, 0, x
+
+    return np.array([r + m, g + m, b + m])
+
+
+def hex_to_hsb(hex_color):
+
+    rgb = hex_to_rgb(hex_color)
+    return rgb_to_hsb(rgb)
+
+
+def hsb_to_hex(h, s, v):
+
+    rgb = hsb_to_rgb(np.array([h, s, v]))
+    return rgb_to_hex(rgb)
 
 
 # ============================================================
@@ -564,7 +644,8 @@ def fit_scalar_bezier(
 # ============================================================
 
 def build_single_palette_model(
-    colors
+    colors,
+    mode="light"
 ):
 
     reference_lch = np.array([
@@ -592,11 +673,35 @@ def build_single_palette_model(
         reference_lch[:5]
     )
 
-    dark_L = (
-        dark[:, 0]
-        /
-        core_L
-    )
+    # --------------------------------------------------------
+    # L 明度归一化（区分 Light / Dark Mode）
+    #
+    # Light Mode：C10 → C6 为深色 → 核心色
+    #     使用 ratio = L / core_L
+    #
+    # Dark Mode ：C10 → C6 为浅色 → 核心色
+    #     使用 progress = (L - core_L) / (100 - core_L)
+    # --------------------------------------------------------
+    if mode == "dark":
+        dark_L = (
+            (
+                dark[:, 0]
+                -
+                core_L
+            )
+            /
+            (
+                100
+                -
+                core_L
+            )
+        )
+    else:
+        dark_L = (
+            dark[:, 0]
+            /
+            core_L
+        )
 
     dark_C = (
         dark[:, 1]
@@ -622,19 +727,35 @@ def build_single_palette_model(
         reference_lch[4:]
     )
 
-    light_L = (
-        (
+    # --------------------------------------------------------
+    # L 明度归一化（区分 Light / Dark Mode）
+    #
+    # Light Mode：C6 → C1 为核心色 → 浅色
+    #     使用 progress = (L - core_L) / (100 - core_L)
+    #
+    # Dark Mode ：C6 → C1 为核心色 → 深色
+    #     使用 ratio = L / core_L
+    # --------------------------------------------------------
+    if mode == "dark":
+        light_L = (
             light[:, 0]
-            -
+            /
             core_L
         )
-        /
-        (
-            100
-            -
-            core_L
+    else:
+        light_L = (
+            (
+                light[:, 0]
+                -
+                core_L
+            )
+            /
+            (
+                100
+                -
+                core_L
+            )
         )
-    )
 
     light_C = (
         light[:, 1]
@@ -723,9 +844,9 @@ MODEL_KEYS = [
 ]
 
 
-def build_anchor_models():
+def build_anchor_models(mode="light"):
 
-    reference_palettes = load_reference_palettes()
+    reference_palettes = load_reference_palettes(mode)
 
     models = {}
 
@@ -738,7 +859,8 @@ def build_anchor_models():
 
         models[name] = (
             build_single_palette_model(
-                colors
+                colors,
+                mode=mode
             )
         )
 
@@ -905,7 +1027,8 @@ def calculate_hue_weights(
 # ============================================================
 
 def build_reference_model(
-    brand_color
+    brand_color,
+    mode="light"
 ):
 
     brand_lch = (
@@ -919,7 +1042,7 @@ def build_reference_model(
     )
 
     anchor_models = (
-        build_anchor_models()
+        build_anchor_models(mode)
     )
 
     universal_model = (
@@ -1110,24 +1233,127 @@ def build_reference_model(
 
 
 # ============================================================
+# 16b. Dark Mode C6 锚点计算
+#
+# H 不变
+# S 按区间偏移
+# B / V 不变
+# ============================================================
+
+# Dark Mode C6 手动覆盖映射
+#
+# key   = Light Mode 品牌色 HEX（大写）
+# value = 用户指定的 Dark Mode C6 HEX
+#
+DARK_C6_OVERRIDES = {
+    "#A010F9": "#AE37F9",  # Purple
+    "#E92B3B": "#E94D5A",  # Red
+    "#14B822": "#30B83B",  # Green
+}
+
+
+def compute_dark_c6(light_c6_hex):
+    """根据浅色模式 C6 计算深色模式 C6。
+
+    规则:
+        1. 如果品牌色在 DARK_C6_OVERRIDES 中，直接使用用户指定的值
+        2. 否则使用算法:
+           H_dark = H_light
+           S_dark = S_light - offset
+               H   0°- 49° → offset = 15
+               H  50°-190° → offset = 20
+               H 191°-360° → offset = 15
+           B_dark = B_light  (Value 不变)
+
+    返回: (dark_c6_hex, hsb_light, hsb_dark)
+    """
+
+    hsb_light = hex_to_hsb(light_c6_hex)
+
+    # --------------------------------------------------------
+    # 检查是否在手动覆盖映射中
+    # --------------------------------------------------------
+
+    override_key = light_c6_hex.strip().upper()
+
+    if override_key in DARK_C6_OVERRIDES:
+
+        dark_c6_hex = DARK_C6_OVERRIDES[override_key]
+
+        hsb_dark = hex_to_hsb(dark_c6_hex)
+
+        return dark_c6_hex, hsb_light, hsb_dark
+
+    # --------------------------------------------------------
+    # 算法计算
+    # --------------------------------------------------------
+
+    h_light = float(hsb_light[0])
+    s_light = float(hsb_light[1])
+    b_light = float(hsb_light[2])
+
+    # H 不变
+    h_dark = h_light
+
+    # S 按区间偏移
+    if 0 <= h_light <= 49:
+        s_offset = 15.0
+    elif 50 <= h_light <= 190:
+        s_offset = 20.0
+    else:
+        s_offset = 15.0
+
+    s_dark = max(0.0, min(100.0, s_light - s_offset))
+
+    # B / V 不变
+    b_dark = b_light
+
+    dark_c6_hex = hsb_to_hex(h_dark, s_dark, b_dark)
+
+    hsb_dark = np.array([h_dark, s_dark, b_dark])
+
+    return dark_c6_hex, hsb_light, hsb_dark
+
+
+# ============================================================
 # 17. 根据品牌色生成 Palette
 #
 # 这一部分保持你喜欢的第一版逻辑。
+#
+# mode="light": 使用品牌色直接作为 C6 锚点（现有逻辑）
+# mode="dark":  先计算 Dark C6，再以 Dark C6 为锚点
 # ============================================================
 
 def generate_palette(
-    brand_color
+    brand_color,
+    mode="light"
 ):
+
+    # --------------------------------------------------------
+    # Dark Mode: 先计算 Dark C6，再以 Dark C6 为锚点
+    # Light Mode: 直接使用品牌色作为 C6
+    # --------------------------------------------------------
+
+    if mode == "dark":
+
+        c6_color, _, _ = compute_dark_c6(
+            brand_color
+        )
+
+    else:
+
+        c6_color = brand_color
 
     model = (
         build_reference_model(
-            brand_color
+            c6_color,
+            mode
         )
     )
 
     brand_lch = (
         hex_to_lch(
-            brand_color
+            c6_color
         )
     )
 
@@ -1171,7 +1397,7 @@ def generate_palette(
         dark_t_values
     ):
 
-        L_ratio = cubic_bezier(
+        L_param = cubic_bezier(
             t,
             *model[
                 "dark_L"
@@ -1192,11 +1418,55 @@ def generate_palette(
             ]
         )
 
-        L = (
-            brand_L
-            *
-            L_ratio
-        )
+        # ------------------------------------------------
+        # L 重建公式（区分 Light / Dark Mode）
+        #
+        # Light Mode：C10 → C6 为深色 → 核心色
+        #     L = brand_L * L_ratio
+        #
+        # Dark Mode：C10 → C6 为浅色 → 核心色
+        #     L = brand_L + L_progress * (100 - brand_L)
+        #
+        # 对参数做 clip，防止 Bezier overshoot
+        # ------------------------------------------------
+        if mode == "dark":
+
+            # Dark Mode：C10 → C6 为浅色 → 核心色
+            L_progress = float(
+                np.clip(
+                    L_param,
+                    0.0,
+                    0.98
+                )
+            )
+
+            L = (
+                brand_L
+                +
+                L_progress
+                *
+                (
+                    100
+                    -
+                    brand_L
+                )
+            )
+
+        else:
+
+            L_ratio = float(
+                np.clip(
+                    L_param,
+                    0.0,
+                    1.0
+                )
+            )
+
+            L = (
+                brand_L
+                *
+                L_ratio
+            )
 
         C = (
             brand_C
@@ -1213,7 +1483,7 @@ def generate_palette(
         if level == "C6":
 
             final_hex = (
-                brand_color
+                c6_color
                 .upper()
             )
 
@@ -1223,6 +1493,15 @@ def generate_palette(
             )
 
         else:
+
+            # 防止 Bezier overshoot 导致 L 接近 100（纯白）
+            L = float(
+                np.clip(
+                    L,
+                    1.0,
+                    98.0
+                )
+            )
 
             (
                 final_hex,
@@ -1292,7 +1571,7 @@ def generate_palette(
         light_t_values[1:]
     ):
 
-        L_progress = cubic_bezier(
+        L_param = cubic_bezier(
             t,
             *model[
                 "light_L"
@@ -1313,19 +1592,57 @@ def generate_palette(
             ]
         )
 
-        L = (
-            brand_L
+        # ------------------------------------------------
+        # L 重建公式（区分 Light / Dark Mode）
+        #
+        # Light Mode：C6 → C1 为核心色 → 浅色
+        #     L = brand_L + L_progress * (100 - brand_L)
+        #
+        # Dark Mode：C6 → C1 为核心色 → 深色
+        #     L = brand_L * L_ratio
+        #
+        # 对参数做 clip，防止 Bezier overshoot
+        # ------------------------------------------------
+        if mode == "dark":
 
-            +
-
-            L_progress
-            *
-            (
-                100
-                -
-                brand_L
+            # Dark Mode：C6 → C1 为核心色 → 深色
+            L_ratio = float(
+                np.clip(
+                    L_param,
+                    0.0,
+                    1.0
+                )
             )
-        )
+
+            L = (
+                brand_L
+                *
+                L_ratio
+            )
+
+        else:
+
+            L_progress = float(
+                np.clip(
+                    L_param,
+                    0.0,
+                    0.98
+                )
+            )
+
+            L = (
+                brand_L
+
+                +
+
+                L_progress
+                *
+                (
+                    100
+                    -
+                    brand_L
+                )
+            )
 
         C = (
             brand_C
@@ -1338,6 +1655,15 @@ def generate_palette(
             +
             H_delta
         ) % 360
+
+        # 防止 Bezier overshoot 导致 L 接近 100（纯白）
+        L = float(
+            np.clip(
+                L,
+                1.0,
+                98.0
+            )
+        )
 
         (
             final_hex,
@@ -1386,20 +1712,57 @@ def generate_palette(
 
 
 # ============================================================
+# 17b. 同时生成 Light + Dark Palette
+# ============================================================
+
+def generate_palettes(
+    brand_color
+):
+    """一次生成 Light Palette 和 Dark Palette。
+
+    返回: (df_light, df_dark)
+    """
+
+    df_light = generate_palette(
+        brand_color,
+        mode="light"
+    )
+
+    df_dark = generate_palette(
+        brand_color,
+        mode="dark"
+    )
+
+    return df_light, df_dark
+
+
+# ============================================================
 # 18. 生成色卡图片
 # ============================================================
 
 def create_palette_image(
     df,
-    image_path
+    image_path,
+    title=None
 ):
+
+    fig_height = 6 if title else 5
 
     fig, ax = plt.subplots(
         figsize=(
             15,
-            5
+            fig_height
         )
     )
+
+    if title:
+
+        fig.suptitle(
+            title,
+            fontsize=16,
+            fontweight="bold",
+            y=0.98
+        )
 
     ax.set_xlim(
         0,
@@ -1546,6 +1909,7 @@ def main():
 
     print(
         "HUE-ADAPTIVE BRAND PALETTE GENERATOR"
+        " (Light + Dark Mode)"
     )
 
     print(
@@ -1585,23 +1949,34 @@ def main():
         f"{brand_lch[2]:.4f}"
     )
 
-    csv_path, image_path = (
-        get_next_output_paths()
+    # ========================================================
+    # 生成 Light / Dark Palette
+    # ========================================================
+
+    df_light = generate_palette(
+        BRAND_COLOR,
+        mode="light"
     )
 
-    df = generate_palette(
+    df_dark = generate_palette(
+        BRAND_COLOR,
+        mode="dark"
+    )
+
+    # ========================================================
+    # C6 (6号基准色) HSB 对比
+    # ========================================================
+
+    (
+        dark_c6_hex,
+        hsb_light,
+        hsb_dark,
+    ) = compute_dark_c6(
         BRAND_COLOR
     )
 
-    df.to_csv(
-        csv_path,
-        index=False,
-        encoding="utf-8-sig"
-    )
-
-    create_palette_image(
-        df,
-        image_path
+    light_c6_hex = (
+        BRAND_COLOR.upper()
     )
 
     print(
@@ -1611,7 +1986,7 @@ def main():
     )
 
     print(
-        "GENERATED PALETTE"
+        "C6 6号基准色 HSB"
     )
 
     print(
@@ -1619,21 +1994,175 @@ def main():
     )
 
     print(
-        df.to_string(
+        "\nLight Mode C6:"
+    )
+
+    print(
+        f"  HEX: {light_c6_hex}"
+    )
+
+    print(
+        f"  HSB: "
+        f"H={hsb_light[0]:.2f}°  "
+        f"S={hsb_light[1]:.2f}%  "
+        f"B={hsb_light[2]:.2f}%"
+    )
+
+    print(
+        "\nDark Mode C6:"
+    )
+
+    print(
+        f"  HEX: {dark_c6_hex}"
+    )
+
+    print(
+        f"  HSB: "
+        f"H={hsb_dark[0]:.2f}°  "
+        f"S={hsb_dark[1]:.2f}%  "
+        f"B={hsb_dark[2]:.2f}%"
+    )
+
+    print(
+        "\nH / S / B 变化值:"
+    )
+
+    print(
+        f"  ΔH = "
+        f"{hsb_dark[0] - hsb_light[0]:.2f}°"
+    )
+
+    print(
+        f"  ΔS = "
+        f"{hsb_dark[1] - hsb_light[1]:.2f}%"
+    )
+
+    print(
+        f"  ΔB = "
+        f"{hsb_dark[2] - hsb_light[2]:.2f}%"
+    )
+
+    # ========================================================
+    # 输出色板
+    # ========================================================
+
+    print(
+        "\n"
+        +
+        "=" * 70
+    )
+
+    print(
+        "LIGHT MODE PALETTE"
+    )
+
+    print(
+        "=" * 70
+    )
+
+    print(
+        df_light.to_string(
             index=False
         )
     )
 
     print(
-        "\nOutput:"
+        "\n"
+        +
+        "=" * 70
     )
 
     print(
-        csv_path
+        "DARK MODE PALETTE"
     )
 
     print(
-        image_path
+        "=" * 70
+    )
+
+    print(
+        df_dark.to_string(
+            index=False
+        )
+    )
+
+    # ========================================================
+    # 保存 CSV
+    # ========================================================
+
+    csv_path, base_image_path = (
+        get_next_output_paths()
+    )
+
+    df_light_out = df_light.copy()
+    df_light_out["Mode"] = "Light"
+
+    df_dark_out = df_dark.copy()
+    df_dark_out["Mode"] = "Dark"
+
+    df_combined = pd.concat(
+        [df_light_out, df_dark_out],
+        ignore_index=True
+    )
+
+    df_combined.to_csv(
+        csv_path,
+        index=False,
+        encoding="utf-8-sig"
+    )
+
+    # ========================================================
+    # 生成色卡 PNG
+    # ========================================================
+
+    light_image_path = (
+        IMAGE_FOLDER
+        /
+        (base_image_path.stem + "_light.png")
+    )
+
+    dark_image_path = (
+        IMAGE_FOLDER
+        /
+        (base_image_path.stem + "_dark.png")
+    )
+
+    create_palette_image(
+        df_light,
+        light_image_path,
+        title="Light Mode"
+    )
+
+    create_palette_image(
+        df_dark,
+        dark_image_path,
+        title="Dark Mode"
+    )
+
+    print(
+        "\n"
+        +
+        "=" * 70
+    )
+
+    print(
+        "OUTPUT"
+    )
+
+    print(
+        "=" * 70
+    )
+
+    print(
+        f"\nCSV:        {csv_path}"
+    )
+
+    print(
+        f"Light PNG:  {light_image_path}"
+    )
+
+    print(
+        f"Dark PNG:   {dark_image_path}"
     )
 
 
