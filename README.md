@@ -5,6 +5,7 @@
 ## 1. 创建虚拟环境
 
 macOS:
+打开终端（Terminal）
 
 ```bash
 git clone https://github.com/QingzhouC/color_palette_tool.git
@@ -24,7 +25,8 @@ pip install -r requirements.txt
 ```bash
 python app.py
 ```
-如果这个不行运行
+
+如果这个不行运行：
 ```bash
 python3 app.py
 ```
